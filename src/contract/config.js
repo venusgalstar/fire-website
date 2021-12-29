@@ -11,9 +11,9 @@ var config = {
     FireAbi: fireAbi,
     FireNFT : "0x1F066543De7E2c2B68be02c490Df600aeD59f986",
     NFTAbi:  nftAbi,
-    Reward : "0x78b84e29eeDf4Fd990A3aC9A2646E340E3DC085B",
+    Reward : "",
     RewardAbi: rewardAbi ,
-    cainId: 43114
+    chainId: 0xa86a
 }
 
 
