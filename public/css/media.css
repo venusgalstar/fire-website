@@ -21,8 +21,8 @@
         max-width: none;
         display: flex;
         align-items: center;
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 4vw;
+        padding-right: 4vw;
         justify-content: space-between;
     }
 
@@ -68,7 +68,7 @@
 
 
     #section-hero>.content {
-        height: 850px;
+        height: fit-content;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -80,7 +80,7 @@
     }
 
     .earn-title {
-        font-size: 60px !important;
+        font-size: 6vw !important;
         color: white !important;
         padding-right: 110px;
         padding-left: 110px;
@@ -95,7 +95,7 @@
         width: 100%;
         padding-left: 50px;
         padding-right: 50px;
-        font-size: 30px;
+        font-size: 3vw;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -135,9 +135,14 @@
     }
 
     .action-btn {
-        width: 350px;
-        height: 100px;
-        font-size: 26px;
+        width: 40vw;
+        height: 9vw;
+        font-size: 2.6vw;
+    }
+
+
+    .buy_nft_btn {
+        font-size: 3vw;
     }
 
     .week_statistics {
@@ -177,12 +182,12 @@
 
 
     #section-started {
-        margin-top: 750px;
+        margin-top: 20vw;
     }
 
 
     .card-title {
-        font-size: 63px !important;
+        font-size: 5vw !important;
         color: white;
         line-height: 1.1;
         width: 100%;
@@ -196,7 +201,7 @@
     }
 
     .start-subtitle {
-        font-size: 25px;
+        font-size: 3vw;
         width: unset;
     }
 
@@ -207,8 +212,8 @@
 
     .card {
         width: 100%;
-        height: 960px;
-        padding: 45px;
+        height: fit-content;
+        padding: 8vw;
     }
 
     .card+.card {
@@ -217,7 +222,7 @@
 
 
     .card-img {
-        height: 520px;
+        height: 70vw;
         width: 100%;
     }
 
@@ -227,13 +232,13 @@
         justify-content: space-between;
         align-items: center;
         height: 100px;
-        font-size: 60px;
+        font-size: 6vw;
     }
 
     .card-item-info {
-        height: 145px;
+        height: unset;
         color: #8fced5;
-        font-size: 26px;
+        font-size: 2.6vw;
     }
 
     .card-item-collection {
@@ -241,12 +246,23 @@
         font-size: 32px;
     }
 
+    .fs-20 {
+        font-size: 3vw;
+    }
+
+
+    .section-vision {
+
+
+        width: 100%;
+    }
+
 
     .lifetime-title {
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 2vw;
+        padding-right: 2vw;
         margin-top: 110px;
-        font-size: 60px;
+        font-size: 5vw;
         font-weight: 600;
         text-align: center;
         height: fit-content;
@@ -268,27 +284,46 @@
         margin-top: 54px;
     }
 
+    .started-content {
+        width: 90%;
+    }
+
+    .card-action.admin {
+        height: fit-content !important;
+    }
+
+    .started-content-admin {
+        width: 80% !important;
+        flex-direction: column;
+    }
+
+    #section-started.admin {
+        margin-top: 100px !important;
+    }
+
     .card-action {
         width: 100%;
-        height: 345px;
-        padding: 50px;
+        /* height: 345px; */
+        /* padding: 50px; */
+        padding: 4vw 3vw;
     }
 
     .badge-title {
-        font-size: 50px;
+        font-size: 5vw;
         line-height: 45px;
     }
 
 
     .card-action p {
-        font-size: 35px;
+        font-size: 3.5vw;
         line-height: 1.1;
         text-align: center;
+        height: fit-content;
     }
 
 
     #vision-content>.title {
-        font-size: 60px;
+        font-size: 6vw;
         font-weight: 600;
         padding-left: 60px;
         padding-right: 60px;
@@ -298,7 +333,7 @@
 
     #vision-content>.subtitle {
         margin-top: 60px;
-        font-size: 30px;
+        font-size: 3vw;
         text-align: center;
         line-height: 1.1;
     }
@@ -312,28 +347,28 @@
 
 
     .vision-left-item {
-        width: 700px;
-        height: 700px;
-        border-radius: 350px;
+        width: 70vw;
+        height: 70vw;
+        border-radius: 35vw;
     }
 
     .vision-right-item {
         margin-top: 50px;
-        width: 700px;
-        height: 700px;
-        border-radius: 350px;
+        width: 70vw;
+        height: 70vw;
+        border-radius: 35vw;
     }
 
 
     .vision-item-no {
-        font-size: 60px;
+        font-size: 6vw;
         font-weight: 600;
     }
 
     .vision-item-info {
         margin-top: 20px;
         margin-bottom: 20px;
-        font-size: 22px;
+        font-size: 2.2vw;
     }
 
     #chip-vision {
@@ -345,6 +380,14 @@
     }
 
 
+
+    .claim-all {
+        width: 15vw;
+        height: 5vw;
+        font-size: 2vw;
+    }
+
+
     .chips-container {
         width: 100%;
         padding-left: 40px;
@@ -352,12 +395,18 @@
     }
 
     .chip {
+        font-size: 3vw;
         width: 49%;
         margin-bottom: 20px;
     }
 
+    .chip>img {
+        width: 8vw;
+        height: 8vw;
+    }
+
     #chips-header {
-        font-size: 60px;
+        font-size: 6vw;
         text-align: center;
     }
 
@@ -374,20 +423,20 @@
     }
 
     .work-item {
-        font-size: 20px;
+        font-size: 2.5vw;
     }
 
     .work-subtitle {
         height: fit-content;
         display: flex;
         align-items: center;
-        font-size: 28px;
+        font-size: 3vw;
         margin-bottom: 40px;
     }
 
 
     .work-title {
-        font-size: 60px;
+        font-size: 6vw;
         text-align: center;
     }
 
@@ -397,7 +446,7 @@
     }
 
     .faq-title {
-        font-size: 60px;
+        font-size: 6vw;
         color: white;
         padding-left: 20px;
         padding-right: 20px;
@@ -410,11 +459,12 @@
     }
 
     .logo-title {
-        font-size: 50px;
+        font-size: 5vw;
     }
 
     .logo-img {
-        height: 90px;
+        height: 8vw;
+        width: 8vw;
     }
 
     .footer-main {
@@ -466,11 +516,22 @@
 
 
     #create-ring {
-        font-size: 24px;
+        margin-top: 10px;
+        font-size: 3vw;
     }
 
+    .copy-right {
+        font-size: 2vw;
+    }
+
+
+    .nft-margin-top {
+        margin-top: 60px;
+    }
+
+
     .create_title {
-        font-size: 60px;
+        font-size: 6vw;
         line-height: 1.1;
     }
 
@@ -483,21 +544,23 @@
 
     .info-container-1 {
         width: 100%;
-        height: 210px;
+        padding-bottom: 40px;
+        padding-top: 40px;
     }
 
 
     .create_node_btn {
-        width: 300px;
-        height: 80px;
+        width: 30vw;
+        height: 10vw;
+        font-size: 2.5vw;
     }
 
     .info-datas {
-        font-size: 30px;
+        font-size: 3.5vw;
     }
 
     .info-data-icon {
-        height: 50px;
+        height: 8vw;
     }
 
     #welcome-buttons {
@@ -505,12 +568,12 @@
         align-items: center;
     }
 
-    .welcome-action-btn + .welcome-action-btn {
+    .welcome-action-btn+.welcome-action-btn {
         margin-left: 0px;
         margin-top: 20px;
     }
 
-    #welcome-message > #cards {
+    #welcome-message>#cards {
         display: block;
     }
 
@@ -521,31 +584,41 @@
     }
 
     .msg-title {
-        font-size: 60px;
+        font-size: 6vw;
     }
+
     .msg-content {
-        font-size: 30px;
+        font-size: 3vw;
         margin-top: 0px;
     }
 
 
-    footer > .container {
+    footer>.container {
         width: 100%;
         padding-left: 40px;
         padding-right: 40px;
+        padding-bottom: 20px;
         max-width: unset;
     }
 
 
+    .node-title-header {
+        font-size: 3vw;
+    }
+
+    .node-table-item {
+        font-size: 3vw;
+    }
+
     .mynode-header {
         width: 100%;
-        height: 60px;
+        height: fit-content;
         padding-right: 40px;
         padding-left: 40px;
     }
-    
+
     .accordion {
-        font-size: 20px;
+        font-size: 2.5vw;
     }
 
     .footer-privacy {
@@ -555,18 +628,18 @@
     .disclaim-content {
         font-size: 3vw;
     }
-    
+
     .disclaim-title {
         font-size: 5vw;
     }
 
     .container {
-        max-width: 80%;;
+        max-width: 90vw;
     }
 
 
     .MuiList-root {
-       min-width: 250px;
+        min-width: 250px;
     }
 
     .MuiMenuItem-root {
@@ -578,7 +651,7 @@
     }
 
 
-    .MuiButton-root + div {
+    .MuiButton-root+div {
         inset: 40px -35px auto auto !important;
         z-index: 1000;
     }
@@ -590,8 +663,7 @@
         text-decoration: none;
         display: flex;
         align-items: center;
-        color:black
-
+        color: black
     }
 
 
@@ -603,7 +675,7 @@
     }
 
     .trend_up_img {
-       
+
         top: 8000px;
         /* left: 0px;
         width: 100%;

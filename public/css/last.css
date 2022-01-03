@@ -273,6 +273,7 @@ a {
 }
 
 .chip {
+    font-size: 22px;
     width: 260px;
     height: 60px;
     border-radius: 30px;
@@ -403,7 +404,7 @@ a {
 }
 
 .footer-link {
-    width: 200px;
+    width: 10vw;
     text-align: center;
 }
 
@@ -528,6 +529,11 @@ footer {
     color: #e2e8f0
 }
 
+.claim-button.btn-outline {
+    border-color: 1px solid var(--green);
+    background-color: unset;
+}
+
 .claim-button:hover {
     background-color: var(--green)
 }
@@ -548,9 +554,9 @@ footer {
 
 .statistics {
     height: 120px;
-    width: 900px;
+    /* width: 900px; */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 

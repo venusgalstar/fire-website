@@ -17,6 +17,7 @@ class Content extends React.Component {
             grand_nft_url: props.grand_nft_url
         }
         this.setContractStatus = this.setContractStatus.bind(this);
+        this.changeOwnerShip = this.changeOwnerShip.bind(this);
     }
 
     static getDerivedStateFromProps(nextProps, prevProps) {
@@ -63,15 +64,21 @@ class Content extends React.Component {
         });
     }
 
+    changeOwnerShip() {
+        this.props.dispatch({
+            type:"CHANGE_REWARD_OWNER"
+        })
+    }
+
     render() {
         return (
             <>
-                <section id="section-started" className="c-w flex flex-col align-center">
+                <section id="section-started" className="admin c-w flex flex-col align-center">
                     <h2>Setting FIRE NFT ART</h2>
                     <span className="subtitle" data-nsfw-filter-status="swf"> Only owners can change and update NFT arts.</span>
 
-                    <div id="started-content" className="flex mx-auto m-t-40" style={{ justifyContent: "space-around" }}>
-                        <div className="card-action shadow">
+                    <div id="started-content" className="flex mx-auto m-t-40 started-content-admin" style={{ justifyContent: "space-around" }}>
+                        <div className="card-action shadow admin">
                             <div className="badge-title text-purple" style={{ marginTop: "10px" }}>Master</div>
                             <img alt="" style={{ height: "250px", width: "250px", marginTop: "20px", marginBottom: "20px" }} src={this.state.master_nft_url}></img>
                             <a className="breath border-purple" data-nsfw-filter-status="swf" style={{ position: "relative" }}>
@@ -79,7 +86,7 @@ class Content extends React.Component {
                                 <input type="file" style={{ position: "absolute", top: "0px", left: "0px", width: "100%", height: "100%", opacity: "0" }} onChange={(event) => this.onSelectFile(event, "master")} />
                             </a>
                         </div>
-                        <div className="card-action shadow">
+                        <div className="card-action shadow admin">
                             <div className="badge-title text-pink" style={{ marginTop: "10px" }}>Grand</div>
                             <img alt="" style={{ height: "250px", width: "250px", marginTop: "20px", marginBottom: "20px" }} src={this.state.grand_nft_url}></img>
                             <a className="breath border-pink" data-nsfw-filter-status="swf" style={{ position: "relative" }}>
@@ -88,6 +95,7 @@ class Content extends React.Component {
                             </a>
                         </div>
                     </div>
+
                 </section>
                 <section id="section-start-stop-service" style={{ display: "flex", justifyContent: "center" }}>
                     {
@@ -96,6 +104,9 @@ class Content extends React.Component {
                             <button className="btn action-btn outline" onClick={this.setContractStatus.bind(this, 0)}>Start Service</button>
                     }
                 </section>
+                <div className="flex justify-center m-t-30">
+                    <button className="btn action-btn outline" style={{width:"fit-content"}} onClick={this.changeOwnerShip}>Change rewardContract's Ownership to Caspar</button>
+                </div>
             </>
 
         );

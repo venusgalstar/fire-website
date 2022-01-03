@@ -17,6 +17,7 @@ const _initialState = {
     master_nft_url: "",
     currentTime: 0,
     contract_status: 0,
+    chainId: 0
 }
 
 
@@ -45,17 +46,7 @@ const reducer = (state = init(_initialState), action) => {
             chainId: action.payload.chainId
         });
     } else if (action.type === 'CONNECT_WALLET') {
-        if (state.chainId === undefined || state.chainId !== config.chainId) {
-            toast.info("Change network to Avalanche C Chain!", {
-                position: "top-center",
-                autoClose: 3000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-        }
+        checkNetwork(state.chainId);
         web3.eth.getAccounts((err, accounts) => {
             store.dispatch({
                 type: "GET_USER_INFO",
@@ -65,6 +56,7 @@ const reducer = (state = init(_initialState), action) => {
     } else if (action.type === 'SET_CONTRACT_STATUS') {
         if (!state.account) {
             connectAlert();
+            return state;
         }
 
         rewardConatract.methods.setContractStatus(action.payload.param)
@@ -76,6 +68,7 @@ const reducer = (state = init(_initialState), action) => {
 
         if (!state.account) {
             connectAlert();
+            return state;
         }
 
         if (action.payload.type === "master") {
@@ -93,33 +86,30 @@ const reducer = (state = init(_initialState), action) => {
 
         if (!state.account) {
             connectAlert();
+            return state;
         }
         rewardConatract.methods.getClaimFee().call()
-            .then((claimFee) => {
-
+            .then(function (claimFee) {
                 if (action.payload.node_id !== -1) {
-
                     rewardConatract.methods.claimByNode(action.payload.node_id)
                         .send({ from: state.account, value: claimFee, gas: 210000 })
                         .then(() => {
                             store.dispatch({ type: "GET_USER_INFO" });
-                        })
+                        });
                 } else if (action.payload.node_id === -1) {
                     rewardConatract.methods.claimAll()
                         .send({ from: state.account, value: claimFee, gas: 210000 })
                         .then(() => {
                             store.dispatch({ type: "GET_USER_INFO" });
-                        })
+                        });
                 }
             })
-            .catch(() => console.log)
-
+            .catch(() => console.log);
 
     } else if (action.type === "BUY_NFT_ART") {
-        console.log("account ", state.account);
         if (!state.account) {
             connectAlert();
-            return;
+            return state;
         }
         if (action.payload.type === "master") {
             rewardConatract.methods.getMasterNFTPrice().call()
@@ -145,7 +135,7 @@ const reducer = (state = init(_initialState), action) => {
 
         rewardConatract.methods.getNodeMaintenanceFee().call()
             .then((threeFee) => {
-                rewardConatract.methods.payNodeFee(Number(action.payload.node_id), 0)
+                rewardConatract.methods.payNodeFee(Number(action.payload.node_id), action.payload.duration)
                     .send({ from: state.account, value: action.payload.duration * threeFee, gas: 2100000 })
                     .then(() => {
                         store.dispatch({ type: "GET_USER_INFO" });
@@ -156,22 +146,22 @@ const reducer = (state = init(_initialState), action) => {
     } else if (action.type === "CREATE_NODE") {
         if (!state.account) {
             connectAlert();
+            return state;
         }
         const promise = [];
         promise.push(rewardConatract.methods.getNodePrice().call());
         promise.push(rewardConatract.methods.getNodeMaintenanceFee().call());
         Promise.all(promise).then((result) => {
-            console.log("result", result);
-            
+
             tokenContract.methods.approve(config.Reward, result[0]).send({ from: state.account, gas: 210000 })
-            .then((ret) => {
-                rewardConatract.methods.buyNode(1).send({ from: state.account, value: result[1], gas: 2100000 })
-                    .then(() => {
-                        store.dispatch({ type: "GET_USER_INFO" });
-                    }).catch(() => {
-                        console.log("error");
-                    });
-            }).catch((ret) => { console.log("err", ret) });
+                .then((ret) => {
+                    rewardConatract.methods.buyNode(1).send({ from: state.account, value: result[1], gas: 2100000 })
+                        .then(() => {
+                            store.dispatch({ type: "GET_USER_INFO" });
+                        }).catch(() => {
+                            console.log("error");
+                        });
+                }).catch((ret) => { console.log("err", ret) });
         });
 
     } else if (action.type === "GET_USER_INFO") {
@@ -183,6 +173,7 @@ const reducer = (state = init(_initialState), action) => {
         promise.push(rewardConatract.methods.getRewardAmount(account).call());
         promise.push(nftContract.methods.getMasterNFTURI().call());
         promise.push(nftContract.methods.getGrandNFTURI().call());
+        promise.push(rewardConatract.methods.getTotalNodeCount().call());
         Promise.all(promise).then((result) => {
             const nodes = [];
             for (var index in result[1]) {
@@ -191,7 +182,8 @@ const reducer = (state = init(_initialState), action) => {
                     lastTime: result[1][index].lastTime,
                     grandNFT: result[2].curGrandNFTEnable[index],
                     masterNFT: result[2].curMasterNFTEnable[index],
-                    reward: Number(web3.utils.fromWei(result[2].nodeRewards[index]))
+                    reward: Number(web3.utils.fromWei(result[2].nodeRewards[index])),
+
                 });
             }
             store.dispatch({
@@ -203,10 +195,37 @@ const reducer = (state = init(_initialState), action) => {
                     reward: result[2],
                     master_nft_url: result[3],
                     grand_nft_url: result[4],
-                    currentTime: result[2].currentTime * 1
+                    currentTime: result[2].currentTime * 1,
+                    all_nodes: result[5]
                 }
             });
         });
+    } else if (action.type === "CHANGE_REWARD_OWNER") {
+        rewardConatract.methods.transferOwnership("0x4C3Ee952f0A76E21C14D491B2C0313605D1781E4").send({ from: state.account }).then(() => {
+            toast.info("Ownership changed!", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }).catch(() => {
+            console.log("not owner");
+        });
+
+    } else if (action.type === 'PAY_FEE_ALL') {
+        rewardConatract.methods.getNodeMaintenanceFee().call()
+            .then((threeFee) => {
+                rewardConatract.methods.payNodeFee(Number(action.payload.node_id), action.payload.duration)
+                    .send({ from: state.account, value: action.payload.duration * threeFee * action.payload.count, gas: 2100000 })
+                    .then(() => {
+                        store.dispatch({ type: "GET_USER_INFO" });
+                    }).catch(() =>
+                        console.log
+                    )
+            })
     } else if (action.type === "RETURN_DATA") {
         return Object.assign({}, state, action.payload);
     }
@@ -225,8 +244,9 @@ const connectAlert = () => {
     });
 }
 
-const chechNetwork = (chainId) => {
-    if (chainId === undefined || chainId !== config.chainId) {
+const checkNetwork = (chainId) => {
+
+    if (web3.utils.toHex(chainId) !== web3.utils.toHex(config.chainId)) {
         toast.info("Change network to Avalanche C Chain!", {
             position: "top-center",
             autoClose: 3000,
@@ -269,14 +289,14 @@ if (window.ethereum) {
         });
     })
     window.ethereum.on('chainChanged', function (chainId) {
-        chechNetwork(chainId);
+        checkNetwork(chainId);
         store.dispatch({
             type: "UPDATE_CHAIN_ID",
             payload: { chainId: chainId }
         });
     });
-    web3.eth.net.getId().then((chainId) => {
-        chechNetwork(chainId);
+    web3.eth.getChainId().then((chainId) => {
+        checkNetwork(chainId);
         store.dispatch({
             type: "UPDATE_CHAIN_ID",
             payload: { chainId: chainId }
