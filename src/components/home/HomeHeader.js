@@ -22,25 +22,32 @@ class HomeHeader extends React.Component {
                     <div className="content mx-auto">
                         <div className='flex align-center'>
                             <img alt='' src='/img/logo.png' className='logo-img' />
-                            <span className='logo-title'>
+                            {/* <span className='logo-title'>
                                 PHOENIX
-                            </span>
+                            </span> */}
                         </div>
                         <div className='menu-container flex1 flex justify-center'>
                             <span className='menu'>
                                 <a href='/'>HOME</a>
                             </span>
-                            <span className='menu'>
+                            {/* <span className='menu'>
                                 <a>STORY</a>
+                            </span> */}
+                            <span className='menu'>
+                                <a href='mailto:help@thephoenix.finance'>CONTACT</a>
                             </span>
                             <span className='menu'>
-                                <a>CONTACT</a>
+                                <a>FAQ</a>
+                            </span>
+                            <span className='menu flex1'></span>
+                            <span className='menu'>
+                                <a><img alt='' src='/img/bird.png'/></a>
                             </span>
                             <span className='menu'>
-                                <a>TWITTER</a>
+                                <a><img alt='' src='/img/pig.png'/></a>
                             </span>
                         </div>
-                        <a id='launch_btn' className='btn action-btn outline ' href='/app'>
+                        <a id='launch_btn' className='btn action-btn' href='/app'>
                             LAUNCH APP
                         </a>
                         <a id='launch_sm_btn'>

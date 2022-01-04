@@ -11,21 +11,40 @@ class RingHeader extends React.Component {
     constructor(props) {
         super(props);
         this.handleConnect = this.handleConnect.bind(this);
-        // this.state = {
-        //     my_nodes: []
-        // }
-        this.setState({ my_nodes: props.my_nodes });
+        this.state = {
+            my_nodes: []
+        }
     }
 
     async handleConnect() {
-        await window.ethereum.enable();
-        this.props.dispatch({
-            type: "CONNECT_WALLET"
-        });
+        if (window.ethereum) {
+            await window.ethereum.enable();
+            // await window.ethereum.send('eth_requestAccounts');
+            this.props.dispatch({
+                type: "CONNECT_WALLET"
+            });
+        } else {
+            toast.info("Please install metamask on your device.", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
     }
     componentDidMount() {
 
     }
+    
+    static getDerivedStateFromProps(nextProps, prevProps) {
+        return {my_nodes: nextProps.my_nodes };
+    }
+
+
+
 
     render() {
         return (
@@ -36,21 +55,19 @@ class RingHeader extends React.Component {
                     <div className="content mx-auto">
                         <div className='flex align-center'>
                             <img alt='' src='/img/logo.png' className="logo-img" />
-                            <span className='logo-title'>
-                                PHOENIX
+                            <span className='logo-title noto-bold'>
+                                PHOENIX  <span className="noto-thin">Community Capital</span>
                             </span>
                         </div>
                         <div className='menu-container flex1 flex justify-center'>
-                            <span className='menu flex flex-col align-center'>
+                            {/* <span className='menu flex flex-col align-center'>
                                 <a>MY NESTS</a>
-                                {/* <br/> */}
                                 <a>{this.props.my_nodes.length}</a>
                             </span>
                             <span className='menu flex flex-col align-center'>
                                 <a>ALL NESTS</a>
-                                {/* <br/> */}
                                 <a>{this.props.all_nodes}</a>
-                            </span>
+                            </span> */}
                             {/* <span className='menu flex flex-col align-center'>
                                 <a>MINING</a>
                                 <br/>
@@ -60,7 +77,7 @@ class RingHeader extends React.Component {
                         <div className="launch_wallet f-row f1-end">
                             {
                                 !this.props.account ?
-                                    <div className="action-btn outline flex align-center justify-center" onClick={this.handleConnect}>
+                                    <div className="action-btn  flex align-center justify-center" onClick={this.handleConnect}>
                                         <span><i className="fas fa-wallet" style={{ marginRight: "1rem" }}></i>
                                             Connect Wallet
                                         </span>
