@@ -40,6 +40,19 @@
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "nodeId",
+				"type": "uint256"
+			}
+		],
+		"name": "claimByNode",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "tokenContract",
 				"type": "address"
@@ -61,23 +74,16 @@
 				"internalType": "address",
 				"name": "addr",
 				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "reward",
+				"type": "uint256"
 			}
 		],
 		"name": "ClaimAllNode",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "nodeId",
-				"type": "uint256"
-			}
-		],
-		"name": "claimByNode",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -92,6 +98,12 @@
 				"indexed": false,
 				"internalType": "uint256",
 				"name": "nodeId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "reward",
 				"type": "uint256"
 			}
 		],
@@ -110,6 +122,19 @@
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			}
+		],
+		"name": "ClearUserInfo",
+		"type": "event"
 	},
 	{
 		"anonymous": false,
@@ -144,6 +169,25 @@
 		"type": "event"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nftCount",
+				"type": "uint256"
+			}
+		],
+		"name": "ImportNFT",
+		"type": "event"
+	},
+	{
 		"inputs": [
 			{
 				"components": [
@@ -166,12 +210,36 @@
 				"internalType": "struct RewardManagement.ImportNftInfo[]",
 				"name": "nftInfos",
 				"type": "tuple[]"
+			},
+			{
+				"internalType": "bool",
+				"name": "bNewMint",
+				"type": "bool"
 			}
 		],
 		"name": "importNftInfo",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nodeCount",
+				"type": "uint256"
+			}
+		],
+		"name": "ImportNode",
+		"type": "event"
 	},
 	{
 		"inputs": [
@@ -376,6 +444,25 @@
 		"type": "function"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newClaimFee",
+				"type": "uint256"
+			}
+		],
+		"name": "SetClaimFee",
+		"type": "event"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -387,6 +474,25 @@
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_newPauseContract",
+				"type": "uint256"
+			}
+		],
+		"name": "SetContractStatus",
+		"type": "event"
 	},
 	{
 		"inputs": [
@@ -402,6 +508,25 @@
 		"type": "function"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newFireValue",
+				"type": "uint256"
+			}
+		],
+		"name": "SetFireValue",
+		"type": "event"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -413,6 +538,19 @@
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			}
+		],
+		"name": "SetNFTContract",
+		"type": "event"
 	},
 	{
 		"inputs": [
@@ -428,6 +566,25 @@
 		"type": "function"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newThreeMonthFee",
+				"type": "uint256"
+			}
+		],
+		"name": "SetNodeMaintenanceFee",
+		"type": "event"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -439,6 +596,25 @@
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newNodePrice",
+				"type": "uint256"
+			}
+		],
+		"name": "SetNodePrice",
+		"type": "event"
 	},
 	{
 		"anonymous": false,
@@ -479,15 +655,40 @@
 		"type": "function"
 	},
 	{
-		"stateMutability": "payable",
-		"type": "fallback"
-	},
-	{
 		"inputs": [],
 		"name": "withdrawAll",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "fire",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "avax",
+				"type": "uint256"
+			}
+		],
+		"name": "WithdrawAll",
+		"type": "event"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "fallback"
 	},
 	{
 		"stateMutability": "payable",
@@ -700,6 +901,11 @@
 						"internalType": "uint256",
 						"name": "lastTime",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "reward",
+						"type": "uint256"
 					}
 				],
 				"internalType": "struct RewardManagement.NodeInfo[]",
@@ -751,6 +957,11 @@
 					{
 						"internalType": "uint256",
 						"name": "currentTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastClaimTime",
 						"type": "uint256"
 					},
 					{

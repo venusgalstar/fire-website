@@ -31,7 +31,8 @@ class Nodes extends React.Component {
             my_nodes: [],
             open: false,
             fee_index: -1,
-            selected_tab: 0
+            selected_tab: 0,
+            curTime: 0
         }
         this.props.dispatch({
             type: "GET_NODE_LIST"
@@ -64,13 +65,16 @@ class Nodes extends React.Component {
         for (var item in this.state.my_nodes) {
             const temp = this.state.my_nodes[item];
             var remain = moment(temp.lastTime * 1000).diff(this.props.currentTime * 1000);
+            remain = remain / 1000;
             if (remain > 0) {
                 var duration = moment.duration(remain);
-                temp['remains'] = duration.months() + "m - " +
-                    duration.days() + "d " +
-                    duration.hours() + ":" +
-                    duration.minutes() + ":" +
-                    duration.seconds();
+                // temp['remains'] = duration.months() + "m - " +
+                //     duration.days() + "d " +
+                //     duration.hours() + ":" +
+                //     duration.minutes() + ":" +
+                //     duration.seconds();
+                // temp['remains'] = "due in " + Math.floor((temp.lastTime - this.props.curTime) / (3600 * 24)) + " days";
+                temp['remains'] = "due in " + Math.floor((remain) / (3600 * 24)) + " days";
 
                 var bonus = 0.225;
                 if (temp['masterNFT']) {
@@ -81,7 +85,7 @@ class Nodes extends React.Component {
                 }
                 temp['reward'] = Number(temp['reward']) + bonus / (3600 * 24);
                 sum += temp['reward'];
-                temp['reward'] = temp['reward'].toFixed(9);
+                temp['reward'] = temp['reward'].toFixed(6);
 
                 if (remain > 3600 * 24 * 30) {
                     temp['payable'] = false;
@@ -90,6 +94,7 @@ class Nodes extends React.Component {
                 }
             } else {
                 temp['remains'] = 'Expired';
+                temp['payable'] = true;
                 temp['reward'] = 0;
             }
             list.push(temp);
@@ -97,6 +102,7 @@ class Nodes extends React.Component {
         var curTime = Number(this.props.currentTime);
         if (curTime !== 0) {
             curTime = curTime + 1;
+            this.setState({ curTime: curTime });
         }
 
         this.setState({ my_nodes: list });
@@ -115,6 +121,19 @@ class Nodes extends React.Component {
 
 
     PayAllNode() {
+        if (this.props.my_nodes.length == 0) {
+            toast.info("There is no nest. Please create your own nest.", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
+        }
+
         if (!this.props.can_perform) {
             toast.info("Please wait. Another transaction is running.", {
                 position: "top-center",
@@ -138,6 +157,36 @@ class Nodes extends React.Component {
     }
 
     claimNode(id) {
+        if (this.props.my_nodes.length == 0) {
+            toast.info("There is no nest. Please create your own nest.", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
+        }
+
+        if (this.state.curTime - this.props.last_claim_time < 3600 * 24) {
+            toast.info("You should claim once during 24 hours. Please wait " +
+                (24 - Math.floor((this.state.curTime - this.props.last_claim_time)/3600)) + "hour(s). ",
+                {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            return;
+        }
+
+
+
         if (!this.props.can_perform) {
             toast.info("Please wait. Another transaction is running.", {
                 position: "top-center",
@@ -155,9 +204,14 @@ class Nodes extends React.Component {
         var payload = { node_id: id, cnt: 1 };
         if (id == -1) {
             let cnt = 0;
+            let sum = 0;
             for (var index in this.state.my_nodes) {
+                sum += Number(this.state.my_nodes[index].reward);
                 if (this.state.my_nodes[index].remain !== 'Expired') {
                     cnt = cnt + 1;
+                }
+                if (sum >= 100) {
+                    break;
                 }
             }
             payload.cnt = cnt;
@@ -240,15 +294,22 @@ class Nodes extends React.Component {
 
     render() {
         const List = this.state.my_nodes.map((item, index) => {
-        // const List = ["123", "222", "543", "23", "2342", '234', '2342', '2333', '1231', '1231'].map((item, index) => {
+            // const List = ["123", "222", "543", "23", "2342", '234', '2342', '2333', '1231', '1231'].map((item, index) => {
             return (
                 <div key={index} className={index % 2 == 0 ? 'item-font nest-list-even' : 'item-font nest-list-odd'}>
 
                     <div className='text-center' style={{ flex: "1" }}>NEST {index + 1}</div>
-                    <div className='text-center' style={{ flex: "3" }}>{moment(item.createTime * 1000).format("MMM DD YYYY")}</div>
+                    <div className='text-center mobile-hidden' style={{ flex: "3" }}>{moment(item.createTime * 1000).format("MMM DD YYYY")}</div>
                     <div className='text-center' style={{ flex: "2" }}>{item.reward}</div>
-                    <div className='text-center' style={{ flex: "2" }}>{item.remains}</div>
-                    <div className="pay-button list" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
+                    <div className='text-center mobile-fee-item' style={{ flex: "2" }}>
+                        <div className='mobile-fee-list'>
+                            {item.remains}
+                        </div>
+                        <div className='mobile-show flex1'>
+                            <div className="pay-button list" style={{ width: "100%" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
+                        </div>
+                    </div>
+                    <div className="pay-button list mobile-hidden" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
                     <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, index)}> claim </div>
                 </div>
             )
@@ -266,7 +327,7 @@ class Nodes extends React.Component {
                 <section id='section-nests'>
                     <div className='content mx-auto'>
                         <div className='nest-header'>
-                            <span className='fs-40 c-w'>
+                            <span className='nest-header-title'>
                                 Create a Phoenix Nest with <span className='noto-bold'>10</span> <span className='c-yellow'>$FIRE</span> Tokens
                             </span>
                             <button className='btn action-btn' onClick={this.createNode}>Create your nest</button>
@@ -282,17 +343,30 @@ class Nodes extends React.Component {
                         <div className='tab-content'>
                             {this.state.selected_tab === 0 ?
                                 <>
-                                    <div className='h-60 flex align-center node-title-header' style={{ width: "100%" }}>
-                                        <div className='padder-10 noto-bold' style={{ flex: "1" }}>Name</div>
-                                        <div className='text-center noto-bold' style={{ flex: "3" }}>Created</div>
-                                        <div className='text-center noto-bold' style={{ flex: "2" }}>My Rewards</div>
-                                        <div className='text-center noto-bold' style={{ flex: "2" }}>Fees</div>
+                                    <div className='h-60  node-title-header mobile-flex' style={{ display: "flex !important", width: "100%" }}>
                                         <div className="pay-button" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div>
                                         <div className="claim-button" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> claim all</div>
                                     </div>
+                                    <div className='h-60 flex align-center node-title-header' style={{ width: "100%" }}>
+                                        <div className='padder-10 noto-bold' style={{ flex: "1" }}>Name</div>
+                                        <div className='text-center noto-bold mobile-hidden' style={{ flex: "3" }}>Created</div>
+                                        <div className='text-center noto-bold' style={{ flex: "2" }}>My Rewards</div>
+                                        <div className='text-center noto-bold' style={{ flex: "2" }}>
+                                            <span className='pos-rel noto-bold'>
+                                                Fees
+                                                <span className='pos-abs fs-14 flex align-center justify-center'
+                                                    style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
+                                                    i
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div className="pay-button mobile-hidden" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div>
+                                        <div className="claim-button mobile-visible-false" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> claim all</div>
+                                    </div>
                                     <div className='mynode-list-content'>
                                         <CustomScrollbars>
-                                            {List}
+                                            {this.props.my_nodes.length > 0 ? List :
+                                                <div className='fs-40 c-w w-full h-full flex align-center justify-center text-center'>You have no nest!<br /> Create your own nest</div>}
                                         </CustomScrollbars>
                                     </div>
                                 </> :
@@ -362,6 +436,7 @@ const mapStateToProps = state => {
         master_nft_url: state.master_nft_url,
         grand_nft_url: state.grand_nft_url,
         can_perform: state.can_perform,
+        last_claim_time: state.last_claim_time
     };
 }
 

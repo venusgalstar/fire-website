@@ -216,7 +216,8 @@ const reducer = (state = init(_initialState), action) => {
                     grand_nft_url: result[4],
                     currentTime: result[2].currentTime * 1,
                     all_nodes: result[5],
-                    can_perform: can_perform
+                    can_perform: can_perform,
+                    last_claim_time: result[2].lastClaimTime
                 }
             });
         });
@@ -227,10 +228,12 @@ const reducer = (state = init(_initialState), action) => {
             connectAlert();
             return Object.assign({}, state, { can_perform: true });
         }
+
+        console.log("pay fee all", action.payload.count);
         rewardConatract.methods.getNodeMaintenanceFee().call()
             .then((threeFee) => {
                 rewardConatract.methods.payAllNodeFee(action.payload.duration - 1)
-                    .send({ from: state.account, value: action.payload.duration * threeFee * 100, gas: 2100000 })
+                    .send({ from: state.account, value: action.payload.duration * threeFee * action.payload.count, gas: 2100000 })
                     .then(() => {
                         store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
                     }).catch(() => {

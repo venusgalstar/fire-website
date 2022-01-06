@@ -26,7 +26,7 @@ class HomeHeader extends React.Component {
                                 PHOENIX
                             </span> */}
                         </div>
-                        <div className='menu-container flex1 flex justify-center'>
+                        <div className='menu-container flex1 align-center flex justify-center'>
                             <span className='menu'>
                                 <a href='/'>HOME</a>
                             </span>
@@ -39,13 +39,14 @@ class HomeHeader extends React.Component {
                             <span className='menu'>
                                 <a>FAQ</a>
                             </span>
+                            <span className='menu'>
+                                <a><img alt='' src='/img/bird.png' /></a>
+                            </span>
+                            <span className='menu'>
+                                <a><img alt='' src='/img/pig.png' /></a>
+                            </span>
                             <span className='menu flex1'></span>
-                            <span className='menu'>
-                                <a><img alt='' src='/img/bird.png'/></a>
-                            </span>
-                            <span className='menu'>
-                                <a><img alt='' src='/img/pig.png'/></a>
-                            </span>
+                            <div className="certik" onClick={() => { window.open("https://www.certik.com/projects/thephoenix") }}></div>
                         </div>
                         <a id='launch_btn' className='btn action-btn' href='/app'>
                             LAUNCH APP
