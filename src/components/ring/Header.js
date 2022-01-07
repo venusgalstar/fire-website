@@ -80,8 +80,8 @@ class RingHeader extends React.Component {
                         <div className="f-row f1-end">
                             {
                                 !this.props.account ?
-                                    <div className="action-btn  flex align-center justify-center" onClick={this.handleConnect}>
-                                        <span>
+                                    <div className="action-btn  flex align-center justify-center connectWalletBtn" onClick={this.handleConnect}>
+                                        <span class="connectWallet">
                                             {/* <i className="fas fa-wallet" style={{ marginRight: "1rem" }}></i> */}
                                             Connect Wallet
                                         </span>

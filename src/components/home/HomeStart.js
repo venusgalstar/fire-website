@@ -31,8 +31,7 @@ class HomeStart extends React.Component {
                   buy fire
                 </div>
                 <p data-nsfw-filter-status="swf" className="c-purple">
-                  $FIRE is available on the
-                  Avalanche Network.  You can swap AVAX for $FIRE on Trader Joe.
+                  $FIRE is available on the <span class="phxColor">Avalanche Network</span>.  You can swap AVAX for $FIRE on Trader&nbsp;Joe.
                 </p>
               </div>
               <div className="card-action shadow">
@@ -41,7 +40,7 @@ class HomeStart extends React.Component {
                   build nest
                 </div>
                 <p data-nsfw-filter-status="swf" className="c-purple">
-                  A PHOENIX-NEST costs only 10 $FIRE plus a minimal $20 maintenance fee every 90 days.
+                  A Phoenix-Nest costs only <span class="phxColor">10&nbsp;$FIRE</span> plus a minimal $20 maintenance fee every 90&nbsp;days.
                 </p>
               </div>
               <div className="card-action shadow">
@@ -50,7 +49,7 @@ class HomeStart extends React.Component {
                   enjoy rewards
                 </div>
                 <p data-nsfw-filter-status="swf">
-                  You can create up to 100 PHOENIX Nests per wallet. Claim accrued rewards at your convenience.
+                  You can create up to <span class="phxColor">100&nbsp;Phoenix Nests</span> per wallet. Claim accrued rewards at your convenience.
                 </p>
               </div>
               <button className="action-btn btn mobile-show m-t-40" onClick={this.goAppPage}>Try it</button>
@@ -72,7 +71,7 @@ class HomeStart extends React.Component {
               <div className="mobile-show w-full flex justify-center">
                 <div className="nest-right mx-auto"></div>
               </div>
-              <button className="btn action-btn">learn more</button>
+              <button className="btn action-btn" onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}>Learn More</button>
             </div>
             <div className="nest-right mobile-hidden"></div>
           </div>
@@ -86,19 +85,19 @@ class HomeStart extends React.Component {
             <div id="chips-header">Phoenix Community Capital Member Benefits</div>
             <div className="chips">
               <div className=" chip">
-                <img alt="" className="m-r-20" src="/img/icon_check.svg" />
+              <i class="fas fa-check"></i>
                 Lowered Risk
               </div>
               <div className=" chip">
-                <img alt="" className="m-r-20" src="/img/icon_check.svg" />
+              <i class="fas fa-check"></i>
                 Less Fees
               </div>
               <div className=" chip">
-                <img alt="" className="m-r-20" src="/img/icon_check.svg" />
+              <i class="fas fa-check"></i>
                 Less Hassle
               </div>
               <div className=" chip">
-                <img alt="" className="m-r-20" src="/img/icon_check.svg" />
+              <i class="fas fa-check"></i>
                 Less Research
               </div>
             </div>

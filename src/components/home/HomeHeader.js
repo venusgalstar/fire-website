@@ -40,12 +40,13 @@ class HomeHeader extends React.Component {
                                 <a>FAQ</a>
                             </span>
                             <span className='menu'>
-                                <a><img alt='' src='/img/bird.png' /></a>
+                                <a href="https://twitter.com/phoenix_fi" target="_blank"><i class="fab fa-twitter"></i></a>
                             </span>
                             <span className='menu'>
-                                <a><img alt='' src='/img/pig.png' /></a>
+                                <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
                             </span>
                             <span className='menu flex1'></span>
+                           
                             <div className="certik" onClick={() => { window.open("https://www.certik.com/projects/thephoenix") }}></div>
                         </div>
                         <a id='launch_btn' className='btn action-btn' href='/app'>

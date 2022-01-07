@@ -95,7 +95,6 @@
 
     .title-main {
         font-size: 36px;
-        text-shadow: 4px 5px #222;
     }
 
     .title-sub {
@@ -103,6 +102,8 @@
         color: #ffcc99;
         line-height: 1.5;
         margin-top: 20px;
+        color: white;
+        text-align: center;
     }
 
     .mobile-hidden {
@@ -185,6 +186,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: start;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     .statistics>.content {
@@ -217,19 +220,16 @@
 
     .statistics-item1-title {
         font-size: 30px;
-        color: #cc9966;
         font-weight: 200;
     }
 
     .statistics-item2-title {
         font-size: 30px;
-        color: #cc9966;
         font-weight: 200;
     }
 
     .statistics-item3-title {
         font-size: 30px;
-        color: #cc9966;
         font-weight: 200;
     }
 
@@ -265,7 +265,9 @@
         font-size: 2.6vw;
     } */
 
-
+    .nft-right {
+        margin-top:100px;
+    }
     .buy_nft_btn {
         font-size: 3vw;
     }
@@ -308,9 +310,18 @@
 
     #section-started {
         width: 100%;
-        height: 1230px;
     }
-
+    #started-content button.action-btn.btn.mobile-show.m-t-40 {
+        width: 200px;
+        padding: 0 24px;
+        border-radius: 50px;
+        min-width: 154px;
+        height: 50px;
+        font-size: 31px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-transform: capitalize;
+    }
 
     .card-title {
         font-size: 55px;
@@ -398,9 +409,11 @@
         background-image: url(/img/bg6.png);
         padding-top: 0px;
         background-position: center, center;
-        height: 1410px;
+        height: auto;
         background-size: cover;
         background-repeat: no-repeat;
+        padding-top: 100px;
+        padding-bottom:100px;
     }
 
     #vision-content {
@@ -431,7 +444,13 @@
         font-size: 33px;
         font-weight: 900;
     }
-
+    .hero-left .title-main {
+        font-size: 43px;
+        margin-top: 50px;
+    }
+    .hero-left .title-sub {
+        font-size: 30px;
+    }
     .try_btn_container {
         display: flex;
         justify-content: center;
@@ -494,7 +513,7 @@
 
 
     #vision-content>.title {
-        font-size: 35px;
+        font-size: 44px;
         font-weight: 900;
         padding-left: 60px;
         padding-right: 60px;
@@ -521,16 +540,14 @@
 
     .vision-left-item {
         width: 470px;
-        height: 470px;
-        border-radius: 235px;
+        border-radius: 0px;
         background-color: #7d402baa;
     }
 
     .vision-right-item {
         margin-top: 50px;
         width: 470px;
-        height: 470px;
-        border-radius: 235px;
+        border-radius: 0px;
     }
 
 
@@ -550,8 +567,8 @@
         display: flex;
         justify-content: center;
         background-color: transparent;
-        /* padding-bottom: 110px; */
-        height: 600px;
+        height: auto;
+        padding-bottom: 40px;
     }
 
 
@@ -663,7 +680,9 @@
         align-items: flex-start;
         border: none;
     }
-
+    .contractHolder {
+        margin-bottom: 100px;
+    }
     .link-container {
         width: 100%;
         /* flex:1; */
@@ -687,7 +706,9 @@
         margin-bottom: 30px;
         margin-top: 60px;
     }
-
+    #section-nests button.btn.action-btn {
+        margin-top: 20px;
+    }
 
     .footer-bottom-privacy {
         display: none;
@@ -860,6 +881,9 @@
     .MuiButton-root+div {
         /* inset: 28px 48px auto auto !important; */
         z-index: 1000;
+        position: absolute !important;
+        transform: none !important;
+        top: 84px !important;
     }
 
 
@@ -932,10 +956,6 @@
         justify-content: center;
     }
 
-    #section-nest {
-        height: 836px;
-    }
-
     .nest-left {
         margin-top: 60px;
         align-items: center;
@@ -950,7 +970,7 @@
         background-position: center;
         background-size: cover;
         background-image: url(/img/marble-bg1.png);
-        height: 2050px;
+        height: auto;
     }
 
     #section-nft>.content {

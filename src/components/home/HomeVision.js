@@ -28,7 +28,7 @@ class HomeVision extends React.Component {
                                 {/* <div className="pos-abs fs-180 noto-bold" style={{ top: "-110px" }}>2</div> */}
                                 <div className="c-w" style={{ width: "70%" }}>
                                     <p className="vision-item-info">
-                                        Phoenix Community Capital exposes the community to a multitude of on-chain and off-chain physical investments, while reducing fees through consolidation.
+                                        Phoenix Community Capital exposes the community to a multitude of on&#8209;chain and off&#8209;chain physical investments, while reducing fees through consolidation.
                                     </p>
                                 </div>
                             </div>

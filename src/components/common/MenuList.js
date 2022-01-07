@@ -81,9 +81,10 @@ export default function MenuListComponent() {
                 >
                   {window.location.pathname.includes('/app') ?
                     <MenuItem onClick={handleClose}> <a href='/' className='menu-item-style'>Home</a></MenuItem> : <MenuItem onClick={handleClose}> <a href='/app' className='menu-item-style'>Launch App</a></MenuItem>}
-                  <MenuItem onClick={handleClose}> Story</MenuItem>
                   <MenuItem onClick={handleClose}> <a href='/disclaimer' className='menu-item-style'>Disclaimer</a></MenuItem>
                   <MenuItem onClick={handleClose}> <a href='https://www.certik.com/projects/thephoenix' className='menu-item-style'>Audit</a></MenuItem>
+                  <MenuItem onClick={handleClose}> <a href='mailto:help@thephoenix.finance' className='menu-item-style'>Contact</a></MenuItem>
+                  <MenuItem onClick={handleClose}> <a href='/' className='menu-item-style'>FAQ</a></MenuItem>
                 </MenuList>
               </ClickAwayListener>
             </Paper>

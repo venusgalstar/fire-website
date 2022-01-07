@@ -345,7 +345,7 @@ class Nodes extends React.Component {
                                 <>
                                     <div className='h-60  node-title-header mobile-flex' style={{ display: "flex !important", width: "100%" }}>
                                         <div className="pay-button" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div>
-                                        <div className="claim-button" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> claim all</div>
+                                        <div className="claim-button" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> Claim all</div>
                                     </div>
                                     <div className='h-60 flex align-center node-title-header' style={{ width: "100%" }}>
                                         <div className='padder-10 noto-bold' style={{ flex: "1" }}>Name</div>
@@ -361,7 +361,7 @@ class Nodes extends React.Component {
                                             </span>
                                         </div>
                                         <div className="pay-button mobile-hidden" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div>
-                                        <div className="claim-button mobile-visible-false" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> claim all</div>
+                                        <div className="claim-button mobile-visible-false" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> Claim all</div>
                                     </div>
                                     <div className='mynode-list-content'>
                                         <CustomScrollbars>

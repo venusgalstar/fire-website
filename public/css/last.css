@@ -93,7 +93,22 @@ a {
     justify-content: center;
     cursor: pointer;
 }
-
+.lifetime-title button.action-btn.btn.mobile-hidden {
+    display: inline-block;
+    padding: 0 24px;
+    border-radius: 50px;
+    min-width: 154px;
+    height: 50px;
+    font-size: 31px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+.lifetime-title button.action-btn.btn.mobile-hidden:hover {
+    background-color: #202225;
+    color: white;
+    border-color: #202225;
+}
 .action-btn:hover {
     color: white;
     box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.9);
@@ -169,7 +184,20 @@ a {
     background-position: top;
     background-size: 2000px 1000px;
 }
-
+#section-msg .mainStats .fs-22.c-w {
+    text-transform: uppercase;
+}
+#section-msg .fs-22 {
+    font-size: 28px;
+}
+#section-msg .mainBuy button {
+    font-size: 26px;
+    font-weight: bold;
+}
+#section-msg .mainBuy button:hover {
+    background: #202225;
+    border-color: #202225;
+}
 #section-msg>.content {
     height: 810px;
     width: 1150px;
@@ -193,6 +221,7 @@ a {
 
 .msg-right {
     flex: 1;
+    margin-left: 2.6%;
 }
  
 .msg-left-content-container {
@@ -228,19 +257,51 @@ a {
     /* background-size: contain; */
 
 }
-
+#section-nest button.btn.action-btn {
+    font-size: 30px;
+    height: 50px !important;
+    min-width: 80px;
+    border-radius: 25px;
+    margin-top: 35px;
+}
+#section-nest button.btn.action-btn:hover {
+    background-color: #202225;
+    color: white;
+    border-color: #202225;
+}
 #section-nests>.content {
     height: 900px;
     width: 1150px;
 }
-
-
+#section-nests button.btn.action-btn {
+    display: inline-block;
+    padding: 0 24px;
+    border-radius: 50px;
+    min-width: 154px;
+    height: 50px;
+    font-size: 28px;
+    text-transform: capitalize;
+}
+#section-nests button.btn.action-btn:hover {
+    background: #202225;
+    border-color: #202225;
+}
 .chart-text {
     margin-top: 20px;
     display: flex;
     align-items: center;
     height: 160px;
     width: 100%;
+    font-size: 24px;
+}
+.header a#launch_btn {
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.header a#launch_btn:hover {
+    background: #202225;
+    border-color: #202225;
 }
 
 
@@ -290,10 +351,17 @@ a {
     background-position: center;
     background-size: cover;
 }
-
+.createNestBtn:hover {
+    background: #c89656;
+    border-color: #c89656;
+}
+.buyFireBtn:hover {
+    background: #202225;
+    border-color: #202225;
+}
 #section-hero>.content {
     height: 740px;
-    width: 1150px;
+    max-width: 1150px;
     display: flex;
     align-items: center;
 }
@@ -316,7 +384,10 @@ a {
 .title-sub {
     color: white;
 }
-
+.hero-left .title-sub {
+    line-height: 50px;
+    font-size: 47px;
+}
 .title-sub1 {
     display: none;
 }
@@ -333,7 +404,10 @@ a {
     align-items: center;
     flex-direction: column;
 }
-
+.hero-right .fs-30 {
+    font-size: 34px;
+    letter-spacing: 1px;
+}
 .phoenix_img {
     background-size: cover;
     background-image: url(/img/phoenix.png);
@@ -388,10 +462,11 @@ a {
 
 
 #section-started {
-    height: 627px;
     background-image: url(/img/bg3.jpg);
     background-position: center;
     background-size: cover;
+    padding-top: 15px;
+    padding-bottom: 54px;
 }
 
 
@@ -420,20 +495,22 @@ a {
 
 .lifetime-title-main {
     color: white;
-    font-size: 40px;
+    font-size: 48px;
+    letter-spacing: 2px;
 }
 
 
 .nest-left-content {
-    font-size: 20px;
+    font-size: 26px;
 }
 
 
 #section-nest {
-    height: 460px;
     background-image: url(/img/marble-bg.jpg);
     background-position: center;
     background-size: cover;
+    padding-top: 108px;
+    padding-bottom: 98px;
 }
 
 
@@ -459,7 +536,8 @@ a {
 .nest-right {
     background-image: url(/img/nest.png);
     background-position: center;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     width: 350px;
     height: 240px;
 }
@@ -467,6 +545,9 @@ a {
 #section-nft {
     background-color: white;
     height: 900px;
+    background-image: url(/img/marble-bg.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 #section-nft>.content {
@@ -476,17 +557,39 @@ a {
     display: flex;
     justify-content: space-between;
 }
-
-
+#section-nft .action-btn.btn.fs-28.m-t-30.mx-auto {
+    margin-left: 0 !important;
+    display: inline-block;
+    padding: 0 24px;
+    border-radius: 50px;
+    min-width: 154px;
+    font-size: 31px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+#section-nft .action-btn.btn.fs-28.m-t-30.mx-auto:hover {
+    background-color: #202225;
+    color: white;
+    border-color: #202225;
+}
 
 #section-app-nft {
     background-color: black;
-    height: 900px;
+    height: auto;
 }
 
 #section-app-nft>.content {
     width: 1150px;
-    height: 1050px;
+    height: auto;
+}
+span.connectWallet {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.connectWalletBtn:hover {
+    background: #202225;
+    border-color: #202225;
 }
 
 
@@ -500,7 +603,6 @@ a {
 
 .card {
     width: 370px;
-    height: 520px;
     border: 2px solid #202225;
     border-radius: 30px;
     background-color: #202225;
@@ -527,10 +629,8 @@ a {
 
 
 .card-action {
-
     width: 336px;
-
-    padding: 30px 30px 0px;
+    padding: 3%;
     background: #ffffff;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
     border-radius: 0px;
@@ -563,9 +663,10 @@ a {
     display: flex;
     align-items: center;
     text-align: center;
-    /* text-transform: uppercase; */
     background-color: #202225;
-    letter-spacing: -1;
+    letter-spacing: 1px;
+    font-weight: normal;
+    font-size: 28px !important;
 }
 
 .yellow-circle {
@@ -577,25 +678,23 @@ a {
     background-color: #c89656;
     border-radius: 30px;
     margin-right: 10px;
+    font-weight: bold;
+    font-size: 37px;
 }
 
 .card-action p {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 25px;
-    /* or 156% */
-
     text-align: center;
-
-    /* Gray:300 */
-
-    /* color: #e2e8f0; */
-    height: 100px;
-
-    /* margin: 0 20px; */
     margin-top: 19px;
-    /* margin-bottom: 63px; */
+    font-family: Open Sans, Helvetica, sans-serif;
+    font-weight: 600;
 }
-
+span.phxColor {
+    font-weight: bold;
+    color: #c89656;
+    font-family: 'Open Sans';
+}
 .card-action a {
     text-decoration: none;
     flex-shrink: 0;
@@ -638,7 +737,7 @@ a {
     width: 474px;
     height: 474px;
     border-radius: 287px;
-    background-color: #72737088;
+    background-color: #c89656b8;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -648,7 +747,7 @@ a {
     width: 474px;
     height: 474px;
     border-radius: 287px;
-    background-color: #72737088;
+    background-color: #c89656b8;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -660,7 +759,7 @@ a {
 }
 
 .chips {
-    margin-top: 60px;
+    margin-top: 32px;
     flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
@@ -793,7 +892,7 @@ a {
     height: 140px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #5a6b78;
+    border-bottom: 1px solid #282828;
     flex-wrap: wrap;
 }
 
@@ -801,7 +900,9 @@ a {
     width: 10vw;
     text-align: center;
 }
-
+.footerSocial a {
+    color: white;
+}
 .footer-bottom {
     height: 60px;
     display: flex;
@@ -815,7 +916,29 @@ footer {
     padding-bottom: 25px;
     background-color: black;
 }
+footer .c-gray {
+    text-transform:uppercase;
+}
+footer .c-gray:hover {
+    color:#c89656;
+}
+.contractHolder, .contractHolder a {
+    color: white;
+    font-size: 23px;
+    padding: 7px 20px;
+    font-family: Open Sans, Helvetica, sans-serif;
+}
+.contractHolder {
+    text-align: right;
+    word-break: break-all;
+}
+.contractHolder a {
+    background: #c89656;
+}
 
+.contractHolder a:hover {
+    background: #323538;
+}
 
 .cookie_btn {
     background-color: #ffbb00;
@@ -928,8 +1051,7 @@ footer {
 }
 
 .claim-button:hover {
-    background-color: var(--green);
-    color: white !important;
+    color: #c89656 !important;
 }
 
 .claim-button:hover i {
@@ -961,8 +1083,7 @@ footer {
 }
 
 .pay-button:hover {
-    background-color: var(--green);
-    color: white !important;
+    color: #202225 !important;
 }
 
 .pay-button:hover i {
@@ -999,10 +1120,11 @@ footer {
 
 .statistics {
     background-color: #202225;
-    height: 140px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 35px;
+    padding-bottom: 35px;
 }
 
 .statistics>.content {
@@ -1067,15 +1189,14 @@ footer {
     justify-content: center;
     align-items: center;
     height: 60px;
-    font-size: 26px;
-    color: #ffcc99;
+    font-size: 30px;
+    color: #ffffff;
 }
 
 
 .card-item-info {
-    height: 80px;
     color: #fff;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 
@@ -1131,7 +1252,7 @@ footer {
 .vision-item-info {
     margin-top: 20px;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 26px;
 }
 
 #chip-vision {
@@ -1148,9 +1269,15 @@ footer {
     margin-right: auto;
     margin-left: auto;
 }
-
+.chip i {
+    margin-right: 30px;
+    margin-left: 10px;
+}
 #chips-header {
-    font-size: 30px;
+    color: white;
+    font-size: 40px;
+    letter-spacing: 2px;
+    text-align: center;
 }
 
 
@@ -1184,7 +1311,10 @@ footer {
     display: flex;
     justify-content: center;
 }
-
+span.copy-right {
+    color: #505050;
+    font-family: Open Sans, Helvetica, sans-serif;
+}
 .footer-privacy {
     display: none;
 }
@@ -1284,7 +1414,9 @@ footer {
     color: white;
     text-decoration: none;
 }
-
+.menu>a:hover {
+    color: #c89656 !important;
+}
 #launch_sm_connect_btn {
     display: none;
 }
@@ -1332,7 +1464,7 @@ footer {
 
 * {
 
-    font-family: "HelveticaLTStd", sans-serif;
+    font-family: 'Open Sans Condensed', Helvetica, sans-serif;
     font-style: normal;
     font-weight: normal;
 }

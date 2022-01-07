@@ -10,26 +10,26 @@ const HomeHero = (props) => {
           <div className="hero-left">
             <div className="title">
               <div className="title-main c-w noto-bold">
-                Phoenix Community Capital
+                Phoenix <span>Community Capital</span>
               </div>
               <div className="title-sub">
                 large-scale, high yield<br className='mobile-hidden'/>
                 return investments
               </div>
               <div className='c-w title-sub1'>
-              Rise from the <br/>Ashes of <br/>Traditional finance
+              Rise from the Ashes <br/>of Traditional finance
               </div>
             </div>
             <div className="flex create-buy-btn">
-              <button className="btn deaction-btn create-nest-btn btn-middle" onClick={() => { window.location.href = "/app" }}>
+              <button className="btn deaction-btn create-nest-btn btn-middle createNestBtn" onClick={() => { window.location.href = "/app" }}>
                 <div className="fs-30">
-                  Create nest
+                  Create Nest
                 </div>
 
               </button>
-              <button className="btn action-btn btn-middle" onClick={() => { window.open("https://traderjoexyz.com/#/trade?outputCurrency=0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5") }}>
+              <button className="btn action-btn btn-middle buyFireBtn" onClick={() => { window.open("https://traderjoexyz.com/#/trade?outputCurrency=0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5") }}>
                 <div className="fs-30">
-                  Buy fire
+                  Buy Fire
                 </div>
               </button>
             </div>
@@ -40,7 +40,9 @@ const HomeHero = (props) => {
             <div className="c-w fs-30 phoenix_img_info">Rise from the ashes of traditional finance</div>
           </div>
         </div>
+
       </section>
+
       <div className="statistics" >
         <div className="content">
           <span className="flex flex-col align-center statistics-item1">
@@ -56,7 +58,7 @@ const HomeHero = (props) => {
               Current Total investment
             </div>
             <div className="c-w fs-30 noto-bold">
-              $7'690'670
+              $7,690,670
             </div>
           </span>
           <span className="flex flex-col align-center statistics-item3">

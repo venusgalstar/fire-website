@@ -3,6 +3,7 @@ const Footer = () => {
     return (
         <footer>
             <div className="container mx-auto">
+                <div class="contractHolder">Contract: <a href="https://snowtrace.io/address/0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5" target="_blank">0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5</a></div>
                 <div className="footer-main">
                     <div className="flex align-center">
                         <img className="img-spin logo-img" src="/img/logo.png" alt="" />
@@ -12,9 +13,8 @@ const Footer = () => {
                         <div className="link-container">
                             <span className="footer-link fs-30 noto-bold c-w mobile-show">Menu</span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/" >Home</a></span>
-                            <span className="footer-link fs-20"><a className="c-gray" href="/app" >Story</a></span>
-                            <span className="footer-link fs-20"><a className="c-gray" href='mailto:help@thephoenix.finance' >Contact</a></span>
-                            <span className="footer-link fs-20"><a className="c-gray" href="/app" >FAQ</a></span>
+                            <span className="footer-link fs-20"><a className="c-gray" href="mailto:help@thephoenix.finance" >Contact</a></span>
+                            <span className="footer-link fs-20"><a className="c-gray" href="/" >FAQ</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/app" >App</a></span>
                         </div>
                         <div className="footer-privacy">
@@ -27,18 +27,18 @@ const Footer = () => {
                         <div className="c-w fs-30 flex justify-center">
                             Join the Community
                         </div>
-                        <div className="flex justify-center m-t-50">
+                        <div className="flex justify-center m-t-50 footerSocial">
                             <span className="m-r-20">
-                                <a><img alt='' src='/img/bird.png' /></a>
+                            <a href="https://twitter.com/phoenix_fi" target="_blank"><i class="fab fa-twitter"></i></a>
                             </span>
                             <span>
-                                <a><img alt='' src='/img/pig.png' /></a>
+                            <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
                             </span>
                         </div>
                     </div>
                 </div>
                 <div className="footer-bottom m-t-20 mobile-hidden">
-                    <span className="copy-right">2021, All Rights Reserved</span>
+                    <span className="copy-right">2022, All Rights Reserved</span>
                 </div>
             </div>
         </footer>
