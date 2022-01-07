@@ -366,7 +366,7 @@ const updateGlobalInfo = () => {
     promise.push(gNftContract.methods.getGrandNFTURI().call());
     promise.push(gRewardContract.methods.getTotalNodeCount().call());
     promise.push(gRewardContract.methods.getContractStatus().call());
-    promise.push(gRewardContract.methods.getAvaxForFire(1).call());
+    promise.push(gRewardContract.methods.getAvaxForFire(web3.utils.toWei("1", 'ether')).call());
     promise.push(gRewardContract.methods.getAvaxForUSD(1000000).call());
     promise.push(gTokenContract.methods.balanceOf(config.treasuryAddr).call());
     Promise.all(promise).then((result) => {
@@ -377,7 +377,7 @@ const updateGlobalInfo = () => {
                 grand_nft_url: result[1],
                 all_nodes: result[2],
                 contract_status: result[3],
-                treasury_balance: Number(web3.utils.fromWei(result[6], 'ether') * result[4] / web3.utils.fromWei(result[5], 'ether')).toFixed(2)
+                treasury_balance: Number(web3.utils.fromWei(result[6], 'ether') * web3.utils.fromWei(result[4], 'ether') / web3.utils.fromWei(result[5], 'ether')).toFixed(2)
             }
         });
     })
