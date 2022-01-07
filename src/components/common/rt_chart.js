@@ -21,7 +21,7 @@ const color = Chart.helpers.color;
 const data = {
     datasets: [
         {
-            label: "FIRE-AVAX",
+            label: "FIRE-USD",
             backgroundColor: color(chartColors.yellow)
                 .alpha(0.5)
                 .rgbString(),
@@ -93,7 +93,7 @@ class MyChart extends React.Component {
             data: {
                 datasets: [
                     {
-                        label: "FIRE-AVAX",
+                        label: "FIRE-USD",
                         backgroundColor: color(chartColors.yellow)
                             .alpha(0.5)
                             .rgbString(),
@@ -147,7 +147,7 @@ class MyChart extends React.Component {
                         {
                             ticks: {
                                 beginAtZero: true,
-                                max: 3,
+                                max: 200,
                                 min: 0
                             }
                         }

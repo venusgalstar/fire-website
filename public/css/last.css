@@ -1090,7 +1090,25 @@ footer .c-gray:hover {
     color: #fff
 }
 
-
+.nest-list-even .pay-button {
+    background-color: #dda966;
+}
+.nest-list-even .claim-button {
+    background-color: #35373a;
+}
+.nftBtnNum {
+    padding: 0 24px;
+    border-radius: 50px;
+    min-width: 154px;
+    height: 50px;
+    font-size: 28px;
+    text-transform: capitalize;
+    background: #c89656;
+    margin: 0 auto;
+    display: block;
+    max-width: 200px;
+    text-align: center;
+}
 /* .nest-list-odd>.claim-button {
     background-color: #2f3136;
 }

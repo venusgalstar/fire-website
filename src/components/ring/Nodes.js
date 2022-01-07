@@ -310,7 +310,7 @@ class Nodes extends React.Component {
                         </div>
                     </div>
                     <div className="pay-button list mobile-hidden" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
-                    <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, index)}> claim </div>
+                    <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, index)}> Claim </div>
                 </div>
             )
         });
@@ -372,16 +372,25 @@ class Nodes extends React.Component {
                                 </> :
                                 <>
                                     <div className='flex justify-center align-center' style={{ width: "100%", height: "100%" }}>
-                                        <div className='c-yellow flex align-center m-l-20 fs-40' style={{ width: "200px" }}>
-                                            <img alt="" src={this.props.master_nft_url} style={{ marginRight: "10px", width: "60px" }} />
-                                            : {this.props.my_nfts.length <= 10 ? this.props.my_nfts.length : 10}
+                                    <div className="card">
+                                            <div className="card-img" style={{ backgroundImage: "url(" + this.props.master_nft_url + ")" }}></div>
+                                            <div className="card-item-title">
+                                                <span className="text-center noto-bold"> MASTER NFT</span>
+                                            </div>
+                                            <div className="card-item-info">
+                                             <span class="nftBtnNum">My NFT : {this.props.my_nfts.length <= 10 ? this.props.my_nfts.length : 10}</span>
+                                            </div>
                                         </div>
-                                        <div className='c-yellow flex align-center m-l-20 fs-40' style={{ width: "200px" }}>
-                                            <img alt="" src={this.props.grand_nft_url} style={{ marginRight: "10px", width: "60px" }} />
-                                            : {this.props.my_nfts.length > 10 ? this.props.my_nfts.length - 10 : 0}
+                                        <div className="card">
+                                            <div className="card-img" style={{ backgroundImage: "url(" + this.props.grand_nft_url + ")" }}></div>
+                                            <div className="card-item-title">
+                                                <span className="text-center noto-bold">GRAND MASTER</span>
+                                            </div>
+                                            <div className="card-item-info">
+                                                 <span class="nftBtnNum">My NFT : {this.props.my_nfts.length > 10 ? this.props.my_nfts.length - 10 : 0}</span>
+                                            </div>
                                         </div>
                                     </div>
-
                                 </>}
                         </div>
                     </div>

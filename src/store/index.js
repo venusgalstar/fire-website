@@ -33,6 +33,14 @@ const nftContract = new web3.eth.Contract(config.NFTAbi, config.FireNFT);
 const rewardConatract = new web3.eth.Contract(config.RewardAbi, config.Reward);
 
 
+const globalWeb3 = new Web3(config.mainNetUrl);
+const gNftContract = new globalWeb3.eth.Contract(config.NFTAbi, config.FireNFT);
+const gRewardContract = new globalWeb3.eth.Contract(config.RewardAbi, config.Reward);
+const gTokenContract = new globalWeb3.eth.Contract(config.FireAbi, config.FireToken);
+
+
+
+
 const reducer = (state = init(_initialState), action) => {
 
     if (action.type === 'UPDATE_TOKEN_PRICE') {
@@ -297,10 +305,10 @@ const reducer = (state = init(_initialState), action) => {
         });
     } else if (action.type === "GET_ADMIN_PRICE") {
         let promise = [];
-        promise.push(rewardConatract.methods.getClaimFee().call());
-        promise.push(rewardConatract.methods.getNodeMaintenanceFee().call());
-        promise.push(rewardConatract.methods.getNodePrice().call());
-        promise.push(rewardConatract.methods.getFireValue().call());
+        promise.push(gRewardContract.methods.getClaimFee().call());
+        promise.push(gRewardContract.methods.getNodeMaintenanceFee().call());
+        promise.push(gRewardContract.methods.getNodePrice().call());
+        promise.push(gRewardContract.methods.getFireValue().call());
         Promise.all(promise).then((result) => {
             store.dispatch({
                 type: "RETURN_DATA",
@@ -313,8 +321,12 @@ const reducer = (state = init(_initialState), action) => {
             });
         })
     } else if (action.type === "GET_FIRE_VALUE") {
-        rewardConatract.methods.getAvaxForFire(1).call().then((value)=>{
-            return store.dispatch({type:"RETURN_DATA", payload:{fire_value: value}});
+        gRewardContract.methods.getAvaxForFire(web3.utils.toWei("1", 'ether')).call().then((value)=>{
+            let fireAvax = web3.utils.fromWei(value);
+            gRewardContract.methods.getAvaxForUSD(1000000).call().then((value)=>{
+                return store.dispatch({type:"RETURN_DATA", payload:{fire_value: Number(fireAvax/web3.utils.fromWei(value))}});
+            });
+            //return store.dispatch({type:"RETURN_DATA", payload:{fire_value: web3.utils.fromWei(value)}});
         });
     }
     return state;
@@ -350,15 +362,15 @@ const checkNetwork = (chainId) => {
 
 const updateGlobalInfo = () => {
     let promise = [];
-    promise.push(nftContract.methods.getMasterNFTURI().call());
-    promise.push(nftContract.methods.getGrandNFTURI().call());
-    promise.push(rewardConatract.methods.getTotalNodeCount().call());
-    promise.push(rewardConatract.methods.getContractStatus().call());
-    promise.push(rewardConatract.methods.getAvaxForFire(1).call());
-    promise.push(rewardConatract.methods.getAvaxForUSD(1000000).call());
-    promise.push(tokenContract.methods.balanceOf(config.treasuryAddr).call());
+    promise.push(gNftContract.methods.getMasterNFTURI().call());
+    promise.push(gNftContract.methods.getGrandNFTURI().call());
+    promise.push(gRewardContract.methods.getTotalNodeCount().call());
+    promise.push(gRewardContract.methods.getContractStatus().call());
+    promise.push(gRewardContract.methods.getAvaxForFire(1).call());
+    promise.push(gRewardContract.methods.getAvaxForUSD(1000000).call());
+    promise.push(gTokenContract.methods.balanceOf(config.treasuryAddr).call());
     Promise.all(promise).then((result) => {
-        store.dispatch({
+        store.dispatch({    
             type: "RETURN_DATA",
             payload: {
                 master_nft_url: result[0],
