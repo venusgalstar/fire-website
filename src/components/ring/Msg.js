@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { toast } from 'react-toastify';
 import TokenChart from "../common/chart";
 import Nodes from "./Nodes";
+import RtChart from '../common/rt_chart';
 
-import RtChart from '../common/rt_chart'
+
 
 
 
@@ -55,28 +56,9 @@ class RingMsg extends React.Component {
         });
     }
 
-
-
     render() {
         return (
             <>
-                {/* <div id="launch_sm_connect_btn" className="flex">
-                    <div>
-                        {
-                            !this.props.account ?
-                                <div className="action-btn outline flex align-center justify-center fs-15" style={{ width: "90px", height: "40px" }} onClick={this.handleConnect}>
-                                    <span><i className="fas fa-wallet"></i>
-
-                                    </span>
-                                </div>
-                                :
-                                <div style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
-                                    <div className="c-green connected-account-text">{this.props.account.slice(0, 8) + "..." + this.props.account.slice(34)}</div>
-                                    <div className="connected-text">WALLET CONNECTED</div>
-                                </div>
-                        }
-                    </div>
-                </div> */}
                 <section id="section-msg">
                     <div className="content mx-auto">
                         <div className="msg-left">
@@ -105,7 +87,7 @@ class RingMsg extends React.Component {
                             <div className="msg-left-content-container">
                                 <div className="msg-content-item" style={{ justifyContent: "center" }}>
                                     <div className="fs-22 c-w">Treasury Balance</div>
-                                    <div className="fs-22 c-yellow noto-bold">${this.props.treasury_balance? String(this.props.treasury_balance).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'): 0}</div>
+                                    <div className="fs-22 c-yellow noto-bold">${this.props.treasury_balance ? String(this.props.treasury_balance).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 0}</div>
                                 </div>
                                 <div className="msg-content-item" style={{ justifyContent: "center" }}>
                                     <div className="fs-22 c-w">Total Investments</div>
@@ -116,12 +98,10 @@ class RingMsg extends React.Component {
                         <div className="msg-right">
                             <div className="token_chart flex justify-center">
                                 <RtChart></RtChart>
-                                {/* <div className="c-w fs-20">{this.props.fire_value}</div> */}
-                                {/* <TokenChart></TokenChart> */}
                             </div>
                             <div className="chart-text">
                                 <p className="c-w">
-                                    Create a Nest with 10 <span className="c-yellow noto-bold"> $FIRE</span> tokens to earn <span className="c-yellow noto-bold">$FIRE</span> rewards. 
+                                    Create a Nest with 10 <span className="c-yellow noto-bold"> $FIRE</span> tokens to earn <span className="c-yellow noto-bold">$FIRE</span> rewards.
                                     <br className="mobile-show"></br>
                                     <br className="mobile-show"></br>
                                     You can use the rewards to create more Phoenix Nests and

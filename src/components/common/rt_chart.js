@@ -1,193 +1,107 @@
-import React from "react";
-import { Line } from "react-chartjs-2";
-import "chartjs-plugin-streaming";
-import moment from "moment";
+import React, { useEffect, useCallback, useState } from "react";
+import ReactDOM from "react-dom";
+import { createChart } from "lightweight-charts";
+import { data } from "./consts.js";
+import { connect, useSelector } from "react-redux";
+import moment from 'moment-business-days';
 
-import { connect } from 'react-redux';
 
-const Chart = require("react-chartjs-2").Chart;
+function App(props) {
+    var fire_Value = useSelector(store => store.fire_value);
+    const [areaSeries, setArea] = useState(null);
+    const [data, setSeriesData] = useState([]);
+    const [updateInterval, setUpdateInterval] = useState(0);
 
-const chartColors = {
-    red: "rgb(255, 99, 132)",
-    orange: "rgb(255, 159, 64)",
-    yellow: "rgb(200, 150, 86)",
-    green: "rgb(75, 192, 192)",
-    blue: "rgb(54, 162, 235)",
-    purple: "rgb(153, 102, 255)",
-    grey: "rgb(201, 203, 207)"
-};
+    useEffect(() => {
+        init();
+    }, []);
 
-const color = Chart.helpers.color;
-const data = {
-    datasets: [
-        {
-            label: "FIRE-USD",
-            backgroundColor: color(chartColors.yellow)
-                .alpha(0.5)
-                .rgbString(),
-            borderColor: chartColors.yellow,
-            fill: false,
-            lineTension: 0,
-            //   borderDash: [8, 4],
-            data: []
+    useEffect(() => {
+        if (fire_Value == 0) {
+            return;
         }
-    ]
-};
-
-const options = {
-    elements: {
-        line: {
-            tension: 0.5
+        setSeriesData((prevData) => {
+            if (prevData.length > 1 ) {
+                return prevData.concat({ time: moment(new Date((new Date()).getTime() + updateInterval * 3600 * 24 * 1000)).format("YYYY-MM-DD"), value: fire_Value });
+            } else {
+                return prevData.concat({ time: moment(new Date()).format("YYYY-MM-DD"), value: fire_Value });
+            }
+        });
+        if (areaSeries != null) {
+            areaSeries.setData(data);
         }
-    },
-    scales: {
-        xAxes: [
-            {
-                type: "realtime",
-                distribution: "linear",
-                realtime: {
-                    // onRefresh: function (chart) {
-                    //     chart.data.datasets[0].data.push({
-                    //         x: moment(),
-                    //         y: Math.random()
-                    //     });
-                    // },
-                    delay: 1000,
-                    time: {
-                        displayFormat: ""
-                    }
+    }, [updateInterval]);
+    
+
+
+    const init = useCallback(() => {
+        var chart = createChart(document.getElementById("chart1"), {
+            width: 500,
+            height: 330,
+            priceScale: {
+                scaleMargins: {
+                    top: 0.3,
+                    bottom: 0.25
                 },
-                ticks: {
-                    displayFormats: 1,
-                    maxRotation: 0,
-                    minRotation: 0,
-                    stepSize: 10,
-                    maxTicksLimit: 10,
-                    minUnit: "second",
-                    source: "auto",
-                    autoSkip: true,
-                    callback: function (value) {
-                        return moment(value, "HH:mm:ss").format("mm:ss");
-                        return "";
-                    }
-                }
-            }
-        ],
-        yAxes: [
-            {
-                ticks: {
-                    beginAtZero: true,
-                    max: 3,
-                    min: 0
-                }
-            }
-        ]
-    }
-};
-
-class MyChart extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: {
-                datasets: [
-                    {
-                        label: "FIRE-USD",
-                        backgroundColor: color(chartColors.yellow)
-                            .alpha(0.5)
-                            .rgbString(),
-                        borderColor: chartColors.yellow,
-                        fill: false,
-                        lineTension: 0,
-                        //   borderDash: [8, 4],
-                        data: []
-                    }
-                ]
+                borderVisible: false
             },
-            options: {
-                elements: {
-                    line: {
-                        tension: 0.5
-                    }
+            layout: {
+                backgroundColor: "#2f3136",
+                textColor: "#d1d4dc"
+            },
+            grid: {
+                vertLines: {
+                    color: "rgba(42, 46, 57, 0)"
                 },
-                scales: {
-                    xAxes: [
-                        {
-                            type: "realtime",
-                            distribution: "linear",
-                            realtime: {
-                                // onRefresh: function (chart) {
-                                //     chart.data.datasets[0].data.push({
-                                //         x: moment(),
-                                //         y: state.temp
-                                //     });
-                                // },
-                                delay: 1000,
-                                time: {
-                                    displayFormat: ""
-                                }
-                            },
-                            ticks: {
-                                displayFormats: 1,
-                                maxRotation: 0,
-                                minRotation: 0,
-                                stepSize: 10,
-                                maxTicksLimit: 10,
-                                minUnit: "second",
-                                source: "auto",
-                                autoSkip: true,
-                                callback: function (value) {
-                                    return moment(value, "HH:mm:ss").format("mm:ss");
-                                }
-                            }
-                        }
-                    ],
-                    yAxes: [
-                        {
-                            ticks: {
-                                beginAtZero: true,
-                                max: 200,
-                                min: 0
-                            }
-                        }
-                    ]
+                horzLines: {
+                    color: "rgba(42, 46, 57, 0.6)"
                 }
-            }
-        };
-    }
+            },
+            timeScale: {
+                visible: false,
+            },
+        });
 
-    componentDidMount() {
-
-        setInterval(() => {
-            this.props.disptch({ type: "GET_FIRE_VALUE" });
-            this.state.data.datasets[0].data.push({
-                x: moment(),
-                y: this.props.fire_value
+        setArea(
+            chart.addAreaSeries({
+                topColor: "rgba(200,150,86, 0.56)",
+                bottomColor: "rgba(200,150,86, 0.04)",
+                lineColor: "rgba(200,150,86, 1)",
+                lineWidth: 2
             })
-        }, 2000);
-    }
-
-    render() {
-
-        return (
-            <Line data={this.state.data}
-                options={this.state.options}
-                height={200}
-            // width={200}
-            />
         );
-    }
+        const getData = function() {
+            props.dispatch({ type: "GET_FIRE_VALUE" });
+            setUpdateInterval((prev) => {
+                return prev + 1;
+            });
+            if(timeIndex > 1) {
+                setTimeout(getData, 6000);
+            } else {
+                setTimeout(getData, 1000);
+            }
+            timeIndex++;
+        }
+        let timeIndex = 0;
+        setTimeout(() => {
+            getData();
+        }, 10);
+    }, []);
+    return (
+        <div className="App">
+            <div id="chart1" />
+        </div>
+    );
 }
+
+
 
 const mapStateToProps = state => {
-    return { fire_value: state.fire_value }
+    return { fire_value: state.fire_value };
 }
 
-const mapDispatchToProps = disptch => {
-    return { disptch };
+const mapDispatchToProps = dispatch => {
+    return dispatch;
 }
 
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(MyChart);
+export default connect(mapDispatchToProps)(App);
