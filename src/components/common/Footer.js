@@ -14,7 +14,7 @@ const Footer = () => {
                             <span className="footer-link fs-30 noto-bold c-w mobile-show">Menu</span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/" >Home</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="mailto:help@thephoenix.finance" >Contact</a></span>
-                            <span className="footer-link fs-20"><a className="c-gray" href="/" >FAQ</a></span>
+                            <span className="footer-link fs-20"><a className="c-gray" href="/#section-faq" >FAQ</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/app" >App</a></span>
                         </div>
                         <div className="footer-privacy">
@@ -32,7 +32,7 @@ const Footer = () => {
                             <a href="https://twitter.com/phoenix_fi" target="_blank"><i class="fab fa-twitter"></i></a>
                             </span>
                             <span>
-                            <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                            <a href="https://discord.com/invite/SxuUsW6F" target="_blank"><i class="fab fa-discord"></i></a>
                             </span>
                         </div>
                     </div>

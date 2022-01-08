@@ -1118,3 +1118,39 @@
         font-size: 16px;
     }
 }
+
+/* =========================== all below 865px ========================= */
+
+@media (max-width: 865px) {
+    #section-msg .fs-22 {
+        font-size: 24px;
+    }
+    .fs-40 {
+        font-size: 29px !important;
+    }
+    .chart-text {
+        padding: 0px 5%;
+    }
+    .token_chart {
+        background-color: transparent;
+    }
+    .msg-right {
+        max-width: 100%;
+    }
+    .tv-lightweight-charts {
+        transform: scale(0.8);
+    }
+    .nest-list-even .pay-button, .mobile-fee-list, .pay-button.list {
+        font-size: 14px;
+    }
+    #section-nests button.btn.action-btn {
+        font-size: 21px;
+    }
+}
+
+/* check if device has hover, if it doesn't disable background-attachmed:fixed, helps solving the iOS bug */
+@media (hover: none) {
+    #section-faq {
+        background-attachment: initial;
+    }
+ }
