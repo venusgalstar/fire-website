@@ -19,7 +19,7 @@ class HomeStart extends React.Component {
           < div id="started-content" className="container mx-auto" >
             <div className="lifetime-title">
               <div className="lifetime-title-main">
-                Start Earning Rewards
+                <h2 className="headTwo">Start Earning Rewards</h2>
               </div>
               <button className="action-btn btn mobile-hidden" onClick={this.goAppPage}>Try it</button>
             </div>
@@ -82,7 +82,7 @@ class HomeStart extends React.Component {
 
         <section id="chip-vision">
           <div className="chips-container">
-            <div id="chips-header">Phoenix Community Capital Member Benefits</div>
+            <div id="chips-header"><h2 className="headTwo">Phoenix Community Capital Member Benefits</h2></div>
             <div className="chips">
               <div className=" chip">
               <i class="fas fa-check"></i>

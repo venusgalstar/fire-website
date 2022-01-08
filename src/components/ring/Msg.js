@@ -66,19 +66,19 @@ class RingMsg extends React.Component {
                                 <div className="msg-content-item mainStats">
                                     <div className="fs-22 c-w">My nests</div>
                                     <div className="fs-22 c-w"><span className="c-yellow noto-bold">{this.props.my_nodes.length}</span> / 100</div>
-                                    <div className="fs-18 c-gray">All nests: {this.props.all_nodes}</div>
+                                    <div className="fs-18 c-gray dashbSmall">All nests: {this.props.all_nodes}</div>
                                 </div>
                                 <div className="msg-content-item mainStats">
                                     <div className="fs-22 c-w">Daily rewards</div>
                                     <div className="fs-22 c-w"><span className="c-yellow noto-bold">0.225</span> FIRE</div>
-                                    <div className="fs-18 c-w">per nest</div>
+                                    <div className="fs-18 c-w dashbSmall">Per nest</div>
                                 </div>
                             </div>
                             <div className="msg-left-content-container">
                                 <div className="msg-content-item mainStats">
                                     <div className="fs-22 c-w">My rewards</div>
                                     <div className="fs-22 c-yellow noto-bold">{Number(this.props.cur_all_reward).toFixed(6)}</div>
-                                    <div className="fs-18 c-gray">FIRE</div>
+                                    <div className="fs-18 c-gray dashbSmall">FIRE</div>
                                 </div>
                                 <div className="msg-content-item mainBuy" style={{ justifyContent: 'center' }}>
                                     <button className="btn action-btn" onClick={() => { window.open("https://traderjoexyz.com/#/trade?outputCurrency=0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5") }}>BUY $FIRE</button>

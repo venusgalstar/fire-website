@@ -10,7 +10,7 @@ const HomeHero = (props) => {
           <div className="hero-left">
             <div className="title">
               <div className="title-main c-w noto-bold">
-                Phoenix <span>Community Capital</span>
+                <h1>Phoenix <span>Community Capital</span></h1>
               </div>
               <div className="title-sub">
                 large-scale, high yield<br className='mobile-hidden'/>

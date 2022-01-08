@@ -37,7 +37,7 @@ class HomeHeader extends React.Component {
                                 <a href='mailto:help@thephoenix.finance'>CONTACT</a>
                             </span>
                             <span className='menu'>
-                                <a>FAQ</a>
+                                <a href="/#section-faq">FAQ</a>
                             </span>
                             <span className='menu'>
                                 <a href="https://twitter.com/phoenix_fi" target="_blank"><i class="fab fa-twitter"></i></a>

@@ -10,7 +10,7 @@ class HomeVision extends React.Component {
                 <section id="section-vision">
                     <div id="vision-content" className="container mx-auto c-w">
                         <div className="title noto-bold">
-                            Phoenix Community Capital Vision
+                            <h2 className="headTwoAu">Phoenix Community Capital Vision</h2>
                         </div>
                         {/* <div className="subtitle" data-nsfw-filter-status="swf">
                             An innovative step forward for passive income generation
@@ -41,8 +41,8 @@ class HomeVision extends React.Component {
                     <div className="content mx-auto">
                         <div className='nft-left'>
                             <div className="card-title noto-bold">
-                                BOOST  <br className='mobile-hidden' /> 
-                                REWARDS
+                                <h2 className="headTwoBl">BOOST  <br className='mobile-hidden' /> 
+                                REWARDS</h2>
                             </div>
                             <div className="flex start-subtitle-container">
                                 <span className="start-subtitle" data-nsfw-filter-status="swf">
@@ -75,6 +75,23 @@ class HomeVision extends React.Component {
                         </div>
                     </div>
                 </section>
+
+                <section id="needToKnow">
+
+                    <div className="content mx-auto">
+                      <h2 className="headTwo">Everything you need <br className='mobile-hidden' />to know how we work</h2>
+                      <p className="needPar">10 FIRE = 1 Phoenix Nest = 0.225 FIRE a day. It's that simple.</p>
+                      <p className="needPar">The Phoenix Finance project is designed around an investment position holder called a Nest.</p>
+                      <p className="needPar">Nests are the tools that allow you to generate FIRE rewards while reinforcing the sustainable growth of the token.</p>
+                      <p className="needPar">This means double rewards for you as the value of your rewards increase with the growth of the value of FIRE.</p>
+                      <div className='needToBtn' style={{width:"330px", height:"50px"}} onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}>
+                                SEE WHITEPAPER
+                        </div>
+                    </div>
+
+                </section>
+
+
             </>
         );
 

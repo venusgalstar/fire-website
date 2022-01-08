@@ -32,7 +32,7 @@ class Home extends Component {
                 <HomeStart></HomeStart>
                 <HomeVision></HomeVision>
                 {/* <HomeWork></HomeWork> */}
-                {/* <Faq></Faq> */}
+                <Faq></Faq>
                 <Footer></Footer>
             </>
         );
