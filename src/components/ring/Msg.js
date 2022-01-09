@@ -87,11 +87,11 @@ class RingMsg extends React.Component {
                             <div className="msg-left-content-container">
                                 <div className="msg-content-item" style={{ justifyContent: "center" }}>
                                     <div className="fs-22 c-w">Treasury Balance</div>
-                                    <div className="fs-22 c-yellow noto-bold">${this.props.treasury_balance ? String(this.props.treasury_balance).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 0}</div>
+                                    <div className="fs-22 c-yellow noto-bold">$131,382</div>
                                 </div>
                                 <div className="msg-content-item" style={{ justifyContent: "center" }}>
                                     <div className="fs-22 c-w">Total Investments</div>
-                                    <div className="fs-22 c-yellow noto-bold">$1,205,430</div>
+                                    <div className="fs-22 c-yellow noto-bold">$84,556</div>
                                 </div>
                             </div>
                         </div>

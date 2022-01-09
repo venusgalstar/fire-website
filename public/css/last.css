@@ -349,6 +349,29 @@ a {
     border-color: #949596;
 }
 
+/* tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    opacity: 1;
+    cursor: pointer;
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    width: 239px;
+    padding: 20px !important;
+    width: 200px !important;
+    margin-left: -100px !important;
+    font-size: 18px;
+}
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
 .tab-content {
     height: 600px;
     background-color: #949596;
@@ -1016,7 +1039,7 @@ span.faqQw {
 footer {
     padding-top: 60px;
     padding-bottom: 25px;
-    background-color: black;
+    background-color:#2f3136;
 }
 footer .c-gray {
     text-transform:uppercase;

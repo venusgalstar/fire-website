@@ -50,7 +50,7 @@ const HomeHero = (props) => {
               Treasury Balance
             </div>
             <div className="c-w fs-30 noto-bold">
-              ${String(props.treasury_balance).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+             $131,382
             </div>
           </span>
           <span className="flex flex-col align-center statistics-item2">
@@ -58,7 +58,7 @@ const HomeHero = (props) => {
               Current Total investment
             </div>
             <div className="c-w fs-30 noto-bold">
-              $7,690,670
+              $84,556
             </div>
           </span>
           <span className="flex flex-col align-center statistics-item3">

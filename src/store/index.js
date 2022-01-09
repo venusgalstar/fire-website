@@ -106,7 +106,7 @@ const reducer = (state = init(_initialState), action) => {
                         });
                 } else if (action.payload.node_id === -1) {
                     rewardConatract.methods.claimAll()
-                        .send({ from: state.account, value: claimFee * action.payload.cnt, gas: 1200000 })
+                        .send({ from: state.account, value: claimFee * action.payload.cnt, gas: 1500000})
                         .then(() => {
                             store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
                         }).catch(() => {
