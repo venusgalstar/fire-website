@@ -153,6 +153,20 @@ class Nodes extends React.Component {
                 cnt = cnt + 1;
             }
         }
+
+        if (cnt == 0) {
+            toast.info("You have no nest to pay.", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: true
+            });
+            return;
+        }
+
         this.setState({ open: true, pay_type: 0, pay_cnt: cnt });
     }
 
@@ -245,18 +259,18 @@ class Nodes extends React.Component {
     };
 
     payNodeFee(id) {
-        // if (!this.props.my_nodes[id].payable) {
-        //     toast.info("You have already purchased.", {
-        //         position: "top-center",
-        //         autoClose: 3000,
-        //         hideProgressBar: true,
-        //         closeOnClick: true,
-        //         pauseOnHover: true,
-        //         draggable: true,
-        //         progress: true
-        //     });
-        //     return;
-        // }
+        if (!this.props.my_nodes[id].payable) {
+            toast.info("You have already purchased.", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: true
+            });
+            return;
+        }
         if (!this.props.can_perform) {
             toast.info("Please wait. Another transaction is running.", {
                 position: "top-center",
