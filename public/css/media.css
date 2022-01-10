@@ -957,7 +957,7 @@
 
     #section-nest>.content {
         width: 100%;
-        height: 836px;
+        height: auto;
         padding-right: 30px;
         padding-left: 30px;
         align-items: unset;
@@ -1147,6 +1147,117 @@
         font-size: 21px;
     }
 }
+
+/* =========================== all below 475px ========================= */
+
+@media (max-width: 475px) {
+    #section-hero .title h1 {
+        font-size: 40px;
+    }
+    .hero-left {
+        width: 100%;
+    }
+    .tab-content .card-item-title {
+        font-size: 5vw;
+    }
+    .tab-content .nftBtnNum {
+        padding: 0 5px;
+        border-radius: 5px;
+        min-width: auto;
+        height: auto;
+        font-size: 5vw;
+    }
+    .header .action-btn {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+    .token_chart .App {
+        width: 100% !important;
+    }
+}
+
+/* =========================== all below 370px ========================= */
+
+@media (max-width: 370px) {
+    .card-action p {
+        font-size: 4.5vw;
+    }
+    #section-hero .title h1 {
+        font-size: 7.5vw;
+    }
+    .hero-left .title-sub {
+        font-size: 6vw;
+    }
+    .title-sub1 {
+        margin-top: 10px;
+    }
+    #section-nft .action-btn.btn.fs-28.m-t-30.mx-auto, .needToBtn {
+        font-size: 20px;
+        text-transform: capitalize;
+        height: auto !important;
+        min-width: auto !important;
+        width: auto !important;
+    }
+    .headTwoAu {
+        font-size: 9vw;
+    }
+    .card-img {
+        width: auto;
+    }
+    .card {
+        width: 100%;
+    }
+    .hero-left {
+        width: 100%;
+    }
+    .card-action {
+        width: 100%;
+    }
+    .badge-title {
+        height: auto;   
+        font-size: 19px !important;
+        line-height: 22px !important;
+    }
+    #chips-header {
+        width: auto;
+    }
+    .nest-left {
+        width: 100%;
+    }
+    .tab-header .fs-40 {
+        font-size: 5vw !important;
+    }
+    .headTwoBl {
+        font-size: 9vw;
+    }
+    .header a#launch_btn {
+        font-size: 16px;
+        padding-right: 8px;
+        padding-left: 7px;
+    }
+    .headTwo {
+        font-size: 7vw;
+    }
+    .mynode-list-content .claim-button.list {
+        width: 80px !important;
+    }
+    .msg-left-content-container {
+        display: block;
+    }
+    .msg-content-item {
+        width: 100%;
+        max-width: none;
+    }
+    .msg-content-item.mainStats {
+        margin-bottom: 20px;
+    }
+    .tv-lightweight-charts {
+        transform: scale(0.6);
+        margin-left: -100px;
+    }
+}
+
+
 
 /* check if device has hover, if it doesn't disable background-attachmed:fixed, helps solving the iOS bug */
 @media (hover: none) {

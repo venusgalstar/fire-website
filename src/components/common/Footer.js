@@ -29,10 +29,10 @@ const Footer = () => {
                         </div>
                         <div className="flex justify-center m-t-50 footerSocial">
                             <span className="m-r-20">
-                            <a href="https://twitter.com/phoenix_fi" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://twitter.com/phoenix_fi" target="_blank"><i className="fab fa-twitter"></i></a>
                             </span>
                             <span>
-                            <a href="https://discord.com/invite/SxuUsW6F" target="_blank"><i class="fab fa-discord"></i></a>
+                            <a href="https://discord.com/invite/SxuUsW6F" target="_blank"><i className="fab fa-discord"></i></a>
                             </span>
                         </div>
                     </div>

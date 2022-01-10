@@ -619,7 +619,18 @@ a {
     color: white;
     border-color: #202225;
 }
-
+.card-img.masterNFT {
+    background: url(/img/nft-master.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.card-img.grandNFT {
+    background: url(/img/nft-grand.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 #needToKnow {
     background-color: #202225;
     height: auto;
