@@ -390,7 +390,7 @@ class Nodes extends React.Component {
                                 <>
                                     <div className='flex justify-center align-center nftsInTab' style={{ width: "100%", height: "100%" }}>
                                     <div className="card">
-                                            <div className="card-img" style={{ backgroundImage: "url(" + this.props.master_nft_url + ")" }}></div>
+                                            <div className="card-img masterNFT"></div>
                                             <div className="card-item-title">
                                                 <span className="text-center noto-bold"> MASTER NFT</span>
                                             </div>
@@ -399,7 +399,7 @@ class Nodes extends React.Component {
                                             </div>
                                         </div>
                                         <div className="card">
-                                            <div className="card-img" style={{ backgroundImage: "url(" + this.props.grand_nft_url + ")" }}></div>
+                                            <div className="card-img grandNFT"></div>
                                             <div className="card-item-title">
                                                 <span className="text-center noto-bold">GRAND NFT</span>
                                             </div>

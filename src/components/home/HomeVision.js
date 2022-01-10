@@ -56,7 +56,7 @@ class HomeVision extends React.Component {
                         <div className='nft-right'>
                             <div className="cards">
                                 <div className="card">
-                                    <div className="card-img" style={{ backgroundImage: "url(" + this.props.master_nft_url + ")" }}></div>
+                                    <div className="card-img masterNFT"></div>
                                     <div className="card-item-title">
                                         <span className="text-center noto-bold"> MASTER NFT</span>
                                     </div>
@@ -64,7 +64,7 @@ class HomeVision extends React.Component {
                                     </div>
                                 </div>
                                 <div className="card">
-                                    <div className="card-img" style={{ backgroundImage: "url(" + this.props.grand_nft_url + ")" }}></div>
+                                    <div className="card-img grandNFT"></div>
                                     <div className="card-item-title">
                                         <span className="text-center noto-bold">GRAND MASTER</span>
                                     </div>
