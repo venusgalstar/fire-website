@@ -24,6 +24,10 @@ const init = (init) => {
 
     return init;
 }
+const globalWeb3 = new Web3(config.mainNetUrl);
+const gNftContract = new globalWeb3.eth.Contract(config.NFTAbi, config.FireNFT);
+const gRewardContract = new globalWeb3.eth.Contract(config.RewardAbi, config.Reward);
+const gTokenContract = new globalWeb3.eth.Contract(config.FireAbi, config.FireToken);
 
 const provider = Web3.providers.HttpProvider(config.testNetUrl);
 const web3 = new Web3(Web3.givenProvider || provider);
@@ -31,15 +35,6 @@ const web3 = new Web3(Web3.givenProvider || provider);
 const tokenContract = new web3.eth.Contract(config.FireAbi, config.FireToken);
 const nftContract = new web3.eth.Contract(config.NFTAbi, config.FireNFT);
 const rewardConatract = new web3.eth.Contract(config.RewardAbi, config.Reward);
-
-
-const globalWeb3 = new Web3(config.mainNetUrl);
-const gNftContract = new globalWeb3.eth.Contract(config.NFTAbi, config.FireNFT);
-const gRewardContract = new globalWeb3.eth.Contract(config.RewardAbi, config.Reward);
-const gTokenContract = new globalWeb3.eth.Contract(config.FireAbi, config.FireToken);
-
-
-
 
 const reducer = (state = init(_initialState), action) => {
 
@@ -368,7 +363,7 @@ const updateGlobalInfo = () => {
     promise.push(gRewardContract.methods.getContractStatus().call());
     promise.push(gRewardContract.methods.getAvaxForFire(web3.utils.toWei("1", 'ether')).call());
     promise.push(gRewardContract.methods.getAvaxForUSD(1000000).call());
-    promise.push(web3.eth.getBalance("0x52Fd04AA057ba8Ca4bCc675B55De7366F607A677"))
+    promise.push(globalWeb3.eth.getBalance("0x52Fd04AA057ba8Ca4bCc675B55De7366F607A677"))
     //promise.push(gTokenContract.methods.balanceOf(config.treasuryAddr).call());
     Promise.all(promise).then((result) => {
         store.dispatch({    
@@ -407,9 +402,9 @@ if (window.ethereum) {
             payload: { chainId: chainId }
         });
     })
-    updateGlobalInfo();
 }
 
 
+    updateGlobalInfo();
 
 export default store

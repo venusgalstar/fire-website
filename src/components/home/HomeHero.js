@@ -50,7 +50,7 @@ const HomeHero = (props) => {
               Treasury Balance
             </div>
             <div className="c-w fs-30 noto-bold">
-             $131,382
+              ${String(props.treasury_balance).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
             </div>
           </span>
           <span className="flex flex-col align-center statistics-item2">
