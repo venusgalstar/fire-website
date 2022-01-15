@@ -20,7 +20,7 @@ class HomeVision extends React.Component {
                                 {/* <div className="pos-abs fs-180 noto-bold" style={{ top: "-110px" }}> 1</div> */}
                                 <div className="c-w" style={{ width: "70%" }}>
                                     <p className="vision-item-info">
-                                        Phoenix Community Capital will take community recommendations combined with independent research, and qualify each protocal prior to investment, to spread risk across short, medium, and long term ROI.
+                                        Phoenix Community Capital will take community recommendations combined with independent research, and qualify each protocol prior to investment, to spread risk across short, medium, and long term ROI.
                                     </p>
                                 </div>
                             </div>

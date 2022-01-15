@@ -14,12 +14,12 @@ const Footer = () => {
                 <div id="links">
                     <a href="/">Main</a> |
                     <a href="/app" data-nsfw-filter-status="swf">Dapp</a> |
-                    <a href="https://blockchainpro9329.gitbook.io/firedocs/" data-nsfw-filter-status="swf">Docs</a>|
-                    <a href="mailto:help@ring.financial" data-nsfw-filter-status="swf">Contact</a>
+                    <a href="#" data-nsfw-filter-status="swf">Docs</a>|
+                    <a href="#" data-nsfw-filter-status="swf">Contact</a>
                 </div>
                 <div id="links">
-                    <a href="https://twitter.com/RingFinancial" data-nsfw-filter-status="swf">Twitter</a> |<a href="https://t.me/ring_financial" data-nsfw-filter-status="swf">Telegram</a>
-                    |<a href="https://discord.gg/ring" data-nsfw-filter-status="swf">Discord</a>
+                    <a href="#" data-nsfw-filter-status="swf">Twitter</a> |<a href="#" data-nsfw-filter-status="swf">Telegram</a>
+                    |<a href="#" data-nsfw-filter-status="swf">Discord</a>
                 </div>
             </div>
         </footer>

@@ -101,7 +101,7 @@ class RingMsg extends React.Component {
                             </div>
                             <div className="chart-text">
                                 <p className="c-w">
-                                    Create a Nest with 10 <span className="c-yellow noto-bold"> $FIRE</span> tokens to earn <span className="c-yellow noto-bold">$FIRE</span> rewards.
+                                    Create a Nest with 10 <span className="c-yellow noto-bold"> $FIRE</span> tokens to earn <span className="c-yellow noto-bold">$FIRE</span> rewards.<br></br>
                                     <br className="mobile-show"></br>
                                     <br className="mobile-show"></br>
                                     You can use the rewards to create more Phoenix Nests and
