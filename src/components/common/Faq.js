@@ -65,8 +65,7 @@ class Faq extends React.Component {
                             <div className="panel" >
                                 <p data-nsfw-filter-status="swf">
                                     Phoenix Finance represent the idea of DeFi as a Service (DaaS), and
-                                    as such, investments are decided by the Phoenix Finance investment advisors. The community will
-                                    kept aware of the investments, and we welcome investment suggestions on our Discord server,
+                                    as such, investments are decided by the Phoenix Finance investment advisors. The community will be kept aware of the investments, and we welcome investment suggestions on our Discord server,
                                     however, investments will be decided ultimately by the Phoenix Finance team for the betterment
                                     of the project and sustainability of the investments.<br /><br />We will display an investment
                                     ledger for the community to see what is invested, when it was invested, and the return on

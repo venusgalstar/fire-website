@@ -14,14 +14,14 @@ const RingFooter = () => {
                     <div id="links">
                         <a href="/">Main</a> |
                         <a href="/disclaimer">Disclaimer</a>|
-                        <a href="https://blockchainpro9329.gitbook.io/firedocs/">Docs</a>|
-                        <a href="mailto:help@ring.financial">Contact</a>
+                        <a href="#">Docs</a>|
+                        <a href="#">Contact</a>
                     </div>
                 </div>
                 <div id="links">
-                    <a href="https://twitter.com/RingFinancial">Twitter</a> |
-                    <a href="https://t.me/ring_financial">Telegram</a> |
-                    <a href="https://discord.gg/ring">Discord</a>
+                    <a href="#">Twitter</a> |
+                    <a href="#">Telegram</a> |
+                    <a href="#">Discord</a>
                 </div>
             </div>
         </footer>

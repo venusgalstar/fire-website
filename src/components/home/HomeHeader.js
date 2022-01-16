@@ -43,7 +43,7 @@ class HomeHeader extends React.Component {
                                 <a href="https://twitter.com/phoenix_fi" target="_blank"><i class="fab fa-twitter"></i></a>
                             </span>
                             <span className='menu'>
-                                <a href="https://discord.com/invite/SxuUsW6F" target="_blank"><i class="fab fa-discord"></i></a>
+                                <a href="https://discord.gg/uUaZgsZXM5" target="_blank"><i class="fab fa-discord"></i></a>
                             </span>
                             <span className='menu flex1'></span>
                            

@@ -32,7 +32,7 @@ const Footer = () => {
                             <a href="https://twitter.com/phoenix_fi" target="_blank"><i className="fab fa-twitter"></i></a>
                             </span>
                             <span>
-                            <a href="https://discord.com/invite/SxuUsW6F" target="_blank"><i className="fab fa-discord"></i></a>
+                            <a href="https://discord.gg/uUaZgsZXM5" target="_blank"><i className="fab fa-discord"></i></a>
                             </span>
                         </div>
                     </div>
