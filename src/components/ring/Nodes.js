@@ -392,7 +392,7 @@ class Nodes extends React.Component {
                                     <div className="card">
                                             <div className="card-img masterNFT"></div>
                                             <div className="card-item-title">
-                                                <span className="text-center noto-bold"> MASTER NFT</span>
+                                                <span className="text-center noto-bold">MASTER</span>
                                             </div>
                                             <div className="card-item-info">
                                              <span className="nftBtnNum">My NFT : {this.props.my_nfts.length <= 10 ? this.props.my_nfts.length : 10}</span>
@@ -401,7 +401,7 @@ class Nodes extends React.Component {
                                         <div className="card">
                                             <div className="card-img grandNFT"></div>
                                             <div className="card-item-title">
-                                                <span className="text-center noto-bold">GRAND NFT</span>
+                                                <span className="text-center noto-bold">GRAND MASTER</span>
                                             </div>
                                             <div className="card-item-info">
                                                  <span className="nftBtnNum">My NFT : {this.props.my_nfts.length > 10 ? this.props.my_nfts.length - 10 : 0}</span>
