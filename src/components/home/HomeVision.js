@@ -60,7 +60,7 @@ class HomeVision extends React.Component {
                                     <div className="card-item-title">
                                         <span className="text-center noto-bold">MASTER</span>
                                     </div>
-                                    <div className="card-item-info">The Master NFT is available once you build at least 10 Nests. The Master NFT will be applied to 10 Nests and boosts rewards by 0.025 for each day. Each wallet will be limited to a total of 10 Master NFT’s.
+                                    <div className="card-item-info">The Master NFT is available once you build at least 10 Nests. The Master NFT will be applied to 10 Nests and boosts rewards by 0.025 for each day. The cost of a Master NFT is ten AVAX. Each wallet will be limited to a total of 10 Master NFT’s.
                                     </div>
                                 </div>
                                 <div className="card">
@@ -68,7 +68,7 @@ class HomeVision extends React.Component {
                                     <div className="card-item-title">
                                         <span className="text-center noto-bold">GRAND MASTER</span>
                                     </div>
-                                    <div className="card-item-info">The Grand Master NFT is available once you build all 100 NESTS. The Grand Master NFT boosts rewards by 0.05 for each Nest per day. Each wallet will be limited to a total of one Grand Master NFT.
+                                    <div className="card-item-info">The Grand Master NFT is available once you build all 100 NESTS. The Grand Master NFT boosts rewards by 0.05 for each Nest per day. The cost of a Grand Master NFT is one hundred AVAX. Each wallet will be limited to a total of one Grand Master NFT.
                                     </div>
                                 </div>
                             </div>
