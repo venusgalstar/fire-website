@@ -19,7 +19,7 @@ class Faq extends React.Component {
             <section id="section-faq">
                 <div className="content mx-auto">
                     <div className="faq-title">
-                        <h2 class="headTwoBl">Frequently Asked Questions</h2>
+                        <h2 className="headTwoBl">Frequently Asked Questions</h2>
                     </div>
                     <div id="faq-content" className="mx-auto">
 

@@ -363,12 +363,19 @@ const updateGlobalInfo = () => {
     promise.push(gRewardContract.methods.getContractStatus().call());
     promise.push(gRewardContract.methods.getAvaxForFire(web3.utils.toWei("1", 'ether')).call());
     promise.push(gRewardContract.methods.getAvaxForUSD(1000000).call());
-    promise.push(globalWeb3.eth.getBalance("0x52Fd04AA057ba8Ca4bCc675B55De7366F607A677"))
+    promise.push(globalWeb3.eth.getBalance("0x52Fd04AA057ba8Ca4bCc675B55De7366F607A677"));
+    promise.push(gRewardContract.methods.getFireValue().call());
+
+    
+    
     //promise.push(gTokenContract.methods.balanceOf(config.treasuryAddr).call());
     Promise.all(promise).then((result) => {
+        console.log("ttt", result[6]);
         store.dispatch({    
             type: "RETURN_DATA",
             payload: {
+                master_nft_value: web3.utils.fromWei(result[7], 'ether') * 10,
+                grand_nft_value: web3.utils.fromWei(result[7], 'ether') * 100,
                 master_nft_url: result[0],
                 grand_nft_url: result[1],
                 all_nodes: result[2],

@@ -40,10 +40,10 @@ class HomeHeader extends React.Component {
                                 <a href="/#section-faq">FAQ</a>
                             </span>
                             <span className='menu'>
-                                <a href="https://twitter.com/phoenix_fi" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="https://twitter.com/phoenix_fi" target="_blank"><i className="fab fa-twitter"></i></a>
                             </span>
                             <span className='menu'>
-                                <a href="https://discord.gg/uUaZgsZXM5" target="_blank"><i class="fab fa-discord"></i></a>
+                                <a href="https://discord.gg/uUaZgsZXM5" target="_blank"><i className="fab fa-discord"></i></a>
                             </span>
                             <span className='menu flex1'></span>
                            

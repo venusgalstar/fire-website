@@ -31,7 +31,7 @@ class HomeStart extends React.Component {
                   buy fire
                 </div>
                 <p data-nsfw-filter-status="swf" className="c-purple">
-                  $FIRE is available on the <span class="phxColor">Avalanche Network</span>.  You can swap AVAX for $FIRE on Trader&nbsp;Joe.
+                  $FIRE is available on the <span className="phxColor">Avalanche Network</span>.  You can swap AVAX for $FIRE on Trader&nbsp;Joe.
                 </p>
               </div>
               <div className="card-action shadow">
@@ -40,7 +40,7 @@ class HomeStart extends React.Component {
                   build nest
                 </div>
                 <p data-nsfw-filter-status="swf" className="c-purple">
-                  A Phoenix-Nest costs only <span class="phxColor">10&nbsp;$FIRE</span> plus a minimal $20 maintenance fee every 90&nbsp;days.
+                  A Phoenix-Nest costs only <span className="phxColor">10&nbsp;$FIRE</span> plus a minimal $20 maintenance fee every 90&nbsp;days.
                 </p>
               </div>
               <div className="card-action shadow">
@@ -85,19 +85,19 @@ class HomeStart extends React.Component {
             <div id="chips-header"><h2 className="headTwo">Phoenix Community Capital Member Benefits</h2></div>
             <div className="chips">
               <div className=" chip">
-              <i class="fas fa-check"></i>
+              <i className="fas fa-check"></i>
                 Lowered Risk
               </div>
               <div className=" chip">
-              <i class="fas fa-check"></i>
+              <i className="fas fa-check"></i>
                 Less Fees
               </div>
               <div className=" chip">
-              <i class="fas fa-check"></i>
+              <i className="fas fa-check"></i>
                 Less Hassle
               </div>
               <div className=" chip">
-              <i class="fas fa-check"></i>
+              <i className="fas fa-check"></i>
                 Less Research
               </div>
             </div>
