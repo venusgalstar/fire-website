@@ -308,12 +308,12 @@ class Nodes extends React.Component {
 
     render() {
         const List = this.state.my_nodes.map((item, index) => {
-            // const List = ["123", "222", "543", "23", "2342", '234', '2342', '2333', '1231', '1231'].map((item, index) => {
+            // const List = [{createTime:123123123, reward:1231, remains:1231}].map((item, index) => {
             return (
                 <div key={index} className={index % 2 == 0 ? 'item-font nest-list-even' : 'item-font nest-list-odd'}>
 
                     <div className='text-center' style={{ flex: "1" }}>NEST {index + 1}</div>
-                    <div className='text-center mobile-hidden' style={{ flex: "3" }}>{moment(item.createTime * 1000).format("MMM DD YYYY")}</div>
+                    <div className='text-center justify-center flex mobile-hidden' style={{ flex: "3" }}>{moment(item.createTime * 1000).format("MMM DD YYYY")}</div>
                     <div className='text-center' style={{ flex: "2" }}>{item.reward}</div>
                     <div className='text-center mobile-fee-item' style={{ flex: "2" }}>
                         <div className='mobile-fee-list'>
@@ -359,16 +359,7 @@ class Nodes extends React.Component {
                                 <>
                                     <div className='h-60  node-title-header mobile-flex' style={{ display: "flex !important", width: "100%" }}>
                                         <div className="pay-button" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div>
-                                        <div className="claim-button claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> 
-                                        Claim all
-                                                <span className='pos-abs fs-14 flex align-center justify-center tooltip claimAlli'
-                                                    style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
-                                                    i
-                                                    <span className='tooltiptext'>
-                                                        Maximum of 1 claim up to 100 Fire every 24 hours.
-                                                    </span>
-                                                </span>
-                                        </div>
+                                        <div className="claim-button" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> Claim all</div>
                                     </div>
                                     <div className='h-60 flex align-center node-title-header' style={{ width: "100%" }}>
                                         <div className='padder-10 noto-bold' style={{ flex: "1" }}>Name</div>
@@ -387,15 +378,7 @@ class Nodes extends React.Component {
                                             </span>
                                         </div>
                                         <div className="pay-button mobile-hidden" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div>
-                                        <div className="claim-button mobile-visible-false claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> Claim all 
-                                                <span className='pos-abs fs-14 align-center justify-center tooltip claimAlli mobile-hidden'
-                                                    style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
-                                                    i
-                                                    <span className='tooltiptext'>
-                                                        Maximum of 1 claim up to 100 Fire every 24 hours.
-                                                    </span>
-                                                </span>
-                                        </div>
+                                        <div className="claim-button mobile-visible-false" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> Claim all</div>
                                     </div>
                                     <div className='mynode-list-content'>
                                         <CustomScrollbars>
@@ -409,7 +392,7 @@ class Nodes extends React.Component {
                                     <div className="card">
                                             <div className="card-img masterNFT"></div>
                                             <div className="card-item-title">
-                                                <span className="text-center noto-bold">MASTER</span>
+                                                <span className="text-center noto-bold"> MASTER NFT</span>
                                             </div>
                                             <div className="card-item-info">
                                              <span className="nftBtnNum">My NFT : {this.props.my_nfts.length <= 10 ? this.props.my_nfts.length : 10}</span>
@@ -418,7 +401,7 @@ class Nodes extends React.Component {
                                         <div className="card">
                                             <div className="card-img grandNFT"></div>
                                             <div className="card-item-title">
-                                                <span className="text-center noto-bold">GRAND MASTER</span>
+                                                <span className="text-center noto-bold">GRAND NFT</span>
                                             </div>
                                             <div className="card-item-info">
                                                  <span className="nftBtnNum">My NFT : {this.props.my_nfts.length > 10 ? this.props.my_nfts.length - 10 : 0}</span>

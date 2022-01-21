@@ -84,7 +84,7 @@ class Create extends React.Component {
                 <div className="create_title">
                     Create a Nest with 10 FIRE Tokens
                 </div>
-                <p id="create-nest">Create a Phoenix Nest with <strong>10</strong>
+                <p id="create-ring">Create a Phoenix Nest with <strong>10</strong>
                     <span className="sc-gsTEea cdmEaM">$FIRE</span> tokens to earn <span className="sc-gsTEea cdmEaM">$FIRE</span>
                     token rewards.<br />Current estimated rewards:<strong> 0.225</strong> <span
                         className="sc-gsTEea cdmEaM">$FIRE</span>/day.
@@ -137,7 +137,6 @@ class Create extends React.Component {
                             </div>
                             <div style={{ marginTop: "25px", fontSize: "12px" }}>*the rate is calculated with the actual $RING price and it may vary
                                 depending on various factors.</div>
-                        
                             <div style={{ marginTop: "40px" }}>
                                 <p>A contribution of $RING tokens to the <span className="sc-gsTEea cdmEaM">RING</span> community is required to
                                     create a nest and participate in rewards. </p>

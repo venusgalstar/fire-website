@@ -18,24 +18,27 @@ class Content extends React.Component {
             maintenance_fee: 0,
             fire_price: 0,
             nest_price: 0,
-            ownUpdate: false
+            ownUpdate: false,
+
+            // bond
+            bond_price: this.props.bond_price,
+            bond_interval: this.props.bond_interval,
+            bond_term: this.props.bond_term,
+            bond_status: this.props.bond_status,
+            bond_coin_address: "",
+            redeem_amount: 0,
         }
 
         this.onSelectFile = this.onSelectFile.bind(this);
         this.setContractStatus = this.setContractStatus.bind(this);
         this.changeOwnerShip = this.changeOwnerShip.bind(this);
         this.onChangeValue = this.onChangeValue.bind(this);
+        this.setBondValue = this.setBondValue.bind(this);
 
         this.props.dispatch({ type: "GET_ADMIN_PRICE" });
-        // this.handleConnect = this.handleConnect.bind(this);
+        this.props.dispatch({ type: "GET_ADMIN_BOND_INFO" });
     }
 
-    // async handleConnect() {
-    //     await window.ethereum.enable();
-    //     this.props.dispatch({
-    //         type: "CONNECT_WALLET"
-    //     });
-    // }
 
     static getDerivedStateFromProps(props, state) {
         var ret = {
@@ -47,6 +50,12 @@ class Content extends React.Component {
             ret.claim_fee = props.claim_fee;
             ret.maintenance_fee = props.maintenance_fee;
             ret.nest_price = props.nest_price;
+
+            ret.bond_price = props.bond_price;
+            ret.bond_interval = props.bond_interval;
+            ret.bond_term = props.bond_term;
+            ret.bond_status = props.bond_status;
+            ret.redeem_amount = props.redeem_amount;
         } else {
             ret.ownUpdate = false;
         }
@@ -90,14 +99,17 @@ class Content extends React.Component {
             payload: { param: param }
         });
     }
-
+    setBondContractStatus(param) {
+        this.props.dispatch({
+            type: "SET_BOND_CONTRACT_STATUS",
+            payload: { param: param }
+        });
+    }
     changeOwnerShip() {
         this.props.dispatch({
             type: "CHANGE_REWARD_OWNER"
         })
     }
-
-
     onChangeValue(event, type) {
         var value = event.target.value;
         if (type === "claim_fee") {
@@ -108,6 +120,16 @@ class Content extends React.Component {
             this.setState({ nest_price: value, ownUpdate: true });
         } else if (type === "fire_price") {
             this.setState({ fire_price: value, ownUpdate: true });
+        }
+
+        if (type === "bond_price") {
+            this.setState({ bond_price: value, ownUpdate: true });
+        } else if (type === "bond_interval") {
+            this.setState({ bond_interval: value, ownUpdate: true });
+        } else if (type === "bond_term") {
+            this.setState({ bond_term: value, ownUpdate: true });
+        } else if (type === "bond_coin_address") {
+            this.setState({ bond_coin_address: value, ownUpdate: true });
         }
     }
 
@@ -124,27 +146,26 @@ class Content extends React.Component {
         }
     }
 
+    setBondValue(type) {
+
+        if (type === "bond_price") {
+            this.props.dispatch({ type: "SET_BOND_INFO", payload: { type: type, value: this.state.bond_price } });
+        } else if (type == "bond_interval") {
+            this.props.dispatch({ type: "SET_BOND_INFO", payload: { type: type, value: this.state.bond_interval } });
+        } else if (type == "bond_term") {
+            this.props.dispatch({ type: "SET_BOND_INFO", payload: { type: type, value: this.state.bond_term } });
+        } else if (type === "bond_coin_address") {
+            this.props.dispatch({ type: "SET_BOND_INFO", payload: { type: type, value: this.state.bond_coin_address } });
+        }
+    }
+
+
+
+
     render() {
         return (
             <>
-                {/* <div id="launch_sm_connect_btn" className="flex">
-                    <div>
-                        {
-                            !this.props.account ?
-                                <div className="action-btn outline flex align-center justify-center fs-15" style={{ width: "90px", height: "40px" }} onClick={this.handleConnect}>
-                                    <span><i className="fas fa-wallet"></i>
-
-                                    </span>
-                                </div>
-                                :
-                                <div style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
-                                    <div className="c-green connected-account-text">{this.props.account.slice(0, 8) + "..." + this.props.account.slice(34)}</div>
-                                    <div className="connected-text">WALLET CONNECTED</div>
-                                </div>
-                        }
-                    </div>
-                </div> */}
-                <section id="section-started" className="admin c-w flex flex-col align-center" style={{height:"1000px", padding:"30px"}}>
+                <section id="section-started" className="admin c-w flex flex-col align-center" style={{ height: "1000px", padding: "30px" }}>
                     <h2>Setting FIRE NFT ART</h2>
                     <span className="subtitle" data-nsfw-filter-status="swf"> Only owners can change and update NFT arts.</span>
 
@@ -167,46 +188,94 @@ class Content extends React.Component {
                         </div>
                     </div>
 
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                        {
-                            this.props.contract_status == 0 ?
-                                <button className="btn action-btn" onClick={this.setContractStatus.bind(this, 1)}>Stop Service</button> :
-                                <button className="btn action-btn outline" onClick={this.setContractStatus.bind(this, 0)}>Start Service</button>
-                        }
-                    </div>
-                    <div className="m-t-40">
-                        <div className="admin-input-item">
-                            <label className="admin-input-label">Claim Fee (AVAX): </label>
-                            <div className="flex align-center">
-                                <input type="number" className="form-contral admin-input-content" min={0} value={this.state.claim_fee}
-                                    onChange={(event) => { this.onChangeValue(event, "claim_fee") }} />
-                                <button className="btn action-btn outline admin-setting-btn" onClick={() => { this.setValue("claim_fee") }}>SET</button>
+
+                    <div className="setting-panel m-t-40">
+
+
+                        <div>
+                            <div style={{ display: "flex", justifyContent: "center" }}>
+                                {
+                                    this.props.contract_status == 0 ?
+                                        <button className="btn action-btn" onClick={this.setContractStatus.bind(this, 1)}>Stop Service</button> :
+                                        <button className="btn action-btn outline" onClick={this.setContractStatus.bind(this, 0)}>Start Service</button>
+                                }
+                            </div>
+                            <div className="admin-input-item m-t-40">
+                                <label className="admin-input-label">Claim Fee (AVAX): </label>
+                                <div className="flex align-center">
+                                    <input type="number" className="form-contral admin-input-content" min={0} value={this.state.claim_fee}
+                                        onChange={(event) => { this.onChangeValue(event, "claim_fee") }} />
+                                    <button className="btn action-btn outline admin-setting-btn" onClick={() => { this.setValue("claim_fee") }}>SET</button>
+                                </div>
+                            </div>
+                            <div className="admin-input-item">
+                                <label className="admin-input-label">Maintenance Fee (AVAX): </label>
+                                <div className="flex align-center">
+                                    <input type="number" className="form-contral admin-input-content" min={0} value={this.state.maintenance_fee}
+                                        onChange={(event) => { this.onChangeValue(event, "maintenance_fee") }} />
+                                    <button className="btn action-btn outline admin-setting-btn" onClick={() => { this.setValue("maintenance_fee") }}>SET</button>
+                                </div>
+                            </div>
+                            <div className="admin-input-item">
+                                <label className="admin-input-label">FIRE Price (AVAX): </label>
+                                <div className="flex align-center">
+                                    <input type="number" className="form-contral admin-input-content" min={0} value={this.state.fire_price}
+                                        onChange={(event) => { this.onChangeValue(event, "fire_price") }}
+                                    />
+                                    <button className="btn action-btn outline admin-setting-btn" onClick={() => { this.setValue("fire_price") }}>SET</button>
+                                </div>
+                            </div>
+                            <div className="admin-input-item">
+                                <label className="admin-input-label">FIRE PER NESTS: </label>
+                                <div className="flex align-center">
+                                    <input type="number" className="form-contral admin-input-content" min={0} value={this.state.nest_price}
+                                        onChange={(event) => { this.onChangeValue(event, "nest_price") }}
+                                    />
+                                    <button className="btn action-btn outline admin-setting-btn" onClick={() => { this.setValue("nest_price") }}>SET</button>
+                                </div>
                             </div>
                         </div>
-                        <div className="admin-input-item">
-                            <label className="admin-input-label">Maintenance Fee (AVAX): </label>
-                            <div className="flex align-center">
-                                <input type="number" className="form-contral admin-input-content" min={0} value={this.state.maintenance_fee}
-                                    onChange={(event) => { this.onChangeValue(event, "maintenance_fee") }} />
-                                <button className="btn action-btn outline admin-setting-btn" onClick={() => { this.setValue("maintenance_fee") }}>SET</button>
+                        <div className="m-l-30">
+                            <div style={{ display: "flex", justifyContent: "center" }}>
+                                {
+                                    this.props.bond_status == 0 ?
+                                        <button className="btn action-btn" onClick={this.setBondContractStatus.bind(this, 1)}>Stop Bond</button> :
+                                        <button className="btn action-btn outline" onClick={this.setBondContractStatus.bind(this, 0)}>Start Bond</button>
+                                }
                             </div>
-                        </div>
-                        <div className="admin-input-item">
-                            <label className="admin-input-label">FIRE Price (AVAX): </label>
-                            <div className="flex align-center">
-                                <input type="number" className="form-contral admin-input-content" min={0} value={this.state.fire_price}
-                                    onChange={(event) => { this.onChangeValue(event, "fire_price") }}
-                                />
-                                <button className="btn action-btn outline admin-setting-btn" onClick={() => { this.setValue("fire_price") }}>SET</button>
+                            <div className="admin-input-item m-t-40">
+                                <label className="admin-input-label">Bond Price $(Stable coin): </label>
+                                <div className="flex align-center">
+                                    <input type="number" className="form-contral admin-input-content" min={0} value={this.state.bond_price}
+                                        onChange={(event) => { this.onChangeValue(event, "bond_price") }} />
+                                    <button className="btn action-btn outline admin-setting-btn" onClick={() => { this.setBondValue("bond_price") }}>SET</button>
+                                </div>
                             </div>
-                        </div>
-                        <div className="admin-input-item">
-                            <label className="admin-input-label">FIRE PER NESTS: </label>
-                            <div className="flex align-center">
-                                <input type="number" className="form-contral admin-input-content" min={0} value={this.state.nest_price}
-                                    onChange={(event) => { this.onChangeValue(event, "nest_price") }}
-                                />
-                                <button className="btn action-btn outline admin-setting-btn" onClick={() => { this.setValue("nest_price") }}>SET</button>
+                            <div className="admin-input-item">
+                                <label className="admin-input-label">Bond Term(days): </label>
+                                <div className="flex align-center">
+                                    <input type="number" className="form-contral admin-input-content" min={0} value={this.state.bond_term}
+                                        onChange={(event) => { this.onChangeValue(event, "bond_term") }} />
+                                    <button className="btn action-btn outline admin-setting-btn" onClick={() => { this.setBondValue("bond_term") }}>SET</button>
+                                </div>
+                            </div>
+                            <div className="admin-input-item">
+                                <label className="admin-input-label">Redeem Interval(hours): </label>
+                                <div className="flex align-center">
+                                    <input type="number" className="form-contral admin-input-content" min={0} value={this.state.bond_interval}
+                                        onChange={(event) => { this.onChangeValue(event, "bond_interval") }}
+                                    />
+                                    <button className="btn action-btn outline admin-setting-btn" onClick={() => { this.setBondValue("bond_interval") }}>SET</button>
+                                </div>
+                            </div>
+                            <div className="admin-input-item">
+                                <label className="admin-input-label">Add Stable Coin(address): </label>
+                                <div className="flex align-center">
+                                    <input type="text" className="form-contral admin-input-content" min={0} value={this.state.bond_coin_address}
+                                        onChange={(event) => { this.onChangeValue(event, "bond_coin_address") }}
+                                    />
+                                    <button className="btn action-btn outline admin-setting-btn" onClick={() => { this.setBondValue("bond_coin_address") }}>SET</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -225,7 +294,14 @@ const mapStateToProps = state => {
         maintenance_fee: state.maintenance_fee,
         claim_fee: state.claim_fee,
         nest_price: state.nest_price,
-        contract_status: state.contract_status
+        contract_status: state.contract_status,
+
+
+        bond_price: state.bond_price,
+        bond_interval: state.bond_interval,
+        bond_term: state.bond_term,
+        bond_status: state.bond_status,
+        redeem_amount: state.redeem_amount,
     };
 }
 

@@ -3,6 +3,7 @@ import Ring from './pages/Ring';
 import Disclaimer from "./pages/Disclaimer";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Admin from "./pages/Admin";
+import Bond from "./pages/Bond";
 
 
 
@@ -25,6 +26,8 @@ function App() {
         <Route path="/admin" element={<Admin />}>
         </Route>
         <Route path="/disclaimer" element={<Disclaimer />}>
+        </Route>
+        <Route path="/bond" element={<Bond/>}>
         </Route>
       </Routes>
     </Router>

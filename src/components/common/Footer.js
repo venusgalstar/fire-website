@@ -3,7 +3,7 @@ const Footer = () => {
     return (
         <footer>
             <div className="container mx-auto">
-                <div class="contractHolder">Contract: <a href="https://snowtrace.io/address/0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5" target="_blank">0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5</a></div>
+                <div className="contractHolder">Contract: <a href="https://snowtrace.io/address/0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5" target="_blank">0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5</a></div>
                 <div className="footer-main">
                     <div className="flex align-center">
                         <img className="img-spin logo-img" src="/img/logo.png" alt="" />

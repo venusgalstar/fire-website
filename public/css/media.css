@@ -814,7 +814,10 @@
         padding-bottom: 25px;
     }
 
-
+    .setting-panel {
+        display: flex;
+        flex-direction: column;
+    }
 
 
     footer>.container {
@@ -1036,6 +1039,31 @@
         padding: 50px 20px;
     }
 
+    #section-bond {
+        height: fit-content;
+        background-image: url(/img/bg1.jpg);
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 2000px 1087px;
+    }
+
+
+    #section-bond>.content {
+        /* height: 810px; */
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 50px 20px;
+    }
+
+
+    .bond_panel {
+        width: 100%;
+        /* background-color: #2f3136 !important; */
+    }
+
     .msg-left {
         width: 100%;
     }
@@ -1047,6 +1075,7 @@
     
     .msg-right {
         margin-top: 35px;
+        margin-left: 0px;
     }
 
     .token_chart {
@@ -1125,6 +1154,11 @@
     #section-msg .fs-22 {
         font-size: 24px;
     }
+ 
+    #section-bond .fs-22 {
+        font-size: 24px;
+    }
+
     .fs-40 {
         font-size: 29px !important;
     }
