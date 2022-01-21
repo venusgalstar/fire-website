@@ -365,7 +365,7 @@ class Nodes extends React.Component {
                                                     style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
                                                     i
                                                     <span className='tooltiptext'>
-                                                        Each claim can occur only once every 24 hours.
+                                                        Maximum of 1 claim up to 100 Fire every 24 hours.
                                                     </span>
                                                 </span>
                                         </div>
@@ -392,7 +392,7 @@ class Nodes extends React.Component {
                                                     style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
                                                     i
                                                     <span className='tooltiptext'>
-                                                        Each claim can occur only once every 24 hours.
+                                                        Maximum of 1 claim up to 100 Fire every 24 hours.
                                                     </span>
                                                 </span>
                                         </div>
