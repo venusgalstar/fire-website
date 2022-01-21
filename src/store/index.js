@@ -2,11 +2,6 @@ import { createStore } from 'redux'
 import Web3 from 'web3';
 import config from '../contract/config';
 import { toast } from 'react-toastify';
-import { formatMuiErrorMessage } from '@mui/utils';
-
-
-
-
 
 
 const _initialState = {
@@ -41,12 +36,6 @@ const tokenContract = new web3.eth.Contract(config.FireAbi, config.FireToken);
 const nftContract = new web3.eth.Contract(config.NFTAbi, config.FireNFT);
 const rewardConatract = new web3.eth.Contract(config.RewardAbi, config.Reward);
 
-const bondContract = new web3.eth.Contract(config.bondAbi, config.bondContract);
-const gBondContract = new globalWeb3.eth.Contract(config.bondAbi, config.bondContract);
-
-
-
-
 const reducer = (state = init(_initialState), action) => {
 
     if (action.type === 'UPDATE_TOKEN_PRICE') {
@@ -75,16 +64,6 @@ const reducer = (state = init(_initialState), action) => {
         rewardConatract.methods.setContractStatus(action.payload.param)
             .send({ from: state.account })
             .then(() => { updateGlobalInfo() })
-            .catch(() => console.log);
-
-    } else if (action.type === "SET_BOND_CONTRACT_STATUS") {
-        if (!state.account) {
-            connectAlert();
-            return state;
-        }
-        bondContract.methods.setContractStatus(action.payload.param)
-            .send({ from: state.account })
-            .then(() => { updateBondInfo() })
             .catch(() => console.log);
 
     } else if (action.type === "SET_NFT_URL") {
@@ -253,6 +232,7 @@ const reducer = (state = init(_initialState), action) => {
             return Object.assign({}, state, { can_perform: true });
         }
 
+        console.log("pay fee all", action.payload.count);
         rewardConatract.methods.getNodeMaintenanceFee().call()
             .then((threeFee) => {
                 rewardConatract.methods.payAllNodeFee(action.payload.duration - 1)
@@ -296,10 +276,10 @@ const reducer = (state = init(_initialState), action) => {
                 })
         }
         let promise = [];
-        promise.push(gRewardContract.methods.getClaimFee().call());
-        promise.push(gRewardContract.methods.getNodeMaintenanceFee().call());
-        promise.push(gRewardContract.methods.getNodePrice().call());
-        promise.push(gRewardContract.methods.getFireValue().call());
+        promise.push(rewardConatract.methods.getClaimFee().call());
+        promise.push(rewardConatract.methods.getNodeMaintenanceFee().call());
+        promise.push(rewardConatract.methods.getNodePrice().call());
+        promise.push(rewardConatract.methods.getFireValue().call());
         Promise.all(promise).then((result) => {
             store.dispatch({
                 type: "RETURN_DATA",
@@ -311,6 +291,7 @@ const reducer = (state = init(_initialState), action) => {
                 }
             });
         })
+        // store.dispatch({type:"GET_ADMIN_PRICE"});
     } else if (action.type === "RETURN_DATA") {
         return Object.assign({}, state, action.payload);
     } else if (action.type === "UPDATE_CAN_PERFORM_STATUS") {
@@ -335,107 +316,13 @@ const reducer = (state = init(_initialState), action) => {
             });
         })
     } else if (action.type === "GET_FIRE_VALUE") {
-        gRewardContract.methods.getAvaxForFire(web3.utils.toWei("1", 'ether')).call().then((value) => {
+        gRewardContract.methods.getAvaxForFire(web3.utils.toWei("1", 'ether')).call().then((value)=>{
             let fireAvax = web3.utils.fromWei(value);
-            gRewardContract.methods.getAvaxForUSD(1000000).call().then((value) => {
-                return store.dispatch({ type: "RETURN_DATA", payload: { fire_value: Number(fireAvax / web3.utils.fromWei(value)) } });
+            gRewardContract.methods.getAvaxForUSD(1000000).call().then((value)=>{
+                return store.dispatch({type:"RETURN_DATA", payload:{fire_value: Number(fireAvax/web3.utils.fromWei(value))}});
             });
+            //return store.dispatch({type:"RETURN_DATA", payload:{fire_value: web3.utils.fromWei(value)}});
         });
-    } else if (action.type === "BOND_FIRE") {
-
-        if (!state.account) {
-            connectAlert();
-            return Object.assign({}, state, { can_perform: true });
-        }
-        // store.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: false } });
-        let item = action.payload.coin;
-        const token = new web3.eth.Contract(config.FireAbi, item.address);
-
-        bondContract.methods.getFirePrice(item.id).call().then((price) => {
-            let price_bn = (new web3.utils.BN(price[1])) * item.amount;
-
-            token.methods.balanceOf(state.account).call().then((balance) => {
-                console.log("balance", balance);
-                var userBalance = new web3.utils.BN(balance);
-                if (userBalance > price_bn) {
-                    token.methods.approve(config.bondContract, price_bn.toString())
-                        .send({ from: state.account })
-                        .then((ret) => {
-                            bondContract.methods.bond(price_bn.toString(), item.id).send({ from: state.account }).then((ret) => {
-                                store.dispatch({ type: "GET_BOND_USER_INFO" });
-                            }).catch((e) => {
-                                console.log('error', e);
-                                ErrorMsg(e);
-                                updateBondInfo();
-                                return Object.assign({}, state, { can_perform: true });
-                            });
-                        }).catch((e) => {
-                            console.log('error', e);
-                            ErrorMsg(e);
-                            updateBondInfo();
-                            return Object.assign({}, state, { can_perform: true });
-                        });
-                } else {
-                    AlertMsg("You have no enough money to bond.");
-                }
-            }).catch(() => {
-                AlertMsg("You have no enough money to bond.");
-            });
-        })
-    } else if (action.type === "REDEEM_FIRE") {
-        if (!state.account) {
-            connectAlert();
-            return Object.assign({}, state, { can_perform: true });
-        }
-        // store.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: false } });
-        bondContract.methods.redeem().send({ from: state.account }).then(() => {
-            return Object.assign({}, state, { can_perform: true });
-        }).catch((e) => {
-            ErrorMsg(e);
-            return Object.assign({}, state, { can_perform: true });
-        });
-
-    } else if (action.type === "GET_BOND_USER_INFO") {
-
-        if (!state.account) {
-            return state;
-        }
-        bondContract.methods.getBondInfo(state.account).call().then((info) => {
-            store.dispatch({
-                type: "RETURN_DATA", payload: {
-                    bondAmount: web3.utils.fromWei(info[0].amount, 'ether'),
-                    // bondPrice: info[0].bondPrice,
-                    bondCreateTime: info[0].createTime,
-                    bondLastTime: info[0].lastTime,
-                    bondCurrentTime: info[1]
-                }
-            });
-        })
-    } else if (action.type === "SET_BOND_INFO") {
-        if (!state.account) {
-            connectAlert();
-            return Object.assign({}, state, { can_perform: true });
-        }
-        let type = action.payload.type;
-        let value = action.payload.value;
-        try {
-            if (type === "bond_price") {
-                bondContract.methods.setFirePrice(value).send({ from: state.account });
-            } else if (type == "bond_interval") {
-                bondContract.methods.setRedeemInterval(Number(value) * 3600).send({ from: state.account });
-            } else if (type == "bond_term") {
-                bondContract.methods.setBondTerm(Number(value) * 3600 * 24).send({ from: state.account });
-            } else if (type === "bond_coin_address") {
-                bondContract.methods.pushCurrency(value).send({ from: state.account });
-            }
-        } catch (e) {
-            ErrorMsg(e);
-        } finally {
-            updateBondInfo();
-            return Object.assign({}, state, { can_perform: true });
-        }
-    } else if (action.type === "GET_ADMIN_BOND_INFO") {
-        updateBondInfo();
     }
     return state;
 }
@@ -453,6 +340,7 @@ const connectAlert = () => {
 }
 
 const checkNetwork = (chainId) => {
+
     if (web3.utils.toHex(chainId) !== web3.utils.toHex(config.chainId)) {
         toast.info("Change network to Avalanche C Chain!", {
             position: "top-center",
@@ -482,7 +370,8 @@ const updateGlobalInfo = () => {
     
     //promise.push(gTokenContract.methods.balanceOf(config.treasuryAddr).call());
     Promise.all(promise).then((result) => {
-        store.dispatch({
+        console.log("ttt", result[6]);
+        store.dispatch({    
             type: "RETURN_DATA",
             payload: {
                 master_nft_value: web3.utils.fromWei(result[7], 'ether') * 10,
@@ -498,57 +387,7 @@ const updateGlobalInfo = () => {
 }
 
 
-// toast.error(JSON.stringify("slkdf slfsldfjskdfj kslfjlksfjlskdjflsajflsjflsj flkjdslfkjdlsafj lksjflksjflskjflsjfljas;fslkdf slfsldfjskdfj kslfjlksfjlskdjflsajflsjflsj flkjdslfkjdlsafj lksjflksjflskjflsjfljas;fslkdf slfsldfjskdfj kslfjlksfjlskdjflsajflsjflsj flkjdslfkjdlsafj lksjflksjflskjflsjfljas;fslkdf slfsldfjskdfj kslfjlksfjlskdjflsajflsjflsj flkjdslfkjdlsafj lksjflksjflskjflsjfljas;fslkdf slfsldfjskdfj kslfjlksfjlskdjflsajflsjflsj flkjdslfkjdlsafj lksjflksjflskjflsjfljas;fslkdf slfsldfjskdfj kslfjlksfjlskdjflsajflsjflsj flkjdslfkjdlsafj lksjflksjflskjflsjfljas;fj ;sfj;safj;slkjf;sf;sljflksjdfldskjflsl jflsjfsl"), {
-//     position: "top-center",
-//     // autoClose: 3000,
-//     hideProgressBar: true,
-//     closeOnClick: true,
-//     pauseOnHover: true,
-//     draggable: true,
-//     progress: undefined,
-// });
-
-
-const ErrorMsg = (error) => {
-    // if (error.message) {
-    //     toast.error(JSON.stringify(error.message), {
-    //         position: "top-center",
-    //         // autoClose: 3000,
-    //         hideProgressBar: true,
-    //         closeOnClick: true,
-    //         pauseOnHover: true,
-    //         draggable: true,
-    //         progress: undefined,
-    //     });
-    // } else {
-    //     toast.error("Transaction Failed!", {
-    //         position: "top-center",
-    //         autoClose: 3000,
-    //         hideProgressBar: true,
-    //         closeOnClick: true,
-    //         pauseOnHover: true,
-    //         draggable: true,
-    //         progress: undefined,
-    //     });
-    // }
-}
-
-const AlertMsg = (content) => {
-    toast.error(content, {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-    });
-}
-
-
-
-
-
+const store = createStore(reducer);
 if (window.ethereum) {
     window.ethereum.on('accountsChanged', function (accounts) {
         store.dispatch({
@@ -573,37 +412,6 @@ if (window.ethereum) {
 }
 
 
-const updateBondInfo = () => {
+    updateGlobalInfo();
 
-    let promise = [];
-    promise.push(gBondContract.methods.getFirePrice(0).call());
-    promise.push(gBondContract.methods.getCurrencyList().call());
-    promise.push(gBondContract.methods.getBondTerm().call());
-    promise.push(gBondContract.methods.getTotalBond().call());
-    promise.push(gBondContract.methods.getContractStatus().call());
-    promise.push(gBondContract.methods.getRedeemInterval().call());
-
-    Promise.all(promise).then((result) => {
-        store.dispatch({
-            type: "RETURN_DATA",
-            payload: {
-                // bond_price: web3.utils.fromWei(result[0][0], 'mwei'),
-                bond_price: result[0][0] / result[0][1],
-                bond_currency_list: result[1],
-                bond_term: Number(result[2]) / (3600 * 24),
-                bond_total: web3.utils.fromWei(result[3], 'ether'),
-                bond_status: result[4],
-                bond_interval: Number(result[5]) / 3600,
-            }
-        })
-    })
-}
-
-updateGlobalInfo();
-updateBondInfo();
-
-
-
-
-const store = createStore(reducer);
 export default store

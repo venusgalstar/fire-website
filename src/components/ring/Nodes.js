@@ -429,6 +429,43 @@ class Nodes extends React.Component {
                         </div>
                     </div>
                 </section>
+
+                {/* <div className="mx-auto m-t-20 mynode-header flex align-center justify-between " style={{ flexWrap: "wrap" }}>
+                    <div className='flex'>
+                        <div className='c-yellow node-table-item flex align-center' style={{ width: "80px" }}>
+                            <img alt="" src="/img/myNode.svg" style={{ marginRight: "10px", width: "30px" }} />
+                            {this.props.my_nodes.length}
+                        </div>
+                        <div className='c-yellow node-table-item flex align-center m-l-20' style={{ width: "80px" }}>
+                            <img alt="" src={this.props.master_nft_url} style={{ marginRight: "10px", width: "30px" }} />
+                            : {this.props.my_nfts.length <= 10 ? this.props.my_nfts.length : 10}
+                        </div>
+                        <div className='c-yellow node-table-item flex align-center m-l-20' style={{ width: "80px" }}>
+                            <img alt="" src={this.props.grand_nft_url} style={{ marginRight: "10px", width: "30px" }} />
+                            : {this.props.my_nfts.length > 10 ? this.props.my_nfts.length - 10 : 0}
+                        </div>
+                    </div>
+                    <div className='flex align-center button-set'>
+                        <div className='claim-button btn-outline c-green claim-all' onClick={this.PayAllNode.bind(this, -1)}> Pay ALL FEE</div>
+                        <div className='claim-button c-green claim-all' onClick={this.claimNode.bind(this, -1)}> CLAIM ALL</div>
+                    </div>
+                </div>
+                <div className="mx-auto custom-container mx-auto text-justify info-container m-b-30 mynode-list">
+                    <div className='h-40 flex align-center node-title-header' style={{ width: "100%" }}>
+                        <div className='c-4cce13 padder-10' style={{ flex: "1" }}>NFT</div>
+                        <div className='c-4cce13 padder-10' style={{ flex: "1" }}>NAME</div>
+                        <div className='c-4cce13 text-center' style={{ flex: "3" }}>REWARD START TIME</div>
+                        <div className='c-4cce13 text-center' style={{ flex: "2" }}>REMAINS</div>
+                        <div className='c-4cce13 text-center' style={{ flex: "2" }}>REWARDS</div>
+                        <div className='c-4cce13 text-center' style={{ flex: "1" }}></div>
+                        <div className='c-4cce13 text-center' style={{ flex: "1" }}></div>
+                    </div>
+                    <div className='mynode-list-content'>
+                        <CustomScrollbars>
+                            {List}
+                        </CustomScrollbars>
+                    </div>
+                </div> */}
             </>
         );
     }

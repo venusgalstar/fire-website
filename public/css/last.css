@@ -1,3 +1,5 @@
+/* test 1 */
+
 body {
     background-color: black;
 }
@@ -261,11 +263,6 @@ a {
 }
 
 
-.bond_panel {
-    width: 600px;
-    background-color: #2f3136 !important;
-}
-
 #section-nests {
     height: 900px;
     /* background-color: #000000; */
@@ -358,8 +355,7 @@ a {
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
-    /* If you want dots under the hoverable text */
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
     opacity: 1;
     cursor: pointer;
   }
@@ -1754,60 +1750,4 @@ span.copy-right {
 
 .mobile-visible-false {
     visibility:visible;
-}
-
-
-
-
-
-#section-bond {
-    background-image: url(/img/bg1.jpg);
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 2000px 1000px;
-}
-
-#section-bond>.content {
-    height: 1000px;
-    display: flex;
-    align-items: center;
-}
-
-#section-bond .mainStats .fs-22.c-w {
-    text-transform: uppercase;
-}
-
-#section-bond .fs-22 {
-    font-size: 28px;
-}
-
-.bond-panel {
-    width: 500px
-}
-
-
-#section-bond>.content {
-    height: 810px;
-    width: 1150px;
-    display: flex;
-    align-items: center;
-
-}
-
-.bond-input, .bond-input:active, .bond-input:focus {
-    background: transparent;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    border-radius: 0px;
-    padding-left: 20px;
-    text-align: center;
-    width: 80%;
-    color: white;
-    box-shadow: none;
-}
-
-.setting-panel {
-    display: flex;
-    flex-direction: row;
 }

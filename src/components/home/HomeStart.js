@@ -49,7 +49,7 @@ class HomeStart extends React.Component {
                   enjoy rewards
                 </div>
                 <p data-nsfw-filter-status="swf">
-                  You can create up to <span className="phxColor">100&nbsp;Phoenix Nests</span> per wallet. Claim accrued rewards at your convenience.
+                  You can create up to <span class="phxColor">100&nbsp;Phoenix Nests</span> per wallet. Claim accrued rewards at your convenience.
                 </p>
               </div>
               <button className="action-btn btn mobile-show m-t-40" onClick={this.goAppPage}>Try it</button>

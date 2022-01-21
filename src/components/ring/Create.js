@@ -137,7 +137,10 @@ class Create extends React.Component {
                             </div>
                             <div style={{ marginTop: "25px", fontSize: "12px" }}>*the rate is calculated with the actual $RING price and it may vary
                                 depending on various factors.</div>
-                        
+                            {/* <div className="label" style={{ marginTop: "10px" }}>Node Name</div>
+                            <div className="input-group mb-3">
+                                <input placeholder="My Node" type="text" className="form-control" id="name" value="" />
+                            </div> */}
                             <div style={{ marginTop: "40px" }}>
                                 <p>A contribution of $RING tokens to the <span className="sc-gsTEea cdmEaM">RING</span> community is required to
                                     create a nest and participate in rewards. </p>
@@ -151,7 +154,7 @@ class Create extends React.Component {
                             </div>
                             <div>
                                 <form className="">
-                                    <div className="form-check"><input type="checkbox" className="form-check-input" value="false" onChange={()=>{}}/><label title=""
+                                    <div className="form-check"><input type="checkbox" className="form-check-input" value="false" /><label title=""
                                         className="form-check-label"><span>I have read the <a
                                             href="/disclaimer">disclaimer</a> and I want to create my
                                             RING-nest.</span></label></div>

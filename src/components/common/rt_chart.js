@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback, useState } from "react";
 import ReactDOM from "react-dom";
 import { createChart } from "lightweight-charts";
+import { data } from "./consts.js";
 import { connect, useSelector } from "react-redux";
 import moment from 'moment-business-days';
 
