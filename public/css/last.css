@@ -1195,7 +1195,15 @@ footer .c-gray:hover {
 .claim-button:hover i {
     color: #fff
 }
-
+.claimAll {
+    position:relative;
+}
+.claimAlli {
+    position: absolute !important;
+    right: 22px !important;
+    top: 10px !important;
+    background: #c89656 !important;
+}
 
 .pay-button {
     width: 100%;
