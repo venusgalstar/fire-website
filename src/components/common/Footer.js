@@ -3,7 +3,7 @@ const Footer = () => {
     return (
         <footer>
             <div className="container mx-auto">
-                <div class="contractHolder">Contract: <a href="https://snowtrace.io/address/0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5" target="_blank">0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5</a></div>
+                <div class="contractHolder">Contract: <a href="https://snowtrace.io/address/0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5" target="nofollow noopener noreferrer">0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5</a></div>
                 <div className="footer-main">
                     <div className="flex align-center">
                         <img className="img-spin logo-img" src="/img/logo.png" alt="" />
@@ -29,10 +29,10 @@ const Footer = () => {
                         </div>
                         <div className="flex justify-center m-t-50 footerSocial">
                             <span className="m-r-20">
-                            <a href="https://twitter.com/phoenix_fi" target="_blank"><i className="fab fa-twitter"></i></a>
+                            <a href="https://twitter.com/phoenix_fi" target="nofollow noopener noreferrer"><i className="fab fa-twitter"></i></a>
                             </span>
                             <span>
-                            <a href="https://discord.gg/uUaZgsZXM5" target="_blank"><i className="fab fa-discord"></i></a>
+                            <a href="https://discord.gg/uUaZgsZXM5" target="nofollow noopener noreferrer"><i className="fab fa-discord"></i></a>
                             </span>
                         </div>
                     </div>
