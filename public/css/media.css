@@ -1178,7 +1178,7 @@
 
 /* =========================== all below 475px ========================= */
 
-@media (max-width: 370px) {
+@media (max-width: 475px) {
     .card-action p {
         font-size: 4.5vw;
     }
