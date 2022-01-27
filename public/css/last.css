@@ -215,8 +215,8 @@ a {
     max-width: 1150px;
     width: 100%;
     display: flex;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-top: 8%;
+    padding-bottom: 8%;
 }
 
 #section-msg>.nodes_content {
