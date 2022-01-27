@@ -35,8 +35,7 @@ const HomeHero = (props) => {
             </div>
           </div>
           <div className="hero-right">
-            <div className="phoenix_img">
-            </div>
+            <img className="phoenixHome" src="/img/phoenix.png" alt="Phoenix" />
             <div className="c-w fs-30 phoenix_img_info">Rise from the ashes of traditional finance</div>
           </div>
         </div>
