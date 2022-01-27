@@ -81,8 +81,7 @@ class RingMsg extends React.Component {
                                     <div className="fs-18 c-gray dashbSmall">FIRE</div>
                                 </div>
                                 <div className="msg-content-item mainBuy" style={{ justifyContent: 'center' }}>
-                                    <button className="btn action-btn buyBtnSpc" onClick={() => { window.open("https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/") }}>BUY $FIRE</button>
-                                    <button className="btn action-btn" onClick={() => { window.open("https://traderjoexyz.com/trade?inputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5&outputCurrency=AVAX#/") }}>SELL $FIRE</button>
+                                    <button className="btn action-btn" onClick={() => { window.open("https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/") }}>TRADE $FIRE</button>
                                 </div>
                             </div>
                             <div className="msg-left-content-container">
