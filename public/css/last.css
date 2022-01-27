@@ -51,7 +51,7 @@ a {
 }
 
 .header>.content {
-    width: 1150px;
+    width: 100%;
     max-width: 1150px;
     display: flex;
     align-items: center;
@@ -211,17 +211,19 @@ a {
     border-color: #202225;
 }
 #section-msg>.content {
-    height: 810px;
-    width: 1150px;
+    height: auto;
+    max-width: 1150px;
+    width: 100%;
     display: flex;
-    align-items: center;
-
+    padding-top: 8%;
+    padding-bottom: 6%;
 }
 
 #section-msg>.nodes_content {
     /* margin-top: 200px; */
     height: 810px;
-    width: 1150px;
+    max-width: 1150px;
+    width: 100%;
     display: flex;
     align-items: center;
 
@@ -250,14 +252,15 @@ a {
     background-color: #2f3136;
     width: 45%;
     max-width: 250px;
-    height: 150px;
+    min-height: 150px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .token_chart {
-    height: 330px;
+    height: 335px;
     width: 100%;
     background-color: #2f3136;
 }
@@ -271,6 +274,9 @@ a {
     /* background-position: top; */
     /* background-size: contain; */
 
+}
+.buyBtnSpc {
+    margin-bottom: 20px;
 }
 #section-nest button.btn.action-btn {
     font-size: 30px;
@@ -286,7 +292,8 @@ a {
 }
 #section-nests>.content {
     height: 900px;
-    width: 1150px;
+    max-width: 1150px;
+    width: 100%;
 }
 #section-nests button.btn.action-btn {
     display: inline-block;
@@ -409,6 +416,7 @@ a {
 #section-hero>.content {
     height: 740px;
     max-width: 1150px;
+    width: 100%;
     display: flex;
     align-items: center;
 }
@@ -454,6 +462,10 @@ a {
 .hero-right .fs-30 {
     font-size: 34px;
     letter-spacing: 1px;
+}
+img.phoenixHome {
+    width: 100%;
+    max-width: 450px;
 }
 .phoenix_img {
     background-size: cover;
@@ -520,7 +532,8 @@ a {
 
 
 #started-content {
-    width: 1150px;
+    max-width: 1150px;
+    width: 100%;
     height: 627px;
 }
 
@@ -564,7 +577,8 @@ a {
 
 
 #section-nest>.content {
-    width: 1150px;
+    max-width: 1150px;
+    width: 100%;
     height: 460px;
     display: flex;
     align-items: center;
@@ -601,6 +615,7 @@ a {
 #section-nft>.content {
     padding-top: 120px;
     max-width: 1150px;
+    width: 100%;
     height: auto;
     display: flex;
     justify-content: space-between;
@@ -646,6 +661,7 @@ a {
     padding-top: 120px;
     padding-bottom: 120px;
     max-width: 1150px;
+    width: 100%;
     height: auto;
 }
 #needToKnow h2.headTwo {
@@ -688,9 +704,12 @@ p.needPar {
     background-color: black;
     height: auto;
 }
-
+#section-app-nft .card {
+    width: 100%;
+}
 #section-app-nft>.content {
-    width: 1150px;
+    max-width: 1150px;
+    width: 100%;
     height: auto;
 }
 span.connectWallet {
@@ -712,7 +731,8 @@ span.connectWallet {
 }
 
 .card {
-    width: 370px;
+    width: 45%;
+    max-width: 360px;
     border: 2px solid #202225;
     border-radius: 30px;
     background-color: #202225;
@@ -725,7 +745,7 @@ span.connectWallet {
 
 .card-img {
     height: 280px;
-    width: 320px;
+    width: 100%;
     border: 2px solid #ab864d;
     background-color: #202225;
     border-radius: 18px;
@@ -840,7 +860,8 @@ span.phxColor {
 }
 
 #vision-content {
-    width: 1150px;
+    max-width: 1150px;
+    width: 100%;
 }
 
 .vision-left-item {
@@ -899,7 +920,8 @@ span.phxColor {
 
 
 .work-content {
-    width: 1150px;
+    max-width: 1150px;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
 }
@@ -934,6 +956,7 @@ span.phxColor {
 #section-faq>.content {
     padding-top: 120px;
     max-width: 1150px;
+    width: 100%;
     height: auto;
     justify-content: space-between;
 }
@@ -947,6 +970,7 @@ span.phxColor {
 
 #faq-content {
     max-width: 1150px;
+    width: 100%;
     margin-top: 60px;
     display: flex;
     justify-content: space-between;
@@ -1118,7 +1142,8 @@ footer .c-gray:hover {
 
 
 .custom-container {
-    width: 1150px
+    max-width: 1150px;
+    width: 100%;
 }
 
 .info-container {
@@ -1301,7 +1326,8 @@ footer .c-gray:hover {
 }
 
 .statistics>.content {
-    width: 1150px;
+    max-width: 1150px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -1450,7 +1476,8 @@ footer .c-gray:hover {
 
 
 .chips-container {
-    width: 1150px;
+    max-width: 1150px;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
 }
@@ -1540,7 +1567,8 @@ span.copy-right {
 }
 
 .mynode-header {
-    width: 1150px;
+    max-width: 1150px;
+    width: 100%;
     height: 60px;
 }
 

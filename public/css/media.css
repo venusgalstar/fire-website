@@ -68,7 +68,10 @@
 
 
     #section-hero {
-        height: 850px;
+        min-height: 850px;
+        height: auto;
+        padding-top: 5%;
+        padding-bottom: 5%;
     }
 
 
@@ -375,8 +378,8 @@
 
 
     .card-img {
-        height: 318px;
-        width: 358px;
+        min-height: 318px;
+        width: 100%;
     }
 
 
@@ -1146,6 +1149,16 @@
     #section-nests button.btn.action-btn {
         font-size: 21px;
     }
+    .claimAlli {
+        right: 116px !important;
+        top: 7px !important;
+    }
+    .hero-left {
+        width: 100%;
+    }
+    .chips {
+        width: 100%;
+    }
 }
 
 /* =========================== all below 475px ========================= */
@@ -1176,9 +1189,9 @@
     }
 }
 
-/* =========================== all below 370px ========================= */
+/* =========================== all below 475px ========================= */
 
-@media (max-width: 370px) {
+@media (max-width: 475px) {
     .card-action p {
         font-size: 4.5vw;
     }
@@ -1254,6 +1267,17 @@
     .tv-lightweight-charts {
         transform: scale(0.6);
         margin-left: -100px;
+    }
+}
+
+/* padding left and right between 1081 and 1200 */
+@media (min-width: 1081px) and (max-width: 1200px) {
+    #section-hero, .header, .statistics, #section-started, #section-nest, #chip-vision, #section-vision, #section-nft, #needToKnow, #section-faq, footer {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    .vision-right-item {
+        margin-top: 0;
     }
 }
 

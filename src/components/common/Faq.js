@@ -25,7 +25,7 @@ class Faq extends React.Component {
 
                         <div className="faqLeft">
                             <button className={this.state.selId === 1 ? "accordion active" : "accordion"} onClick={() => { this.clickItem(1) }} >
-                            <span className="faqQw">What is the FIRE token ?</span>
+                            <span className="faqQw">What is the FIRE token?</span>
                                 </button>
                             <div className="panel" >
                                 <p data-nsfw-filter-status="swf">
@@ -37,7 +37,7 @@ class Faq extends React.Component {
                             </div>
 
                             <button className={this.state.selId === 2 ? "accordion active" : "accordion"} onClick={() => { this.clickItem(2) }}>
-                                <span className="faqQw">How do I get rewarded ?</span>
+                                <span className="faqQw">How do I get rewarded?</span>
                             </button>
                             <div className="panel" >
                                 <p data-nsfw-filter-status="swf">
@@ -49,7 +49,7 @@ class Faq extends React.Component {
                             </div>
 
                             <button className={this.state.selId === 3 ? "accordion active" : "accordion"} onClick={() => { this.clickItem(3) }}>
-                                <span className="faqQw">What happens to the 10 FIRE used to create a Phoenix Nest ?</span>
+                                <span className="faqQw">What happens to the 10 FIRE used to create a Phoenix Nest?</span>
                             </button>
                             <div className="panel" >
                                 <p data-nsfw-filter-status="swf">
@@ -60,7 +60,7 @@ class Faq extends React.Component {
                             </div>
 
                             <button className={this.state.selId === 4 ? "accordion active" : "accordion"} onClick={() => { this.clickItem(4) }}>
-                                <span className="faqQw">How are investments chosen ?</span>
+                                <span className="faqQw">How are investments chosen?</span>
                             </button>
                             <div className="panel" >
                                 <p data-nsfw-filter-status="swf">
@@ -96,7 +96,7 @@ class Faq extends React.Component {
                             </div>
 
                             <button className={this.state.selId === 6 ? "accordion active" : "accordion"} onClick={() => { this.clickItem(6) }}>
-                                 <span className="faqQw">What is a Phoenix Nest ?</span>
+                                 <span className="faqQw">What is a Phoenix Nest?</span>
                             </button>
                             <div className="panel" >
                                 <p data-nsfw-filter-status="swf">
@@ -107,7 +107,7 @@ class Faq extends React.Component {
                             </div>
 
                             <button className={this.state.selId === 7 ? "accordion active" : "accordion"} onClick={() => { this.clickItem(7) }}>
-                                <span className="faqQw">Where can I buy $FIRE and where can I create my NEST ?</span>
+                                <span className="faqQw">Where can I buy $FIRE and where can I create my NEST?</span>
                             </button>
                             <div className="panel" >
                                 <p data-nsfw-filter-status="swf">You can easily buy FIRE on Trader Joe by<a

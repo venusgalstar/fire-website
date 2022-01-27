@@ -97,48 +97,7 @@ drift.load('kzbbm5xc3e9m');
   <div id="root">
   </div>
 </body>
-<script>
-  window.addEventListener('resize', function (event) {
-    ChangeWndScale();
-  });
 
-  setTimeout(() => {
-    ChangeWndScale()
-  }, 500);
-
-
-  function ChangeWndScale() {
-
-    // var ratio = window.devicePixelRatio || 1;
-    // var w = screen.width * ratio;
-    // var h = screen.height * ratio;
-
-    // console.log("ratio ", ratio);
-    // console.log("width ", w/ratio);
-    // console.log("height ", h/ratio);
-
-    var base_width = 1000;
-    var low_width = 600;
-    // var cur_width = window.innerWidth;
-
-    var cur_width = screen.width;
-    var scale = 1;
-
-    // var scale = 'scale(0.9)';
-    // document.body.style.webkitTransform = scale;    // Chrome, Opera, Safari
-    // document.body.style.msTransform = scale;       // IE 9
-    // document.body.style.transform = scale;     // General
-
-
-    if (low_width > cur_width) {
-      scale = cur_width / low_width;
-      document.body.style.zoom = scale;
-    } else {
-      document.body.style.zoom = 1.0;
-    }
-  }
-
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"></script>
