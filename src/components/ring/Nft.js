@@ -82,7 +82,7 @@ class Nft extends React.Component {
                                         <div className="card-item-title">
                                             <span className="text-center noto-bold">MASTER</span>
                                         </div>
-                                        <div className="card-item-info">The Master NFT is available once you build at least 10 Nests. The Master NFT will be applied to 10 Nests and boosts rewards by 0.025 for each day. The cost of a Master NFT is ten AVAX. Each wallet will be limited to a total of 10 Master NFT’s.
+                                        <div className="card-item-info">The Master NFT is available once you build at least 10 Nests. The Master NFT will be applied to 10 Nests and boosts rewards by 0.025 for each Nest per day. The cost of a Master NFT is ten AVAX. Each wallet will be limited to a total of 10 Master NFT’s.
                                         </div>
                                     </div>
                                     <button className="action-btn btn mx-auto c-w buy_nft_btn m-t-20 fs-24"
