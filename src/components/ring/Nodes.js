@@ -85,7 +85,7 @@ class Nodes extends React.Component {
                 }
                 temp['reward'] = Number(temp['reward']) + bonus / (3600 * 24);
                 sum += temp['reward'];
-                temp['reward'] = temp['reward'].toFixed(6);
+                // temp['reward'] = temp['reward'];
 
                 if (remain > 3600 * 24 * 30) {
                     temp['payable'] = false;
@@ -121,7 +121,7 @@ class Nodes extends React.Component {
 
 
     PayAllNode() {
-        if (this.props.my_nodes.length == 0) {
+        if (this.props.my_nodes.length === 0) {
             toast.info("There is no nest. Please create your own nest.", {
                 position: "top-center",
                 autoClose: 3000,
@@ -149,12 +149,12 @@ class Nodes extends React.Component {
         this.props.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: false } });
         let cnt = 0;
         for (var index in this.state.my_nodes) {
-            if (this.state.my_nodes[index].payable == true) {
+            if (this.state.my_nodes[index].payable === true) {
                 cnt = cnt + 1;
             }
         }
 
-        if (cnt == 0) {
+        if (cnt === 0) {
             toast.info("You have no nest to pay.", {
                 position: "top-center",
                 autoClose: 3000,
@@ -171,7 +171,7 @@ class Nodes extends React.Component {
     }
 
     claimNode(id) {
-        if (this.props.my_nodes.length == 0) {
+        if (this.props.my_nodes.length === 0) {
             toast.info("There is no nest. Please create your own nest.", {
                 position: "top-center",
                 autoClose: 3000,
@@ -216,7 +216,7 @@ class Nodes extends React.Component {
         this.props.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: false } });
 
         var payload = { node_id: id, cnt: 1 };
-        if (id == -1) {
+        if (id === -1) {
             let cnt = 0;
             let sum = 0;
             for (var index in this.state.my_nodes) {
@@ -240,7 +240,7 @@ class Nodes extends React.Component {
         this.setState({ open: false });
         if (value) {
             this.props.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: false } });
-            if (this.state.pay_type == 1) {
+            if (this.state.pay_type === 1) {
 
                 this.props.dispatch({
                     type: "PAY_NODE_FEE",
@@ -249,7 +249,7 @@ class Nodes extends React.Component {
                         duration: value.id
                     }
                 })
-            } else if (this.state.pay_type == 0) {
+            } else if (this.state.pay_type === 0) {
                 this.props.dispatch({
                     type: "PAY_FEE_ALL",
                     payload: { count: this.state.pay_cnt, duration: value.id }
@@ -310,11 +310,11 @@ class Nodes extends React.Component {
         const List = this.state.my_nodes.map((item, index) => {
             // const List = ["123", "222", "543", "23", "2342", '234', '2342', '2333', '1231', '1231'].map((item, index) => {
             return (
-                <div key={index} className={index % 2 == 0 ? 'item-font nest-list-even' : 'item-font nest-list-odd'}>
+                <div key={index} className={index % 2 === 0 ? 'item-font nest-list-even' : 'item-font nest-list-odd'}>
 
                     <div className='text-center' style={{ flex: "1" }}>NEST {index + 1}</div>
                     <div className='text-center mobile-hidden' style={{ flex: "3" }}>{moment(item.createTime * 1000).format("MMM DD YYYY")}</div>
-                    <div className='text-center' style={{ flex: "2" }}>{item.reward}</div>
+                    <div className='text-center' style={{ flex: "2" }}>{Number(item.reward).toFixed(6)}</div>
                     <div className='text-center mobile-fee-item' style={{ flex: "2" }}>
                         <div className='mobile-fee-list'>
                             {item.remains}
@@ -429,43 +429,6 @@ class Nodes extends React.Component {
                         </div>
                     </div>
                 </section>
-
-                {/* <div className="mx-auto m-t-20 mynode-header flex align-center justify-between " style={{ flexWrap: "wrap" }}>
-                    <div className='flex'>
-                        <div className='c-yellow node-table-item flex align-center' style={{ width: "80px" }}>
-                            <img alt="" src="/img/myNode.svg" style={{ marginRight: "10px", width: "30px" }} />
-                            {this.props.my_nodes.length}
-                        </div>
-                        <div className='c-yellow node-table-item flex align-center m-l-20' style={{ width: "80px" }}>
-                            <img alt="" src={this.props.master_nft_url} style={{ marginRight: "10px", width: "30px" }} />
-                            : {this.props.my_nfts.length <= 10 ? this.props.my_nfts.length : 10}
-                        </div>
-                        <div className='c-yellow node-table-item flex align-center m-l-20' style={{ width: "80px" }}>
-                            <img alt="" src={this.props.grand_nft_url} style={{ marginRight: "10px", width: "30px" }} />
-                            : {this.props.my_nfts.length > 10 ? this.props.my_nfts.length - 10 : 0}
-                        </div>
-                    </div>
-                    <div className='flex align-center button-set'>
-                        <div className='claim-button btn-outline c-green claim-all' onClick={this.PayAllNode.bind(this, -1)}> Pay ALL FEE</div>
-                        <div className='claim-button c-green claim-all' onClick={this.claimNode.bind(this, -1)}> CLAIM ALL</div>
-                    </div>
-                </div>
-                <div className="mx-auto custom-container mx-auto text-justify info-container m-b-30 mynode-list">
-                    <div className='h-40 flex align-center node-title-header' style={{ width: "100%" }}>
-                        <div className='c-4cce13 padder-10' style={{ flex: "1" }}>NFT</div>
-                        <div className='c-4cce13 padder-10' style={{ flex: "1" }}>NAME</div>
-                        <div className='c-4cce13 text-center' style={{ flex: "3" }}>REWARD START TIME</div>
-                        <div className='c-4cce13 text-center' style={{ flex: "2" }}>REMAINS</div>
-                        <div className='c-4cce13 text-center' style={{ flex: "2" }}>REWARDS</div>
-                        <div className='c-4cce13 text-center' style={{ flex: "1" }}></div>
-                        <div className='c-4cce13 text-center' style={{ flex: "1" }}></div>
-                    </div>
-                    <div className='mynode-list-content'>
-                        <CustomScrollbars>
-                            {List}
-                        </CustomScrollbars>
-                    </div>
-                </div> */}
             </>
         );
     }
