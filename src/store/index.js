@@ -377,14 +377,53 @@ const updateGlobalInfo = () => {
                 grand_nft_url: result[1],
                 all_nodes: result[2],
                 contract_status: result[3],
-                treasury_balance: Number( web3.utils.fromWei(result[6], 'ether') / web3.utils.fromWei(result[5], 'ether')).toFixed(2)
+                treasury_balance: Number(web3.utils.fromWei(result[6], 'ether') / web3.utils.fromWei(result[5], 'ether')).toFixed(2)
             }
         });
     })
 }
 
 
-const store = createStore(reducer);
+const ErrorMsg = (error) => {
+    // if (error.message) {
+    //     toast.error(JSON.stringify(error.message), {
+    //         position: "top-center",
+    //         // autoClose: 3000,
+    //         hideProgressBar: true,
+    //         closeOnClick: true,
+    //         pauseOnHover: true,
+    //         draggable: true,
+    //         progress: undefined,
+    //     });
+    // } else {
+    //     toast.error("Transaction Failed!", {
+    //         position: "top-center",
+    //         autoClose: 3000,
+    //         hideProgressBar: true,
+    //         closeOnClick: true,
+    //         pauseOnHover: true,
+    //         draggable: true,
+    //         progress: undefined,
+    //     });
+    // }
+}
+
+const AlertMsg = (content) => {
+    toast.error(content, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+}
+
+
+
+
+
 if (window.ethereum) {
     window.ethereum.on('accountsChanged', function (accounts) {
         store.dispatch({
@@ -411,4 +450,8 @@ if (window.ethereum) {
 
     updateGlobalInfo();
 
+
+
+
+const store = createStore(reducer);
 export default store
