@@ -1,5 +1,5 @@
 
-const RingNext = () => {
+const MainNext = () => {
     return (
         <div className="what-next-container ">
             <div className="row custom-container mx-auto">
@@ -40,7 +40,7 @@ const RingNext = () => {
     )
 };
 
-export default RingNext;
+export default MainNext;
 
 
 

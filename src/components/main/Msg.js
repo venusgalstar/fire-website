@@ -10,7 +10,7 @@ import RtChart from '../common/rt_chart';
 
 
 
-class RingMsg extends React.Component {
+class MainMsg extends React.Component {
 
     constructor(props) {
         super(props);
@@ -134,4 +134,4 @@ const mapStateToProps = state => {
         fire_value: state.fire_value
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(RingMsg);
+export default connect(mapStateToProps, mapDispatchToProps)(MainMsg);

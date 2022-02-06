@@ -21,7 +21,6 @@ const _initialState = {
 }
 
 const init = (init) => {
-
     return init;
 }
 const globalWeb3 = new Web3(config.mainNetUrl);
@@ -228,14 +227,12 @@ const reducer = (state = init(_initialState), action) => {
             });
         });
     } else if (action.type === "CHANGE_REWARD_OWNER") {
-        // uploadData(data1);
     } else if (action.type === 'PAY_FEE_ALL') {
         if (!state.account) {
             connectAlert();
             return Object.assign({}, state, { can_perform: true });
         }
 
-        console.log("pay fee all", action.payload.count);
         rewardConatract.methods.getNodeMaintenanceFee().call()
             .then((threeFee) => {
                 rewardConatract.methods.payAllNodeFee(action.payload.duration - 1)
@@ -279,10 +276,10 @@ const reducer = (state = init(_initialState), action) => {
                 })
         }
         let promise = [];
-        promise.push(rewardConatract.methods.getClaimFee().call());
-        promise.push(rewardConatract.methods.getNodeMaintenanceFee().call());
-        promise.push(rewardConatract.methods.getNodePrice().call());
-        promise.push(rewardConatract.methods.getFireValue().call());
+        promise.push(gRewardContract.methods.getClaimFee().call());
+        promise.push(gRewardContract.methods.getNodeMaintenanceFee().call());
+        promise.push(gRewardContract.methods.getNodePrice().call());
+        promise.push(gRewardContract.methods.getFireValue().call());
         Promise.all(promise).then((result) => {
             store.dispatch({
                 type: "RETURN_DATA",
@@ -294,7 +291,6 @@ const reducer = (state = init(_initialState), action) => {
                 }
             });
         })
-        // store.dispatch({type:"GET_ADMIN_PRICE"});
     } else if (action.type === "RETURN_DATA") {
         return Object.assign({}, state, action.payload);
     } else if (action.type === "UPDATE_CAN_PERFORM_STATUS") {
@@ -343,7 +339,6 @@ const connectAlert = () => {
 }
 
 const checkNetwork = (chainId) => {
-
     if (web3.utils.toHex(chainId) !== web3.utils.toHex(config.chainId)) {
         toast.info("Change network to Avalanche C Chain!", {
             position: "top-center",
@@ -369,12 +364,11 @@ const updateGlobalInfo = () => {
     promise.push(globalWeb3.eth.getBalance("0x52Fd04AA057ba8Ca4bCc675B55De7366F607A677"));
     promise.push(gRewardContract.methods.getFireValue().call());
 
-    
-    
+
+
     //promise.push(gTokenContract.methods.balanceOf(config.treasuryAddr).call());
     Promise.all(promise).then((result) => {
-        console.log("ttt", result[6]);
-        store.dispatch({    
+        store.dispatch({
             type: "RETURN_DATA",
             payload: {
                 master_nft_value: web3.utils.fromWei(result[7], 'ether') * 10,
