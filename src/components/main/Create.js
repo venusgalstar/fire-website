@@ -151,7 +151,7 @@ class Create extends React.Component {
                             </div>
                             <div>
                                 <form className="">
-                                    <div className="form-check"><input type="checkbox" className="form-check-input" value="false" /><label title=""
+                                    <div className="form-check"><input type="checkbox" className="form-check-input" value="false" onChange={()=>{}}/><label title=""
                                         className="form-check-label"><span>I have read the <a
                                             href="/disclaimer">disclaimer</a> and I want to create my
                                             RING-nest.</span></label></div>

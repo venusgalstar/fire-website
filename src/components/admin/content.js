@@ -127,23 +127,6 @@ class Content extends React.Component {
     render() {
         return (
             <>
-                {/* <div id="launch_sm_connect_btn" className="flex">
-                    <div>
-                        {
-                            !this.props.account ?
-                                <div className="action-btn outline flex align-center justify-center fs-15" style={{ width: "90px", height: "40px" }} onClick={this.handleConnect}>
-                                    <span><i className="fas fa-wallet"></i>
-
-                                    </span>
-                                </div>
-                                :
-                                <div style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
-                                    <div className="c-green connected-account-text">{this.props.account.slice(0, 8) + "..." + this.props.account.slice(34)}</div>
-                                    <div className="connected-text">WALLET CONNECTED</div>
-                                </div>
-                        }
-                    </div>
-                </div> */}
                 <section id="section-started" className="admin c-w flex flex-col align-center" style={{height:"1000px", padding:"30px"}}>
                     <h2>Setting FIRE NFT ART</h2>
                     <span className="subtitle" data-nsfw-filter-status="swf"> Only owners can change and update NFT arts.</span>

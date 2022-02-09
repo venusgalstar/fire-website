@@ -1,5 +1,5 @@
 
-const RingFooter = () => {
+const MainFooter = () => {
     return (
         <footer>
             <div className="custom-container mx-auto">
@@ -28,5 +28,5 @@ const RingFooter = () => {
     );
 }
 
-export default RingFooter;
+export default MainFooter;
 

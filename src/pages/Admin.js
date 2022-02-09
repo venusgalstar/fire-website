@@ -3,7 +3,7 @@ import React from "react";
 import Content from "../components/admin/content";
 import Footer from "../components/common/Footer"
 // import Header from "../components/home/HomeHeader";
-import Header from "../components/ring/Header";
+import Header from "../components/main/Header";
 
 
 
