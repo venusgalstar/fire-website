@@ -188,7 +188,7 @@ a {
 
 #section-msg {
     background-image: url(/img/bg1.jpg);
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     background-position: top;
     background-size: 2000px 1000px;
 }
