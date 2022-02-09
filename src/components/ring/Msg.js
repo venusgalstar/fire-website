@@ -80,12 +80,20 @@ class RingMsg extends React.Component {
                                     <div className="fs-22 c-yellow noto-bold">{Number(this.props.cur_all_reward).toFixed(6)}</div>
                                     <div className="fs-18 c-gray dashbSmall">FIRE</div>
                                 </div>
+                                
+                                <div className="msg-content-item mainStats onlyMobile" style={{ justifyContent: "center" }}>
+                                    <div className="fs-22 c-w">Fire Price</div>
+                                    <div className="fs-22 c-yellow noto-bold">${Number(this.props.fire_value).toFixed(2)}</div>
+                                </div>
+
                                 <div className="msg-content-item mainBuy" style={{ justifyContent: 'center' }}>
-                                    <button className="btn action-btn" onClick={() => { window.open("https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/") }}>TRADE $FIRE</button>
+                                    <div class="fs-22 c-w">Trade Fire</div>
+                                    <button className="btn action-btn pangBtn" onClick={() => { window.open("https://app.pangolin.exchange/#/swap?outputCurrency=0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5") }}>Pangolin</button>
+                                    <button className="btn action-btn tradrjBtn" onClick={() => { window.open("https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/") }}>TraderJoe</button>
                                 </div>
                             </div>
                             <div className="msg-left-content-container">
-                                <div className="msg-content-item" style={{ justifyContent: "center" }}>
+                                <div className="msg-content-item treasuryBox" style={{ justifyContent: "center" }}>
                                     <div className="fs-22 c-w">Treasury Balance</div>
                                     <div className="fs-22 c-yellow noto-bold">${this.props.treasury_balance ? String(this.props.treasury_balance).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 0}</div>
                                 </div>
@@ -93,6 +101,7 @@ class RingMsg extends React.Component {
                                     <div className="fs-22 c-w">Total Investments</div>
                                     <div className="fs-22 c-yellow noto-bold">$84,556</div>
                                 </div>
+   
                             </div>
                         </div>
                         <div className="msg-right">

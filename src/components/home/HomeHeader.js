@@ -45,6 +45,9 @@ class HomeHeader extends React.Component {
                             <span className='menu'>
                                 <a href="https://discord.gg/uUaZgsZXM5" target="_blank" rel="nofollow noopener noreferrer"><i className="fab fa-discord"></i></a>
                             </span>
+                            <span className='menu'>
+                            <a href="https://medium.com/@phoenix-community-capital" target="_blank" rel="noreferrer noopener"><i className="fab fa-medium"></i></a>
+                            </span>
                             <span className='menu flex1'></span>
                            
                             <div className="certik" onClick={() => { window.open("https://www.certik.com/projects/thephoenix") }}></div>
