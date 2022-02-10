@@ -3,7 +3,11 @@ const Footer = () => {
     return (
         <footer>
             <div className="container mx-auto">
+                
                 <div className="contractHolder">Contract: <a href="https://snowtrace.io/address/0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5" target="_blank" rel="noreferrer noopener">0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5</a></div>
+                
+                {/*  <button className="btn action-btn addMMbtn">Add Fire To MetaMask<img src="img/MetaMask_Fox.png" alt="MetaMask logo"/></button> */}
+
                 <div className="footer-main">
                     <div className="flex align-center">
                         <img className="img-spin logo-img" src="/img/logo.png" alt="" />
@@ -31,8 +35,11 @@ const Footer = () => {
                             <span className="m-r-20">
                             <a href="https://twitter.com/phoenix_fi" target="_blank" rel="noreferrer noopener"><i className="fab fa-twitter"></i></a>
                             </span>
-                            <span>
+                            <span className="m-r-20">
                             <a href="https://discord.gg/uUaZgsZXM5" target="_blank" rel="noreferrer noopener"><i className="fab fa-discord"></i></a>
+                            </span>
+                            <span>
+                            <a href="https://medium.com/@phoenix-community-capital" target="_blank" rel="noreferrer noopener"><i className="fab fa-medium"></i></a>
                             </span>
                         </div>
                     </div>

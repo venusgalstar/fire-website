@@ -36,7 +36,7 @@ function App(props) {
     const init = useCallback(() => {
         var chart = createChart(document.getElementById("chart1"), {
             width: 500,
-            height: 330,
+            height: 370,
             priceScale: {
                 scaleMargins: {
                     top: 0.3,
