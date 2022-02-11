@@ -31,7 +31,7 @@ class HomeStart extends React.Component {
                   buy fire
                 </div>
                 <p data-nsfw-filter-status="swf" className="c-purple">
-                  $FIRE is available on the <span className="phxColor">Avalanche Network</span>.  You can swap AVAX for $FIRE on Trader&nbsp;Joe.
+                  $FIRE is available on the <span className="phxColor">Avalanche Network</span>.  You can swap AVAX for $FIRE on Pangolin and Trader&nbsp;Joe.
                 </p>
               </div>
               <div className="card-action shadow">
