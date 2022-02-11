@@ -110,10 +110,11 @@ class Faq extends React.Component {
                                 <span className="faqQw">Where can I buy $FIRE and where can I create my NEST?</span>
                             </button>
                             <div className="panel" >
-                                <p data-nsfw-filter-status="swf">You can easily buy FIRE on Trader Joe by<a
+                                <p data-nsfw-filter-status="swf">You can easily buy FIRE on <a
+                                    href="https://app.pangolin.exchange/#/swap?outputCurrency=0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5"
+                                    className="c-purple" data-nsfw-filter-status="swf" style={{ textDecoration: "none" }}>Pangolin</a> and <a
                                     href="https://traderjoexyz.com/trade?inputCurrency=AVAX&amp;outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/"
-                                    className="c-purple" data-nsfw-filter-status="swf" style={{ textDecoration: "none" }}> clicking on
-                                    this&nbsp;link</a>.<br /><br />The contract address of the FIRE token is :
+                                    className="c-purple" data-nsfw-filter-status="swf" style={{ textDecoration: "none" }}>Trader Joe</a>.<br /><br />The contract address of the FIRE token is :
                                     <br /><b className="contract">0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5</b><br /><br />You can create your FIRE-NESTs and
                                     collect your FIRE rewards on our web app: thephoenix.finance/app .<a
                                         href="https://thephoenix.finance/app" className="c-purple" data-nsfw-filter-status="swf"

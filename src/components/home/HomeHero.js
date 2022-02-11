@@ -27,7 +27,7 @@ const HomeHero = (props) => {
                 </div>
 
               </button>
-              <button className="btn action-btn btn-middle buyFireBtn" onClick={() => { window.open("https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/") }}>
+              <button className="btn action-btn btn-middle buyFireBtn" onClick={() => { window.open("https://app.pangolin.exchange/#/swap?outputCurrency=0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5") }}>
                 <div className="fs-30">
                   Buy Fire
                 </div>
