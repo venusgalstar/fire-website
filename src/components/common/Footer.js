@@ -1,13 +1,45 @@
 
-
 const Footer = () => {
-    return ( 
+
+    const tokenAddress = '0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5';
+    const tokenSymbol = 'FIRE';
+    const tokenDecimals = 18;
+    const tokenImage = 'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5/logo.png';
+  
+    const addTokenFunction = async () => {
+      try {
+        const wasAdded = await window.ethereum.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: tokenAddress,
+              symbol: tokenSymbol,
+              decimals: tokenDecimals,
+              image: tokenImage,
+            },
+          },
+        });
+  
+        if (wasAdded) {
+          console.log('Thanks for your interest!');
+        } else {
+          console.log('FIRE token has been added to you wallet!');
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+
+    return (
         <footer>
             <div className="container mx-auto">
                 
                 <div className="contractHolder">Contract: <a href="https://snowtrace.io/address/0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5" target="_blank" rel="noreferrer noopener">0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5</a></div>
                 
-                {/*   <button onClick={() => addTokenFunction()} className="btn action-btn addMMbtn">Add Fire To MetaMask<img src="img/MetaMask_Fox.png" alt="MetaMask logo"/></button>  */}
+                <button type="button" onClick={() => addTokenFunction()} className="btn action-btn addMMbtn">Add Token To MetaMask<img src="img/MetaMask_Fox.png" alt="MetaMask logo" />
+        </button>
 
                 <div className="footer-main">
                     <div className="flex align-center">
