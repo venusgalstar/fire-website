@@ -7,20 +7,6 @@ a {
 }
 
 
-
-
-
-.view {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    overflow: scroll;
-    margin-right: -15px;
-    margin-bottom: -17px !important; // changed from -15px  (default) to -17px (native scrollbar had a portion visible) 
-}
-
 :root {
     --primary: #11151f;
     --third: #0d111a;
@@ -1635,7 +1621,7 @@ span.copy-right {
     width: 100%;
     cursor: pointer;
     border-radius: inherit;
-    background-color: rgb(200 150 86 / 37%);
+    background-color: rgb(200 150 86 / 65%);
   }
   .track-horizontal {
     position: absolute;

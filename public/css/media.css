@@ -1330,9 +1330,15 @@
 /* only above 1080px */
 @media (min-width: 1080px) {
 .tab-content:hover .track-vertical {
+    -webkit-transition: opacity 0.5s ease-in;
+    -moz-transition: opacity 0.5s ease-in;
+    -o-transition: opacity 0.5s ease-in;
     opacity: 1;
 }
 .track-vertical {
+    -webkit-transition: opacity 0.5s ease-out;
+    -moz-transition: opacity 0.5s ease-out;
+    -o-transition: opacity 0.5s ease-out;
     opacity: 0;
 }}
 
