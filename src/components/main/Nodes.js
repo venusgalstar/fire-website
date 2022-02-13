@@ -16,11 +16,15 @@ const renderThumb = ({ style, ...props }) => {
 
 const CustomScrollbars = props => (
     <Scrollbars
-        renderThumbHorizontal={renderThumb}
-        renderThumbVertical={renderThumb}
-        {...props}
+        renderTrackHorizontal={props => <div {...props} className="track-horizontal"/>}
+        renderTrackVertical={props => <div {...props} className="track-vertical"/>}
+        renderThumbHorizontal={props => <div {...props} className="thumb-horizontal"/>}
+        renderThumbVertical={props => <div {...props} className="thumb-vertical" />}
+        renderView={props => <div {...props} className="view"/>}
+        {...props} 
     />
 );
+
 
 
 class Nodes extends React.Component {
