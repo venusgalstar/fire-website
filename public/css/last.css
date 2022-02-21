@@ -387,12 +387,20 @@ a {
   }
 
 .tab-content {
-    height: 600px;
+    height: 645px;
     background-color: #949596;
     padding: 20px;
 }
-
-
+.tab-content .card-item-info .dashbSmall {
+    text-align: center;
+    margin-top: 20px;
+}
+.countdownHolder {
+    text-align: right;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 10px;
+}
 #section-hero {
     height: 740px;
     background-image: url(/img/bg1.jpg);
@@ -1301,6 +1309,14 @@ footer .c-gray:hover {
     display: block;
     max-width: 200px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+span.myNftNmb {
+    background: #202225;
+    padding: 0px 12px;
+    border-radius: 50%;
 }
 .nftsInTab .card-img {
     width: 100% !important;
