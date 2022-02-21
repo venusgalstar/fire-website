@@ -362,6 +362,7 @@ class Nodes extends React.Component {
                             {this.state.selected_tab === 0 ?
                                 <>
                                     <div className='h-60  node-title-header mobile-flex' style={{ display: "flex !important", width: "100%" }}>
+                                        
                                         <div className="pay-button" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div>
                                         <div className="claim-button claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> 
                                         Claim all
@@ -374,6 +375,7 @@ class Nodes extends React.Component {
                                                 </span>
                                         </div>
                                     </div>
+                                    <div className='countdownHolder'>Countdown until next claim: 21h 17m 07s</div>
                                     <div className='h-60 flex align-center node-title-header' style={{ width: "100%" }}>
                                         <div className='padder-10 noto-bold' style={{ flex: "1" }}>Name</div>
                                         <div className='text-center noto-bold mobile-hidden' style={{ flex: "3" }}>Reward Start</div>
@@ -416,7 +418,8 @@ class Nodes extends React.Component {
                                                 <span className="text-center noto-bold">MASTER</span>
                                             </div>
                                             <div className="card-item-info">
-                                             <span className="nftBtnNum">My NFT : {this.props.my_nfts.length <= 10 ? this.props.my_nfts.length : 10}</span>
+                                             <span className="nftBtnNum">My NFT : <span className="myNftNmb">{this.props.my_nfts.length <= 10 ? this.props.my_nfts.length : 10}</span></span>
+                                             <div class="dashbSmall">All NFTs: 15441</div>
                                             </div>
                                         </div>
                                         <div className="card">
@@ -425,7 +428,8 @@ class Nodes extends React.Component {
                                                 <span className="text-center noto-bold">GRAND MASTER</span>
                                             </div>
                                             <div className="card-item-info">
-                                                 <span className="nftBtnNum">My NFT : {this.props.my_nfts.length > 10 ? this.props.my_nfts.length - 10 : 0}</span>
+                                                 <span className="nftBtnNum">My NFT : <span className="myNftNmb">{this.props.my_nfts.length > 10 ? this.props.my_nfts.length - 10 : 0}</span></span>
+                                                 <div class="dashbSmall">All NFTs: 15441</div>
                                             </div>
                                         </div>
                                     </div>
