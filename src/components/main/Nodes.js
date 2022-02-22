@@ -375,7 +375,7 @@ class Nodes extends React.Component {
                                                 </span>
                                         </div>
                                     </div>
-                                    <div className='countdownHolder'>Countdown until next claim: 21h 17m 07s</div>
+                                    <div className='countdownHolder'><span className='cntTxt'>Countdown until next claim:</span><span className='cntTimer'>21h 17m 07s</span></div>
                                     <div className='h-60 flex align-center node-title-header' style={{ width: "100%" }}>
                                         <div className='padder-10 noto-bold' style={{ flex: "1" }}>Name</div>
                                         <div className='text-center noto-bold mobile-hidden' style={{ flex: "3" }}>Reward Start</div>
