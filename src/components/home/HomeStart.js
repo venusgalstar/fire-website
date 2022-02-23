@@ -108,14 +108,14 @@ class HomeStart extends React.Component {
         <section id="section-team">
           <div className="team-container">
             
-          <h2 class="teamTitle">Our Team</h2>
+          <h2 className="teamTitle">Our Team</h2>
 
           <div className="team">
 
             <div className="team_member">
               <div className="team-image">
                   <img src="/img/team2.png" alt="team_member_image"/>
-                  <div class="fire-container">
+                  <div className="fire-container">
                     <div className="red flame"></div>
                     <div className="orange flame"></div>
                     <div className="yellow flame"></div>
@@ -123,7 +123,7 @@ class HomeStart extends React.Component {
                   </div>
               </div>
               <div className="btn_grp">
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i className="fab fa-linkedin"></i></a>
               </div>
               <h3>Luke Phoenix</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatum fuga iure. Est, dicta voluptatum.</p>
@@ -135,7 +135,7 @@ class HomeStart extends React.Component {
             <div className="team_member">
               <div className="team-image">
                   <img src="/img/team1.png" alt="team_member_image"/>
-                  <div class="fire-container">
+                  <div className="fire-container">
                     <div className="red flame"></div>
                     <div className="orange flame"></div>
                     <div className="yellow flame"></div>
@@ -143,7 +143,7 @@ class HomeStart extends React.Component {
                   </div>
               </div>
               <div className="btn_grp">
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i className="fab fa-linkedin"></i></a>
               </div>
               <h3>Eric Theflame</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatum fuga iure. Est, dicta voluptatum.</p>
@@ -154,7 +154,7 @@ class HomeStart extends React.Component {
             <div className="team_member">
               <div className="team-image">
                   <img src="/img/team1.png" alt="team_member_image"/>
-                  <div class="fire-container">
+                  <div className="fire-container">
                     <div className="red flame"></div>
                     <div className="orange flame"></div>
                     <div className="yellow flame"></div>
@@ -162,7 +162,7 @@ class HomeStart extends React.Component {
                   </div>
               </div>
               <div className="btn_grp">
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i className="fab fa-linkedin"></i></a>
               </div>
               <h3>John Bonfire</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatum fuga iure. Est, dicta voluptatum.</p>

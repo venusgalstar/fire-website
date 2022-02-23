@@ -36,7 +36,10 @@ class Nodes extends React.Component {
             open: false,
             fee_index: -1,
             selected_tab: 0,
-            curTime: 0
+            curTime: 0,
+            current_users: 0,
+            master_nft: 0,
+            grand_nft: 0
         }
         this.props.dispatch({
             type: "GET_NODE_LIST"
@@ -47,8 +50,30 @@ class Nodes extends React.Component {
         this.handleModalClose = this.handleModalClose.bind(this);
         this.PayAllNode = this.PayAllNode.bind(this);
         this.createNode = this.createNode.bind(this);
+        
+        this.getNftBuyerCount = this.getNftBuyerCount.bind(this);        
+        this.getNftBuyerCount();
+    }
 
-
+    getNftBuyerCount = () => {
+        const requestOptions = {
+            method: 'POST'
+        };
+        fetch('https://fetchphoenixdata.herokuapp.com/get_nft_count', requestOptions)
+            .then(response => response.json())
+            .then((data) => {
+                console.log("data", data);
+                var master_nft = 0;
+                var grand_nft = 0;
+                if (data.data[0]._id == '0') {
+                    master_nft = data.data[0].total + 36;
+                    grand_nft = data.data[1].total + 3;
+                } else {
+                    master_nft = data.data[1].total + 36;
+                    grand_nft = data.data[0].total + 3;
+                }
+                this.setState({ master_nft: master_nft, grand_nft: grand_nft });
+                });
 
     }
 
@@ -64,6 +89,7 @@ class Nodes extends React.Component {
         if (this.state.my_nodes == null) {
             return;
         }
+
         var list = [];
         var sum = 0;
         for (var item in this.state.my_nodes) {
@@ -108,6 +134,23 @@ class Nodes extends React.Component {
             curTime = curTime + 1;
             this.setState({ curTime: curTime });
         }
+
+        //remained claim time
+        //var remainClaimTime = moment((this.props.last_claim_time + 24*3600)* 1000).diff(this.props.currentTime * 1000);
+        var claimRemainText = "";
+
+        if( this.props.currentTime < this.props.last_claim_time + 24 * 3600 )
+        {            
+            var remainClaimTime = moment(this.props.last_claim_time * 1000 + 24 * 3600 * 1000).diff(this.props.currentTime * 1000);
+            var durationClaim = moment.duration(remainClaimTime);
+                        
+            console.log(durationClaim);
+
+            claimRemainText = durationClaim.hours() + "h " +
+                durationClaim.minutes() + "m " +
+                durationClaim.seconds() + "s";
+        }
+        this.setState({claimRemainText:claimRemainText});
 
         this.setState({ my_nodes: list });
         this.props.dispatch({
@@ -202,8 +245,6 @@ class Nodes extends React.Component {
                 });
             return;
         }
-
-
 
         if (!this.props.can_perform) {
             toast.info("Please wait. Another transaction is running.", {
@@ -375,7 +416,13 @@ class Nodes extends React.Component {
                                                 </span>
                                         </div>
                                     </div>
-                                    <div className='countdownHolder'><span className='cntTxt'>Countdown until next claim:</span><span className='cntTimer'>21h 17m 07s</span></div>
+                                    {
+                                        this.props.my_nodes.length > 0 ? 
+                                            this.state.curTime - this.props.last_claim_time < 3600 * 24 ? 
+                                               <div className='countdownHolder'>Countdown until next claim: {this.state.claimRemainText}</div>
+                                                :""
+                                            :""
+                                    }
                                     <div className='h-60 flex align-center node-title-header' style={{ width: "100%" }}>
                                         <div className='padder-10 noto-bold' style={{ flex: "1" }}>Name</div>
                                         <div className='text-center noto-bold mobile-hidden' style={{ flex: "3" }}>Reward Start</div>
@@ -419,7 +466,7 @@ class Nodes extends React.Component {
                                             </div>
                                             <div className="card-item-info">
                                              <span className="nftBtnNum">My NFT : <span className="myNftNmb">{this.props.my_nfts.length <= 10 ? this.props.my_nfts.length : 10}</span></span>
-                                             <div class="dashbSmall">All NFTs: 15441</div>
+                                             <div className="dashbSmall">All NFTs: {this.state.master_nft}</div>
                                             </div>
                                         </div>
                                         <div className="card">
@@ -429,7 +476,7 @@ class Nodes extends React.Component {
                                             </div>
                                             <div className="card-item-info">
                                                  <span className="nftBtnNum">My NFT : <span className="myNftNmb">{this.props.my_nfts.length > 10 ? this.props.my_nfts.length - 10 : 0}</span></span>
-                                                 <div class="dashbSmall">All NFTs: 15441</div>
+                                                 <div className="dashbSmall">All NFTs: {this.state.grand_nft}</div>
                                             </div>
                                         </div>
                                     </div>
