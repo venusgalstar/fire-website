@@ -52,6 +52,7 @@ const Footer = () => {
                             <span className="footer-link fs-20"><a className="c-gray" href="/" >Home</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="mailto:help@thephoenix.finance" >Contact</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/#section-faq" >FAQ</a></span>
+                            <span className="footer-link fs-20"><a className="c-gray" href="/disclaimer" >Disclaimer</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/app" >App</a></span>
                         </div>
                         <div className="footer-privacy">
