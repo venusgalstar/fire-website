@@ -38,9 +38,9 @@ class Content extends React.Component {
                     </div>
                 </section>
                 <section className="c-w flex flex-col align-center" style={{ marginTop: "60px", marginBottom: "60px"}}>
-                    <div className="disclaim-title ">
+                    
                         <span className="discHolders">Current Nest Holders are {this.state.current_users}</span>
-                    </div>
+                    
                 </section>
             </>
         );
