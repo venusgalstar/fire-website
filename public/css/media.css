@@ -1206,6 +1206,9 @@
     .node-title-header.mobile-flex {
         justify-content: center;
     }
+    #section-hero {
+        background-image: url(/img/mobile-bg1-500.jpg);
+    }
 }
 
 /* =========================== all below 475px ========================= */
