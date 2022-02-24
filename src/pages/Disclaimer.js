@@ -10,7 +10,7 @@ class Disclaimer extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = props;
+        this.state = {};
     }
 
 

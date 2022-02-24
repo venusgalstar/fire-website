@@ -10,6 +10,7 @@ class HomeHeader extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {};
     }
 
     render() {
@@ -55,11 +56,11 @@ class HomeHeader extends React.Component {
                         <a id='launch_btn' className='btn action-btn' href='/app'>
                             LAUNCH APP
                         </a>
-                        <a id='launch_sm_btn'>
+                        <div id='launch_sm_btn'>
                             <StyledEngineProvider injectFirst>
-                                <Menu />
+                                <Menu></Menu>
                             </StyledEngineProvider>,
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div className='header_border'></div>
@@ -70,5 +71,12 @@ class HomeHeader extends React.Component {
 const mapStateToProps = state => {
     return { state };
 }
-export default connect(mapStateToProps)(HomeHeader);
+
+const mapDispatchToProps = dispatch => {
+    return {
+        dispatch
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
 

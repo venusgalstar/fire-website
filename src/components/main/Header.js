@@ -93,11 +93,11 @@ class RingHeader extends React.Component {
                                     </div>
                             }
                         </div>
-                        <a id='launch_sm_btn'>
+                        <div id='launch_sm_btn'>
                             <StyledEngineProvider injectFirst>
                                 <Menu />
                             </StyledEngineProvider>,
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div className='header_border'></div>
