@@ -419,7 +419,7 @@ class Nodes extends React.Component {
                                     {
                                         this.props.my_nodes.length > 0 ? 
                                             this.state.curTime - this.props.last_claim_time < 3600 * 24 ? 
-                                               <div className='countdownHolder'>Countdown until next claim: {this.state.claimRemainText}</div>
+                                               <div className='countdownHolder'><span className='cntTxt'>Countdown until next claim:</span> <span className='cntTimer'>{this.state.claimRemainText}</span></div>
                                                 :""
                                             :""
                                     }
