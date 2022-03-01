@@ -110,7 +110,29 @@ class HomeStart extends React.Component {
             
           <h2 className="teamTitle">Our Team</h2>
 
+
+          
+
           <div className="team">
+
+
+
+          <div className="team_member">
+              <div className="team-image">
+                  <img src="/img/eric-marshall.png" alt="Eric Marshall - Founder"/>
+                  <div className="fire-container">
+                    <div className="red flame"></div>
+                    <div className="orange flame"></div>
+                    <div className="yellow flame"></div>
+                    <div className="white flame"></div>
+                  </div>
+              </div>
+              <div className="btn_grp">
+                <a href="https://www.linkedin.com/in/ericcmarshall/" target="_blank"><i className="fab fa-linkedin"></i></a>
+              </div>
+              <h3>Eric Marshall</h3>
+
+            </div>
 
             <div className="team_member">
               <div className="team-image">
@@ -131,22 +153,7 @@ class HomeStart extends React.Component {
 
 
 
-            <div className="team_member">
-              <div className="team-image">
-                  <img src="/img/eric-marshall.png" alt="Eric Marshall - Founder"/>
-                  <div className="fire-container">
-                    <div className="red flame"></div>
-                    <div className="orange flame"></div>
-                    <div className="yellow flame"></div>
-                    <div className="white flame"></div>
-                  </div>
-              </div>
-              <div className="btn_grp">
-                <a href="https://www.linkedin.com/in/ericcmarshall/" target="_blank"><i className="fab fa-linkedin"></i></a>
-              </div>
-              <h3>Eric Marshall</h3>
 
-            </div>
 
 
             {/* <div className="team_member">
