@@ -2002,8 +2002,9 @@ font-size: 34px;
     top: -50px;
 }
 .team-container .team .team_member p {
-margin: 15px 0;
-text-align: left;
+    margin: 6px 0;
+    font-size: 22px;
+    text-align: center;
 }
 
 
