@@ -114,7 +114,7 @@ class HomeStart extends React.Component {
 
             <div className="team_member">
               <div className="team-image">
-                  <img src="/img/team2.png" alt="team_member_image"/>
+                  <img src="/img/luke-sullivan.png" alt="Luke Sullivan - Founder"/>
                   <div className="fire-container">
                     <div className="red flame"></div>
                     <div className="orange flame"></div>
@@ -123,10 +123,9 @@ class HomeStart extends React.Component {
                   </div>
               </div>
               <div className="btn_grp">
-                <a href="#" target="_blank"><i className="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/luke-sullivan-0750b7aa/" target="_blank"><i className="fab fa-linkedin"></i></a>
               </div>
-              <h3>Luke Phoenix</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatum fuga iure. Est, dicta voluptatum.</p>
+              <h3>Luke Sullivan</h3>
 
             </div>
 
@@ -134,7 +133,7 @@ class HomeStart extends React.Component {
 
             <div className="team_member">
               <div className="team-image">
-                  <img src="/img/team1.png" alt="team_member_image"/>
+                  <img src="/img/eric-marshall.png" alt="Eric Marshall - Founder"/>
                   <div className="fire-container">
                     <div className="red flame"></div>
                     <div className="orange flame"></div>
@@ -143,15 +142,14 @@ class HomeStart extends React.Component {
                   </div>
               </div>
               <div className="btn_grp">
-                <a href="#" target="_blank"><i className="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/ericcmarshall/" target="_blank"><i className="fab fa-linkedin"></i></a>
               </div>
-              <h3>Eric Theflame</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatum fuga iure. Est, dicta voluptatum.</p>
+              <h3>Eric Marshall</h3>
 
             </div>
 
 
-            <div className="team_member">
+            {/* <div className="team_member">
               <div className="team-image">
                   <img src="/img/team1.png" alt="team_member_image"/>
                   <div className="fire-container">
@@ -167,7 +165,7 @@ class HomeStart extends React.Component {
               <h3>John Bonfire</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatum fuga iure. Est, dicta voluptatum.</p>
 
-            </div>
+            </div> */}
 
 
           </div>

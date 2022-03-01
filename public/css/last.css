@@ -1917,7 +1917,6 @@ span.copy-right {
 /* *********** TEAM SECTION *********** */
 
 #section-team {
-display:none !important;
 background-image: url(/img/marble-bg.jpg);
 background-position: center;
 background-size: cover;
@@ -1957,7 +1956,7 @@ padding: 25px;
 position: relative;
 min-height: 200px;
 padding-top: 50px;
-margin-bottom: 80px;
+margin-bottom: 115px;
 }
 .team-container .team .team_member img {
 width: 180px;
