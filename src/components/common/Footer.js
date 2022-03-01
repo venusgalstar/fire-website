@@ -52,6 +52,7 @@ const Footer = () => {
                             <span className="footer-link fs-20"><a className="c-gray" href="/" >Home</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="mailto:help@thephoenix.finance" >Contact</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/#section-faq" >FAQ</a></span>
+                            <span className="footer-link fs-20"><a className="c-gray" href="/#section-team" >TEAM</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/disclaimer" >Disclaimer</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/app" >App</a></span>
                             <span className="footer-link fs-20 cursor-pointer"><a title="Please read our whitepaper" className="c-gray" onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}>Whitepaper</a></span>

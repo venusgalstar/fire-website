@@ -13,7 +13,7 @@ const HomeHero = (props) => {
                 <h1>Phoenix <span>Community Capital</span></h1>
               </div>
               <div className="title-sub">
-                large-scale, high yield<br className='mobile-hidden'/>
+                large-scale, high yield <br className='mobile-hidden'/>
                 return investments
               </div>
               <div className='c-w title-sub1'>

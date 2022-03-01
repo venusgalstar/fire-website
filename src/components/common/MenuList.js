@@ -85,6 +85,7 @@ export default function MenuListComponent() {
                   <MenuItem onClick={handleClose}> <a href='https://www.certik.com/projects/thephoenix' className='menu-item-style'>Audit</a></MenuItem>
                   <MenuItem onClick={handleClose}> <a href='mailto:help@thephoenix.finance' className='menu-item-style'>Contact</a></MenuItem>
                   <MenuItem onClick={handleClose}> <a href='/#section-faq' className='menu-item-style'>FAQ</a></MenuItem>
+                  <MenuItem onClick={handleClose}> <a href='/#section-team' className='menu-item-style'>Team</a></MenuItem>
                 </MenuList>
               </ClickAwayListener>
             </Paper>

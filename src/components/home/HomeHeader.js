@@ -41,6 +41,9 @@ class HomeHeader extends React.Component {
                                 <a href="/#section-faq">FAQ</a>
                             </span>
                             <span className='menu'>
+                                <a href="/#section-team">TEAM</a>
+                            </span>
+                            <span className='menu'>
                                 <a href="https://twitter.com/phoenix_fi" target="_blank" rel="nofollow noopener noreferrer"><i className="fab fa-twitter"></i></a>
                             </span>
                             <span className='menu'>
