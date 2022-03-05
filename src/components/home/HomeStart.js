@@ -131,6 +131,7 @@ class HomeStart extends React.Component {
                 <a href="https://www.linkedin.com/in/ericcmarshall/" target="_blank"><i className="fab fa-linkedin"></i></a>
               </div>
               <h3>Eric Marshall</h3>
+              <p>Co-Founder</p>
             </div>
 
             <div className="team_member">
@@ -147,6 +148,7 @@ class HomeStart extends React.Component {
                 <a href="https://www.linkedin.com/in/luke-sullivan-0750b7aa/" target="_blank"><i className="fab fa-linkedin"></i></a>
               </div>
               <h3>Luke Sullivan</h3>
+              <p>Co-Founder</p>
             </div>
 
 

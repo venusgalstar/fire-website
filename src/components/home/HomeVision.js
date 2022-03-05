@@ -46,7 +46,7 @@ class HomeVision extends React.Component {
                             </div>
                             <div className="flex start-subtitle-container">
                                 <span className="start-subtitle" data-nsfw-filter-status="swf">
-                                    NFTs are available for purchase upon certain milestones. Our NFTs boost your daily reward rate and increase your earning potential. For more information regarding out NFT's, please see our whitepaper.
+                                    NFTs are available for purchase upon certain milestones. Our NFTs boost your daily reward rate and increase your earning potential. For more information regarding our NFT's, please see our whitepaper.
                                 </span>
                             </div>
                             <div className='action-btn btn fs-28 m-t-30 mx-auto' style={{width:"330px", height:"50px"}} onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}>
