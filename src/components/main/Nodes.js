@@ -44,9 +44,10 @@ class Nodes extends React.Component {
         this.props.dispatch({
             type: "GET_NODE_LIST"
         });
+        
         this.timer = setInterval(() => {
             this.updateRewards();
-        }, 1000);
+        }, 1000);       
         this.handleModalClose = this.handleModalClose.bind(this);
         this.PayAllNode = this.PayAllNode.bind(this);
         this.createNode = this.createNode.bind(this);

@@ -49,10 +49,19 @@ const reducer = (state = init(_initialState), action) => {
     } else if (action.type === 'CONNECT_WALLET') {
         checkNetwork(state.chainId);
         web3.eth.getAccounts((err, accounts) => {
+            
+
+            // setInterval(()=>{
+            //     store.dispatch({
+            //         type: "GET_USER_INFO",
+            //         payload: { account: accounts[0] }
+            //     });
+            // }, 3600000);
+
             store.dispatch({
                 type: "GET_USER_INFO",
                 payload: { account: accounts[0] }
-            });
+            });          
         })
     } else if (action.type === 'SET_CONTRACT_STATUS') {
         if (!state.account) {
@@ -185,8 +194,10 @@ const reducer = (state = init(_initialState), action) => {
 
     } else if (action.type === "GET_USER_INFO") {
 
-        let account = (action.payload && action.payload.account) ? action.payload.account : state.account;
-        let can_perform = (action.payload && action.payload.can_perform) ? action.payload.can_perform : state.can_perform;
+        let account = (action.payload !== undefined && action.payload.account !== undefined) ? action.payload.account : state.account;
+        let can_perform = (action.payload !== undefined && action.payload.can_perform !== undefined) ? action.payload.can_perform : state.can_perform;
+
+        console.log(account);        
 
         let promise = [];
         promise.push(rewardConatract.methods.getNFTList(account).call());
