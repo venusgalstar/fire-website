@@ -54,7 +54,7 @@ class RingHeader extends React.Component {
                 <div className='header'>
                     <div className="content mx-auto">
                         <div className='flex align-center'>
-                            <img alt='' src='/img/logo.png' className="logo-img" />
+                        <a href="/"><img alt='' src='/img/logo.png' className="logo-img" alt="Phoenix Community Capital logo" /></a>
                             <span className='logo-title noto-bold app-header-title'>
                                 PHOENIX  <span className="noto-thin">Community Capital</span>
                             </span>
