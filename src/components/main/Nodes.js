@@ -63,7 +63,6 @@ class Nodes extends React.Component {
         fetch('https://fetchphoenixdata.herokuapp.com/get_nft_count', requestOptions)
             .then(response => response.json())
             .then((data) => {
-                console.log("data", data);
                 var master_nft = 0;
                 var grand_nft = 0;
                 if (data.data[0]._id == '0') {
@@ -93,6 +92,8 @@ class Nodes extends React.Component {
 
         var list = [];
         var sum = 0;
+        var id = 0;
+
         for (var item in this.state.my_nodes) {
             const temp = this.state.my_nodes[item];
             var remain = moment(temp.lastTime * 1000).diff(this.props.currentTime * 1000);
@@ -128,6 +129,7 @@ class Nodes extends React.Component {
                 temp['payable'] = true;
                 temp['reward'] = 0;
             }
+            temp['id'] = id;
             list.push(temp);
         }
         var curTime = Number(this.props.currentTime);
@@ -145,8 +147,6 @@ class Nodes extends React.Component {
             var remainClaimTime = moment(this.props.last_claim_time * 1000 + 24 * 3600 * 1000).diff(this.props.currentTime * 1000);
             var durationClaim = moment.duration(remainClaimTime);
                         
-            console.log(durationClaim);
-
             claimRemainText = durationClaim.hours() + "h " +
                 durationClaim.minutes() + "m " +
                 durationClaim.seconds() + "s";
@@ -196,13 +196,21 @@ class Nodes extends React.Component {
         }
         this.props.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: false } });
         let cnt = 0;
-        for (var index in this.state.my_nodes) {
-            if (this.state.my_nodes[index].payable === true) {
+
+        
+
+        var contractNodes = this.state.my_nodes;
+        contractNodes.sort((a,b)=> a.idx-b.idx);
+        console.log(contractNodes);
+
+        for (var index in contractNodes) {
+            if (contractNodes[index].payable === true) {
                 cnt = cnt + 1;
             }
         }
 
         if (cnt === 0) {
+            this.props.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: true } });
             toast.info("You have no nest to pay.", {
                 position: "top-center",
                 autoClose: 3000,
@@ -219,6 +227,7 @@ class Nodes extends React.Component {
     }
 
     claimNode(id) {
+        console.log("claim", id);
         if (this.props.my_nodes.length === 0) {
             toast.info("There is no nest. Please create your own nest.", {
                 position: "top-center",
@@ -265,9 +274,13 @@ class Nodes extends React.Component {
         if (id === -1) {
             let cnt = 0;
             let sum = 0;
-            for (var index in this.state.my_nodes) {
-                sum += Number(this.state.my_nodes[index].reward);
-                if (this.state.my_nodes[index].remain !== 'Expired') {
+            var contractNodes = this.state.my_nodes;
+            contractNodes.sort((a,b)=> a.idx-b.idx);
+            console.log(contractNodes);
+
+            for (var index in contractNodes) {
+                sum += Number(contractNodes[index].reward);
+                if (contractNodes[index].remain !== 'Expired') {
                     cnt = cnt + 1;
                 }
                 if (sum >= 100) {
@@ -366,11 +379,11 @@ class Nodes extends React.Component {
                             {item.remains}
                         </div>
                         <div className='mobile-show flex1'>
-                            <div className="pay-button list" style={{ width: "100%" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
+                            <div className="pay-button list" style={{ width: "100%" }} onClick={this.payNodeFee.bind(this, item.idx)}>Pay fee</div>
                         </div>
                     </div>
-                    <div className="pay-button list mobile-hidden" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
-                    <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, index)}> Claim </div>
+                    <div className="pay-button list mobile-hidden" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, item.idx)}>Pay fee</div>
+                    <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, item.idx)}> Claim </div>
                 </div>
             )
         });

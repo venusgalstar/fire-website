@@ -208,9 +208,10 @@ const reducer = (state = init(_initialState), action) => {
         promise.push(rewardConatract.methods.getTotalNodeCount().call());
         promise.push(rewardConatract.methods.getFireValue().call());
         Promise.all(promise).then((result) => {
-            const nodes = [];
+            var nodes = [];
             for (var index in result[1]) {
                 nodes.push({
+                    idx: index,
                     createTime: result[1][index].createTime,
                     lastTime: result[1][index].lastTime,
                     grandNFT: result[2].curGrandNFTEnable[index],
@@ -218,9 +219,10 @@ const reducer = (state = init(_initialState), action) => {
                     reward: Number(web3.utils.fromWei(result[2].nodeRewards[index])).toFixed(9),
                     master_nft_value: web3.utils.fromWei(result[6], 'ether') * 10,
                     grand_nft_value: web3.utils.fromWei(result[6], 'ether') * 100,
-
                 });
             }
+            nodes.sort((a,b)=> a.lastTime-b.lastTime);
+            //console.log(nodes);
             store.dispatch({
                 type: "RETURN_DATA", payload:
                 {
