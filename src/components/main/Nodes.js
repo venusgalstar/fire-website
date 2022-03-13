@@ -5,6 +5,7 @@ import moment from 'moment';
 import PayDlg from '../common/PayDlg';
 import { toast } from 'react-toastify';
 import { touchRippleClasses } from '@mui/material';
+import {Button} from "../Button";
 
 const renderThumb = ({ style, ...props }) => {
     const thumbStyle = {
@@ -403,7 +404,7 @@ class Nodes extends React.Component {
                             <span className='nest-header-title'>
                                 Create a Phoenix Nest with <span className='noto-bold'>10</span> <span className='c-yellow'>$FIRE</span> Tokens
                             </span>
-                            <button className='btn action-btn' onClick={this.createNode}>Create your nest</button>
+                            <Button type='primary' onClick={this.createNode}>Create your nest</Button>
                         </div>
                         <div className='tab-header flex'>
                             <div className={this.state.selected_tab === 0 ?

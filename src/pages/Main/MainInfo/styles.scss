@@ -1,0 +1,108 @@
+.main-info {
+  max-width: 1150px;
+  width: 100%;
+  margin: 40px auto;
+}
+
+.main-info__inner {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.card-counters-wrapper {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.chart-wrapper {
+  flex: 1 1 50%;
+}
+
+.card-counter {
+  background-color: #2f3136;
+  width: 45%;
+  max-width: 270px;
+  min-height: 150px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0 15px 15px 0;
+}
+
+.card-counter__title {
+  font-size: 1.5em;
+  padding: 15px 20px;
+  background: rgb(161,42,23);
+  background: linear-gradient(120deg, rgba(161,42,23,1) 0%, rgba(231,81,30,1) 100%);
+}
+
+.card-counter__content {
+  background: rgb(41,45,47);
+  background: linear-gradient(90deg, rgba(41,45,47,1) 0%, rgba(68,68,68,1) 100%);
+  height: 100%;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  line-height: 2;
+  font-family: 'Nunito', sans-serif;
+}
+
+.card-counter_mobile {
+  display: none !important;
+}
+
+@media (max-width: 480px) {
+  .card-counter {
+    max-width: 80%;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .card-counter_mobile {
+    display: flex !important;
+  }
+
+  .chart-wrapper {
+    display: none !important;
+  }
+}
+
+#chart1 {
+  text-align: center;
+}
+
+.tv-lightweight-charts {
+  display: inline-block;
+}
+
+.chart-description {
+  text-align: center;
+  line-height: 1.5em;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.2em;
+  padding: 20px;
+}
+
+@media screen and (max-width: 1180px) {
+  .card-counter {
+    margin: 0 0 20px 0;
+  }
+  .card-counters-wrapper {
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 865px) {
+  .tv-lightweight-charts {
+    transform: scale(0.8);
+  }
+
+  .chart-description {
+    font-size: 1em;
+  }
+}

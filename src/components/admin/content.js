@@ -128,7 +128,6 @@ class Content extends React.Component {
         return (
             <>
                 <section id="section-started" className="admin c-w flex flex-col align-center" style={{height:"1000px", padding:"30px"}}>
-                    <h2>Setting FIRE NFT ART</h2>
                     <span className="subtitle" data-nsfw-filter-status="swf"> Only owners can change and update NFT arts.</span>
 
                     <div id="started-content" className="flex mx-auto m-t-40 started-content-admin" style={{ justifyContent: "space-around" }}>

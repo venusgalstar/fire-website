@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { StyledEngineProvider } from '@mui/material/styles';
 import Menu from "../common/MenuList";
 
@@ -38,7 +37,7 @@ class RingHeader extends React.Component {
     componentDidMount() {
 
     }
-    
+
     static getDerivedStateFromProps(nextProps, prevProps) {
         return {my_nodes: nextProps.my_nodes };
     }

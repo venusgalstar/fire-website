@@ -1,5 +1,4 @@
 import React, { useEffect, useCallback, useState } from "react";
-import ReactDOM from "react-dom";
 import { createChart } from "lightweight-charts";
 import { connect, useSelector } from "react-redux";
 import moment from 'moment-business-days';
@@ -35,7 +34,7 @@ function App(props) {
 
     const init = useCallback(() => {
         var chart = createChart(document.getElementById("chart1"), {
-            width: 500,
+            width: 555,
             height: 370,
             priceScale: {
                 scaleMargins: {
