@@ -22,7 +22,7 @@ const HomeVision = () => {
                 >
                     <div className="section-vision__inner">
                         <div className="section-vision__content">
-                            <CSSTransition in={startAnimation} classNames="fade-ease-in">
+                            <CSSTransition timeout={500} in={startAnimation} classNames="fade-ease-in">
                                 <div className="section-vision__text">
                                     <h6 className="section-vision__t1">
                                         Fight The Good Fight!
@@ -37,7 +37,7 @@ const HomeVision = () => {
                                     </div>
                                 </div>
                             </CSSTransition>
-                            <CSSTransition in={startAnimation} classNames="fade-ease-in">
+                            <CSSTransition timeout={1000} in={startAnimation} classNames="fade-ease-in">
                                 <div style={{
                                 flex: 1,
                                 display: 'flex',

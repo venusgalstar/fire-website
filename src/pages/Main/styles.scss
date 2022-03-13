@@ -210,10 +210,7 @@
   flex: 1;
   margin-left: 2.6%;
 }
-.dashbSmall {
-  color: #979797 !important;
-  font-size: 22px !important;
-}
+
 .msg-left-content-container {
   display: flex;
   justify-content: space-around;
@@ -239,45 +236,6 @@
 }
 
 
-#section-nests {
-  height: 900px;
-  /* background-color: #000000; */
-  /* background-image: url(/img/bg4-2.png);  */
-  /* background-repeat: no-repeat; */
-  /* background-position: top; */
-  /* background-size: contain; */
-
-}
-#section-nest button.btn.action-btn {
-  font-size: 30px;
-  height: 50px !important;
-  min-width: 80px;
-  border-radius: 25px;
-  margin-top: 35px;
-}
-#section-nest button.btn.action-btn:hover {
-  background-color: #202225;
-  color: white;
-  border-color: #202225;
-}
-#section-nests>.content {
-  height: 900px;
-  max-width: 1150px;
-  width: 100%;
-}
-#section-nests button.btn.action-btn {
-  display: inline-block;
-  padding: 0 24px;
-  border-radius: 50px;
-  min-width: 154px;
-  height: 50px;
-  font-size: 28px;
-  text-transform: capitalize;
-}
-#section-nests button.btn.action-btn:hover {
-  background: #202225;
-  border-color: #202225;
-}
 .chart-text {
   margin-top: 20px;
   display: flex;
@@ -309,7 +267,6 @@
 
 /* Tooltip text */
 .tooltip .tooltiptext {
-  width: 239px;
   padding: 20px !important;
   width: 200px !important;
   margin-left: -100px !important;
@@ -566,18 +523,7 @@ img.phoenixHome {
   color: white;
   border-color: #202225;
 }
-.card-img.masterNFT {
-  //background: url(/img/nft-master.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.card-img.grandNFT {
-  //background: url(/img/nft-grand.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+
 #needToKnow {
   background-color: #202225;
   height: auto;
@@ -1045,37 +991,6 @@ footer .c-gray:hover {
   background: #c89656 !important;
 }
 
-
-.nftBtnNum {
-  padding: 0 24px;
-  border-radius: 50px;
-  min-width: 154px;
-  height: 50px;
-  font-size: 28px;
-  text-transform: capitalize;
-  background: #c89656;
-  margin: 0 auto;
-  display: block;
-  max-width: 200px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-span.myNftNmb {
-  background: #202225;
-  padding: 0px 12px;
-  border-radius: 50%;
-}
-.nftsInTab .card-img {
-  width: 100% !important;
-  height: auto;
-  min-height: 300px;
-}
-.nftsInTab .card+.card {
-  margin-top: 0;
-  margin-left: 4%;
-}
 /* .nest-list-odd>.claim-button {
     background-color: #2f3136;
 }

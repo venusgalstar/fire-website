@@ -202,7 +202,6 @@ class Nodes extends React.Component {
 
         var contractNodes = this.state.my_nodes;
         contractNodes.sort((a,b)=> a.idx-b.idx);
-        console.log(contractNodes);
 
         for (var index in contractNodes) {
             if (contractNodes[index].payable === true) {
@@ -473,25 +472,35 @@ class Nodes extends React.Component {
                                     </div>
                                 </> :
                                 <>
-                                    <div className='flex justify-center align-center nftsInTab' style={{ width: "100%", height: "100%" }}>
-                                    <div className="card">
-                                            <div className="card-img masterNFT"></div>
+                                    <div className='flex justify-center align-center nftsInTab' style={{ width: "100%", height: "100%", gap: "40px" }}>
+                                        <div className="nft-card">
+                                            <div className="nft-card__image masterNFT"/>
                                             <div className="card-item-title">
                                                 <span className="text-center noto-bold">MASTER</span>
                                             </div>
                                             <div className="card-item-info">
-                                             <span className="nftBtnNum">My NFT : <span className="myNftNmb">{this.props.my_nfts.length <= 10 ? this.props.my_nfts.length : 10}</span></span>
-                                             <div className="dashbSmall">All NFTs: {this.state.master_nft}</div>
+                                                 <span className="nftBtnNum">
+                                                     My NFT :
+                                                     <span className="myNftNmb">
+                                                        {this.props.my_nfts.length <= 10 ? this.props.my_nfts.length : 10}
+                                                     </span>
+                                                 </span>
+                                                <div className="dashbSmall">All NFTs: <span className="count">{this.state.master_nft}</span></div>
                                             </div>
                                         </div>
-                                        <div className="card">
-                                            <div className="card-img grandNFT"></div>
+                                        <div className="nft-card">
+                                            <div className="nft-card__image grandNFT"/>
                                             <div className="card-item-title">
                                                 <span className="text-center noto-bold">GRAND MASTER</span>
                                             </div>
                                             <div className="card-item-info">
-                                                 <span className="nftBtnNum">My NFT : <span className="myNftNmb">{this.props.my_nfts.length > 10 ? this.props.my_nfts.length - 10 : 0}</span></span>
-                                                 <div className="dashbSmall">All NFTs: {this.state.grand_nft}</div>
+                                                 <span className="nftBtnNum">
+                                                     My NFT :
+                                                     <span className="myNftNmb">
+                                                         {this.props.my_nfts.length > 10 ? this.props.my_nfts.length - 10 : 0}
+                                                     </span>
+                                                 </span>
+                                                <div className="dashbSmall">All NFTs: <span className="count">{this.state.grand_nft}</span></div>
                                             </div>
                                         </div>
                                     </div>

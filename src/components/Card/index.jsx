@@ -6,7 +6,7 @@ import './styles.scss';
 export const Card = (props) => {
     return <div className={`card card_${props.size}`}>
         <div className="card__transition">
-            { props.image && <img src={props.image} className="card__image" style={props.imageStyles} /> }
+            { props.image && <img src={props.image} className="card__image" style={props.imageStyles} alt="Image" /> }
             <div
                 className={`card__inner card__inner_${props.align}`}
                 style={{

@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import logo from '../../assets/images/logo.png';
 
 import PropTypes from "prop-types";
@@ -21,20 +21,10 @@ export const Navigation = (props) => {
             : header.classList.remove('navigation_sticky');
     };
 
-    useLayoutEffect(() => {
-        function handleResize() {
-            const { innerWidth: width, innerHeight: height } = window;
-            console.log(width, height);
-        }
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
     return <nav className="navigation navigation_fixed">
         <div className="navigation__inner">
             <div className="navigation__logo">
-                <a href="/"><img src={logo} height={115}/></a>
+                <a href="/"><img src={logo} height={115} alt={"Logo"}/></a>
             </div>
             <div className="navigation__menu">
                 { props.menu }

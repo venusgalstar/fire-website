@@ -381,7 +381,6 @@ const updateGlobalInfo = () => {
 
     //promise.push(gTokenContract.methods.balanceOf(config.treasuryAddr).call());
     Promise.all(promise).then((result) => {
-        console.log(result)
         store.dispatch({
             type: "RETURN_DATA",
             payload: {

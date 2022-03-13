@@ -22,13 +22,23 @@ const ConnectButton = (props) => {
                 progress: undefined,
             });
         }
-    }, []);
+    }, [props]);
 
     return <ul className="menu">
         <li className="menu__item menu__item_active">
             {
                 !props.account
-                    ? <a className="connectWallet" onClick={() => { handleConnect() }}>Connect Wallet</a>
+                    ? <a
+                        href="#"
+                        className="connectWallet"
+                        onClick={(event) => {
+                            event.preventDefault();
+                            handleConnect();
+                            return false;
+                        }}
+                    >
+                        Connect Wallet
+                    </a>
                     : <div style={{ display: "flex", alignItems: "center", flexDirection: "column", padding: "15px" }}>
                         <div className="c-green connected-account-text">{props.account.slice(0, 8) + "..." + props.account.slice(34)}</div>
                         <div className="connected-text">WALLET CONNECTED</div>
