@@ -38,6 +38,9 @@
 }
 
 @media only screen and (min-width: 320px) and (max-width: 992px) {
+  .section-team__title {
+    font-size: 2.8em;
+  }
   .members {
     text-align: center;
     flex-direction: column;
