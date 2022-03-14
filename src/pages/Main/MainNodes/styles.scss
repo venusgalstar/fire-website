@@ -276,6 +276,9 @@ span.myNftNmb {
     height: auto;
     font-size: 5vw;
   }
+  .mynode-list-content .claim-button.list {
+    width: 80px !important;
+  }
 }
 
 @media (max-width: 750px) {
@@ -300,5 +303,11 @@ span.myNftNmb {
   .mobile-fee-list {
     flex: 1;
     font-size: 16px;
+  }
+
+  .claim-button.list {
+    width: 100%;
+    font-size: 18px;
+    margin-right: 0.2vw;
   }
 }
