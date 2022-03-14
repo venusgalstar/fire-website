@@ -66,6 +66,9 @@ export const HomeBottom = () => {
                         <a href="/#section-faq">FAQ</a>
                     </li>
                     <li className="links__item">
+                        <a href="/#section-team">TEAM</a>
+                    </li>
+                    <li className="links__item">
                         <a href="/disclaimer">DISCLAIMER</a>
                     </li>
                     <li className="links__item">
