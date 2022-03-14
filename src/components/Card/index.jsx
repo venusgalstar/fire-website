@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import './styles.scss';
 
 export const Card = (props) => {
-    return <div className={`card card_${props.size}`}>
+    return <div className={`card card_${props.size} card_${props.align}`}>
         <div className="card__transition">
             { props.image && <img src={props.image} className="card__image" style={props.imageStyles} alt="Image" /> }
             <div
