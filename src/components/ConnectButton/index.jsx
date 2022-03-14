@@ -24,13 +24,13 @@ const ConnectButton = (props) => {
         }
     }, [props]);
 
-    return <ul className="menu">
+    return <ul className="menu" style={{paddingTop: 20 + 'px', marginRight: 0}}>
         <li className="menu__item menu__item_active">
             {
                 !props.account
                     ? <a
                         href="#"
-                        className="connectWallet"
+                        className={"connectWallet"}
                         onClick={(event) => {
                             event.preventDefault();
                             handleConnect();
