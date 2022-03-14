@@ -7,7 +7,7 @@ const GrandMasterCard = (props) => {
         size="big"
         backgroundUrl="/v2/assets/bgGrandMaster.png"
         image={"/v2/assets/grandMasterLabel.png"}
-        imageStyles={{ width: '300px', top: '-80px', right: '-80px' }}
+        imageStyles={{ width: '300px' }}
         title={
             <span style={{ fontSize: '0.9em', lineHeight: '1.4' }}>
                 GRAND <span style={{ fontStyle: 'italic', fontSize: '0.8em', }}>MASTER</span>

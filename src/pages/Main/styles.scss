@@ -1428,3 +1428,23 @@ span.copy-right {
 .mobile-visible-false {
   visibility:visible;
 }
+
+@media (max-width: 865px) {
+  .node-title-header.mobile-flex {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .mobile-flex {
+    display: flex !important;
+  }
+
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .mobile-visible-false {
+    visibility: hidden;
+  }
+}

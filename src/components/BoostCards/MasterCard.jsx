@@ -8,7 +8,7 @@ const MasterCard = (props) => {
         backgroundUrl="/v2/assets/bgMaster.png"
         align="right"
         image={"/v2/assets/masterLabel.png"}
-        imageStyles={{ width: '300px', top: '-80px', left: '-80px' }}
+        imageStyles={{ width: '300px' }}
         title={
             <span style={{ fontSize: '0.9em', lineHeight: '1.4' }}>
                 MASTER
