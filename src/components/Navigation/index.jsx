@@ -21,7 +21,7 @@ export const Navigation = (props) => {
             : header.classList.remove('navigation_sticky');
     };
 
-    return <nav className="navigation navigation_fixed">
+    return <nav className={"navigation navigation_fixed".concat(props.hideOnMobileNavigation ? " hide-navigation" : "")}>
         <div className="navigation__inner">
             <div className="navigation__logo">
                 <a href="/"><img src={logo} height={115} alt={"Logo"}/></a>
@@ -34,7 +34,8 @@ export const Navigation = (props) => {
 }
 
 Navigation.propTypes = {
-    menu: PropTypes.element
+    menu: PropTypes.element,
+    hideOnMobileNavigation: PropTypes.element ?? false
 }
 
 export default Navigation;

@@ -13,10 +13,12 @@ import HomeBottom from "./HomeBottom";
 import HomeNavigation from "./HomeNavigation";
 import HomeFAQ from "./HomeFAQ";
 import HomeTeam from "./HomeTeam";
+import HomeBurger from "./HomeBurger";
 
 export const Home = () => {
     return <>
         <HomeNavigation />
+        <HomeBurger/>
         <HomeMain/>
         <HomeStartEarning/>
         <HomeCounters/>

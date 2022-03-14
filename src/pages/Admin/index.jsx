@@ -1,10 +1,8 @@
 import React from "react";
 
 import Content from "../../components/admin/content";
-import Footer from "../../components/common/Footer"
 import Header from "../../components/Header";
 import HomeBottom from "../Home/HomeBottom";
-import AppMenuButton from "../../components/AppMenuButton";
 import Navigation from "../../components/Navigation";
 import ConnectButton from "../../components/ConnectButton";
 

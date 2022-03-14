@@ -17,6 +17,7 @@ const HomeNavigation = () => {
                 <AppMenuButton/>
             </>
         }
+        hideOnMobileNavigation={true}
     />
 }
 
