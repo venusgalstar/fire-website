@@ -11,6 +11,7 @@ import HomeBoost from "./HomeBoost";
 import HomeWork from "./HomeWork";
 import HomeBottom from "./HomeBottom";
 import HomeNavigation from "./HomeNavigation";
+import HomeFAQ from "./HomeFAQ";
 
 export const Home = () => {
     return <>
@@ -24,6 +25,7 @@ export const Home = () => {
         <HomeVision/>
         <HomeBoost/>
         <HomeWork/>
+        <HomeFAQ />
         <HomeBottom/>
     </>
 }

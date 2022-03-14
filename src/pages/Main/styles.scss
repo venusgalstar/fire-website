@@ -20,7 +20,7 @@
 
 .c-green.connected-account-text {
   font-family: Arial, Helvetica, sans-serif;
-  color: #c89656;
+  color: #000;
 }
 
 .connected-text {
@@ -752,88 +752,6 @@ span.phxColor {
   width: 45%;
 }
 
-#faq-content {
-  max-width: 1150px;
-  width: 100%;
-  margin-top: 60px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.accordion {
-  background-color: #2f3136;
-  cursor: pointer;
-  padding: 20px 20px 20px 30px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  transition: 0.4s;
-  font-size: 30px;
-  line-height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #ffffff;
-  margin-bottom: 50px;
-}
-
-.accordion::after {
-  display: block;
-  content: " ";
-  //background-image: url("../img/plus.svg");
-  background-size: 53px 53px;
-  height: 53px;
-  width: 53px;
-  margin: 4px;
-  transform: rotate(0deg);
-  transition: all 0.3s;
-}
-
-.active,
-.accordion:hover, .accordion:focus {
-  color: #c89656;
-  border-bottom: none;
-  background-color: #303338;
-}
-
-.accordion.active::after {
-  transform: rotate(90deg);
-}
-
-.panel {
-  padding: 30px;
-  font-size: 25px;
-  display: none;
-  background-color: #202225;
-  overflow: hidden;
-  color: #fff;
-  margin-top: -50px;
-  margin-bottom: 50px;
-}
-.panel a {
-  color: #c89656;
-  text-decoration: underline !important;
-}
-.panel b.contract {
-  word-break: break-all;
-  font-size: 20px;
-}
-span.faqQw {
-  max-width: 80%;
-}
-.accordion.active+.panel {
-  display: block !important;
-}
-
-
-
-
-
-
-
-
-
 .footer-main {
   height: 140px;
   display: flex;
@@ -988,7 +906,7 @@ footer .c-gray:hover {
   position: absolute !important;
   right: 22px !important;
   top: 10px !important;
-  background: #c89656 !important;
+  background: #ea210f !important;
 }
 
 /* .nest-list-odd>.claim-button {
@@ -1301,7 +1219,10 @@ span.copy-right {
   width: 100%;
   cursor: pointer;
   border-radius: inherit;
-  background-color: rgb(200 150 86 / 65%);
+  background-color: rgb(82 12 0 / 65%);
+}
+.mynode-list-content .view {
+  color: #282c2e;
 }
 .track-horizontal {
   position: absolute;
