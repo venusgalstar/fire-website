@@ -19,13 +19,13 @@ export const HomeMain = () => {
                 </h6>
             </CSSTransition>
             <CSSTransition in={mounted} timeout={500} classNames="fade">
-                <h1 style={{ margin: 0 }}>w/Large Scale, High Yield Return Investments</h1>
+                <h1 style={{ margin: 0 }}>Large Scale, High Yield Return Investments</h1>
             </CSSTransition>
             <CSSTransition in={mounted} timeout={1000} classNames="fade">
                 <div className={'buttons'} style={{ marginTop: '30px' }}>
                     <Button
                         type={'default'}
-                        style={{ width: '210px' }}
+                        style={{ width: '210px', marginBottom: '10px' }}
                         onClick={() => { window.location.href = "/app"}}
                     >
                         Create Nest

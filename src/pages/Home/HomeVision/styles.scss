@@ -21,7 +21,6 @@
   display: flex;
 }
 
-.section-vision__t1,
 .section-vision__t2 {
   margin-bottom: 30px;
 }
@@ -30,7 +29,6 @@
   width: 350px;
   font-size: 1.2em;
   line-height: 1.6;
-  font-family: "Nunito", sans-serif;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 992px) {
@@ -48,7 +46,8 @@
   }
 
   .section-vision__description {
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
     margin: 0 auto;
   }
 
@@ -58,6 +57,7 @@
 
   .section-vision__t1,
   .section-vision__t2 {
-    font-size: 1.5em;
+    margin-top: 30px;
+    font-size: 1.8em;
   }
 }

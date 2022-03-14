@@ -91,15 +91,15 @@ export const HomeBenefits = () => {
                             LESS HASSLE<br/>
                             LESS RESEARCH<br/>
                         </h2>
-                        <div style={{ marginTop: '40px' }}>
-                            <Button
-                                type="primary"
-                                onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}
-                                style={{ padding: '20px 40px' }}
-                            >
-                                LET IT ALL BURN
-                            </Button>
-                        </div>
+                        {/*<div style={{ marginTop: '40px' }}>*/}
+                        {/*    <Button*/}
+                        {/*        type="primary"*/}
+                        {/*        onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}*/}
+                        {/*        style={{ padding: '20px 40px' }}*/}
+                        {/*    >*/}
+                        {/*        LET IT ALL BURN*/}
+                        {/*    </Button>*/}
+                        {/*</div>*/}
                     </div>
                     </CSSTransition>
                 </div>

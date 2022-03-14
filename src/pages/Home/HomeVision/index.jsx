@@ -24,9 +24,6 @@ const HomeVision = () => {
                         <div className="section-vision__content">
                             <CSSTransition timeout={500} in={startAnimation} classNames="fade-ease-in">
                                 <div className="section-vision__text">
-                                    <h6 className="section-vision__t1">
-                                        Fight The Good Fight!
-                                    </h6>
                                     <h2 className="section-vision__t2">
                                         This Is<br/>
                                         How We Rise...<br/>

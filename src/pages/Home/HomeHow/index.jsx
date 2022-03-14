@@ -11,9 +11,6 @@ export const HomeHow = () => {
     return <section
         id="section-how"
         className="section"
-        style={{
-
-        }}
     >
         <Parallax onEnter={() => { setStartAnimation(true) }}>
             <div className="section__inner" style={{

@@ -1,14 +1,15 @@
 import React, {useState} from "react";
 import { ParallaxBanner, Parallax } from "react-scroll-parallax";
-import {CSSTransition} from "react-transition-group";
-import Cards from "../../../components/Cards";
-import { Card } from "../../../components/Card";
-import {Button} from "../../../components/Button";
+import { CSSTransition } from "react-transition-group";
+import { Button } from "../../../components/Button";
 
 import './styles.scss';
-import BoostCards from "../../../components/BoostCards";
+import MasterCard from "../../../components/BoostCards/MasterCard";
+import GrandMasterCard from "../../../components/BoostCards/GrandMasterCard";
+import Cards from "../../../components/Cards";
+import {connect} from "react-redux";
 
-const HomeBoost = () => {
+const HomeBoost = (props) => {
     const [startAnimation, setStartAnimation] = useState(false);
     return <section id="section-boost" className="section">
         <ParallaxBanner layers={[
@@ -34,7 +35,7 @@ const HomeBoost = () => {
                                 timeout={200}
                                 classNames="fade"
                             >
-                                <div style={{ fontSize: '1.3em', lineHeight: '1.8', fontFamily: "\"Nunito\", sans-serif" }}>
+                                <div style={{ fontSize: '1.3em', lineHeight: '1.8' }}>
                                     NFTs are available for purchase upon certain milestones.
                                     Our NFTs boost your daily reward rate and increase your earning potential.
                                     For more information regarding out NFT's, please see our whitepaper.
@@ -48,7 +49,14 @@ const HomeBoost = () => {
                             timeout={400}
                             classNames="fade"
                         >
-                            <BoostCards/>
+                            <Cards>
+                                <div style={{ marginBottom: '100px'}}>
+                                    <MasterCard value={props.master_nft_value} />
+                                </div>
+                                <div>
+                                    <GrandMasterCard value={props.grand_nft_value}/>
+                                </div>
+                            </Cards>
                         </CSSTransition>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
@@ -72,4 +80,18 @@ const HomeBoost = () => {
     </section>
 }
 
-export default HomeBoost;
+const mapStateToProps = state => {
+    return {
+        grand_nft_value: state.grand_nft_value,
+        master_nft_value: state.master_nft_value,
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        dispatch
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeBoost);

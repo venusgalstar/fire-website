@@ -2,6 +2,8 @@ import Cards from "../../../components/Cards";
 import {Card} from "../../../components/Card";
 import React from "react";
 
+import './styles.scss';
+
 const HomeStartEarning = () => {
     return <section
         id="section-cards"

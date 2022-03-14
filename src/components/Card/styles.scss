@@ -82,8 +82,8 @@
   }
 
   .card_big {
-    width: 450px;
-    height: 637px;
+    width: 360px;
+    height: 510px;
   }
 
   .card_left .card__image {
@@ -106,5 +106,9 @@
 
   .card_big .card__description {
     font-size: 1em;
+  }
+
+  .card_big .card__content {
+    padding: 190px 40px 40px 40px !important;
   }
 }

@@ -6,6 +6,7 @@
 .section-faq__inner {
   max-width: 1150px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .section-faq__title {
@@ -46,6 +47,7 @@
 }
 
 .accordion__title {
+  font-weight: bold;
   padding: 20px 0;
   font-size: 1.1em;
   color: rgb(39 36 67);

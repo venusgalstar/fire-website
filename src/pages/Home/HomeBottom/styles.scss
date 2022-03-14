@@ -69,4 +69,12 @@
     font-size: 0.8em;
     overflow-wrap: break-word;
   }
+
+  #section-about .section__inner {
+    padding: 40px 20px !important;
+  }
+
+  #section-about .section__token {
+    text-align: center !important;
+  }
 }
