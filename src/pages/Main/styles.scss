@@ -1447,4 +1447,8 @@ span.copy-right {
   .mobile-visible-false {
     visibility: hidden;
   }
+
+  .mobile-show {
+    display: flex !important;
+  }
 }

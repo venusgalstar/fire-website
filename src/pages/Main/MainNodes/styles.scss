@@ -6,8 +6,8 @@
   padding-right: 40px;
   padding-left: 40px;
   font-size: 1.2em;
-  background: rgb(161,42,23);
-  background: linear-gradient(120deg, rgba(161,42,23,1) 0%, rgba(231,81,30,1) 100%);
+  background: rgb(161, 42, 23);
+  background: linear-gradient(120deg, rgba(161, 42, 23, 1) 0%, rgba(231, 81, 30, 1) 100%);
 }
 
 .nest-header-title {
@@ -83,6 +83,7 @@
 .nest-list-even .pay-button {
   background-color: #85210f;
 }
+
 .nest-list-even .claim-button {
   background-color: #d76209;
 }
@@ -121,7 +122,8 @@
 }
 
 
-#section-nests {}
+#section-nests {
+}
 
 #section-nest button.btn.action-btn {
   font-size: 30px;
@@ -137,11 +139,12 @@
   border-color: #202225;
 }
 
-#section-nests >.content {
+#section-nests > .content {
   min-height: 900px;
   max-width: 1150px;
   width: 100%;
 }
+
 #section-nests button.btn.action-btn {
   display: inline-block;
   padding: 0 24px;
@@ -151,6 +154,7 @@
   font-size: 28px;
   text-transform: capitalize;
 }
+
 #section-nests button.btn.action-btn:hover {
   background: #202225;
   border-color: #202225;
@@ -178,7 +182,7 @@
   width: 320px;
 }
 
-.nftsInTab .nft-card+.nft-card {
+.nftsInTab .nft-card + .nft-card {
   margin-top: 0;
 }
 
@@ -194,6 +198,7 @@
   border-radius: 20px;
   border: 15px solid #b75514;
 }
+
 .nft-card__image.grandNFT {
   background-size: cover;
   background: url(../../../assets/images/nftGrand.png) no-repeat center;
@@ -234,10 +239,10 @@ span.myNftNmb {
   font-family: 'Nunito', sans-serif;
 }
 
-@media screen and (max-width: 1080px){
+@media screen and (max-width: 1080px) {
   .nest-header {
     flex-direction: column;
-    padding:30px 70px;
+    padding: 30px 70px;
     height: fit-content;
     text-align: center;
 
@@ -276,5 +281,24 @@ span.myNftNmb {
 @media (max-width: 750px) {
   .nftsInTab {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 865px) {
+  .claimAlli {
+    right: 116px !important;
+    top: 7px !important;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .mobile-fee-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .mobile-fee-list {
+    flex: 1;
+    font-size: 16px;
   }
 }
