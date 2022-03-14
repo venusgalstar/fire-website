@@ -143,9 +143,10 @@ const HomeFAQ = () => {
                             <b>0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5</b>
                         </p>
                         <p>
-                            You can create your FIRE-NESTs and collect your FIRE rewards on our web app: thephoenix.finance/app .<a
+                            You can create your FIRE-NESTs and collect your FIRE rewards on our web app: thephoenix.finance/app. <a
                                 href="/app" className="c-purple"
-                                style={{textDecoration: "none"}}> Click&nbsp;here </a>to go to the web app.
+                                style={{textDecoration: "none"}}
+                            >Click&nbsp;here</a> to go to the web app.
                         </p>
                     </div>
                 </div>
