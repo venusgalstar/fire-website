@@ -11,6 +11,7 @@ const HomeNavigation = () => {
                     <li className="menu__item"><a href="/">Home</a></li>
                     <li className="menu__item"><a href="/#section-about">About</a></li>
                     <li className="menu__item"><a href="/#section-faq">FAQ</a></li>
+                    <li className="menu__item"><a href="/#section-team">TEAM</a></li>
                     <li className="menu__item"><a href="mailto:help@thephoenix.finance">Contact</a></li>
                 </ul>
                 <AppMenuButton/>
