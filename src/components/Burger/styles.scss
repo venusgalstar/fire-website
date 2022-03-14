@@ -1,10 +1,10 @@
-@media only screen and (min-width: 575px) {
+@media only screen and (min-width: 811px) {
   .burger-container {
     display: none;
   }
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 811px) {
   .hide-navigation {
     display: none;
   }
@@ -21,13 +21,36 @@
   position: fixed;
   width: 36px;
   height: 30px;
-  left: 36px;
+  right: 36px;
   top: 36px;
+  float: right;
+}
+
+.burger-logo {
+  width: 70%;
+  height: auto;
+  position: absolute;
+  padding-left: 24px;
+  padding-top: 18px;
+}
+
+.burger-launch-btn-container {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding-top: 130px;
+}
+
+.burger-launch-btn-container a {
+  text-decoration: none;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47;
+  background: #ea210f;
+  height: 8% !important;
 }
 
 /* Color/shape of burger icon bars on hover*/
