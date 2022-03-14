@@ -1,0 +1,39 @@
+.section-team__inner {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.section-team__title {
+  text-align: center;
+  font-style: italic;
+  padding: 50px;
+}
+
+.members {
+  display: flex;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.member {
+  padding: 30px;
+  text-align: center;
+}
+
+.member__photo {
+  margin-bottom: 25px;
+}
+
+.member__link {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 2.5em;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 992px) {
+  .members {
+    text-align: center;
+    flex-direction: column;
+  }
+}
