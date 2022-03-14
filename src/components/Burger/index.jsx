@@ -36,7 +36,7 @@ class Burger extends React.Component {
                     <div className={"burger-launch-btn-container"}>
                         <a className={"button button_primary"} href="/app">LAUNCH APP</a>
                     </div>
-                    <Menu right width={'70%'} id={'BurgerMenu'}
+                    <Menu right width={'70%'}
                           isOpen={this.state.menuOpen}
                           onStateChange={(state) => this.handleStateChange(state)}
                     >

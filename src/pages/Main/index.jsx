@@ -8,12 +8,17 @@ import ConnectButton from "../../components/ConnectButton";
 import MainNFT from "./MainNFT";
 
 import './styles.scss';
+// import Burger from "../../components/Burger";
 
 class Main extends React.Component {
     render() {
         return (
-            <div>
-                <Navigation menu={<ConnectButton/>}/>
+            <>
+                <Navigation
+                    menu={<ConnectButton/>}
+                    // hideOnMobileNavigation={true}
+                />
+                {/*<Burger/>*/}
                 <Header
                     slogan="RISE FROM THE ASHES OF TRADITIONAL FINANCE WITH"
                     title="Your $FIRE App Dashboard"
@@ -22,7 +27,7 @@ class Main extends React.Component {
                 <MainNodes/>
                 <MainNFT/>
                 <HomeBottom/>
-            </div>
+            </>
         );
     }
 }
