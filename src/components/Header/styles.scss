@@ -70,6 +70,12 @@
   }
 }
 
+@media only screen and (min-width: 993px) and (max-width: 1370px) {
+  .header-main-btn-container {
+    display: inline;
+  }
+}
+
 @media only screen and (min-width: 320px) and (max-width: 992px) {
   .page-header {
     padding: 200px 10px 10px;

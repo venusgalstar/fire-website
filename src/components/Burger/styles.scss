@@ -10,6 +10,17 @@
   }
 }
 
+@media only screen and (min-width: 992px) and (max-width: 1370px) {
+  .header-main-btn-container {
+    position: fixed;
+    top: -110px;
+  }
+  .menu {
+    justify-content: right !important;
+    padding-right: 100px;
+  }
+}
+
 .mobile-logo-img {
   width: 100%;
   box-sizing: border-box;
