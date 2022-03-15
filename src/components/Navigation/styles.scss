@@ -64,6 +64,33 @@
   font-weight: 300;
   text-decoration: none;
 }
+@media only screen and (max-width: 319px) {
+  .navigation__logo img {
+    height: 60px;
+  }
+  .navigation {
+    padding: 0;
+  }
+
+  .navigation__logo {
+    margin: 0 auto;
+  }
+
+  .navigation__inner {
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .navigation__menu {
+    margin: 0;
+    text-align: center;
+  }
+
+  .navigation__menu > .menu {
+    flex: 1;
+  }
+}
 
 @media only screen and (min-width: 320px) and (max-width: 575px) {
   .navigation__logo img {
