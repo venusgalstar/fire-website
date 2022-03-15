@@ -1,0 +1,22 @@
+.counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.counter__title {
+  margin-top: 0;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.counter__count {
+  width: 240px;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5em;
+  background: #E21C21;
+  font-family: 'Nunito', sans-serif;
+}

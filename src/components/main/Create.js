@@ -82,7 +82,7 @@ class Create extends React.Component {
             <div className="custom-container mx-auto text-justify info-container"
                 style={{ textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop: "40px", marginBottom: "150px", marginLeft: "30px", marginRight: "30px", height: "fit-content", padding: "20px" }}>
                 <div className="create_title">
-                    Create a Nest with 10 FIRE Tokens
+                    Create a Nest with 10 $FIRE Tokens
                 </div>
                 <p id="create-nest">Create a Phoenix Nest with <strong>10</strong>
                     <span className="sc-gsTEea cdmEaM">$FIRE</span> tokens to earn <span className="sc-gsTEea cdmEaM">$FIRE</span>

@@ -1,0 +1,17 @@
+.section-boost__text {
+  width: 800px;
+  margin: 40px auto;
+}
+
+@media only screen and (max-width: 992px) {
+  .section-boost__text {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .section__inner {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}

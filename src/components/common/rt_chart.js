@@ -1,5 +1,4 @@
 import React, { useEffect, useCallback, useState } from "react";
-import ReactDOM from "react-dom";
 import { createChart } from "lightweight-charts";
 import { connect, useSelector } from "react-redux";
 import moment from 'moment-business-days';
@@ -35,7 +34,7 @@ function App(props) {
 
     const init = useCallback(() => {
         var chart = createChart(document.getElementById("chart1"), {
-            width: 500,
+            width: 555,
             height: 370,
             priceScale: {
                 scaleMargins: {
@@ -63,9 +62,9 @@ function App(props) {
 
         setArea(
             chart.addAreaSeries({
-                topColor: "rgba(200,150,86, 0.56)",
+                topColor: "rgba(243,126,86, 0.56)",  
                 bottomColor: "rgba(200,150,86, 0.04)",
-                lineColor: "rgba(200,150,86, 1)",
+                lineColor: "rgba(231,81,30, 1)",  
                 lineWidth: 2
             })
         );

@@ -1,0 +1,80 @@
+.section__links{
+  margin: 0 auto;
+  border-top: 1px solid rgb(234,33,15);
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.links .links__item a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.section__right {
+  margin-top: 60px;
+  font-family: 'Nunito', sans-serif;
+  color: rgb(117,117,117);
+  text-align: center;
+}
+
+.section__token {
+  padding: 20px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.contract {
+  display: flex;
+  justify-content: right;
+  align-content: baseline;
+}
+
+.contract__label {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 100;
+  margin-right: 10px;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.contract__address {
+  font-family: 'Nunito', sans-serif;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 10px;
+  background-color: #535353;
+}
+
+@media only screen and (max-width: 600px) {
+  .contract {
+    flex-direction: column;
+  }
+
+  .links .links__item {
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .contract__address {
+    font-size: 0.8em;
+    overflow-wrap: break-word;
+  }
+
+  #section-about .section__inner {
+    padding: 40px 20px !important;
+  }
+
+  #section-about .section__token {
+    text-align: center !important;
+  }
+}
