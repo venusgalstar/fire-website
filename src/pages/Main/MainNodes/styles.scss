@@ -284,15 +284,17 @@ span.myNftNmb {
 @media (max-width: 750px) {
   .nftsInTab {
     flex-direction: column;
-  }
-}
+  }}
 
 @media (max-width: 865px) {
-  .claimAlli {
+  .tab-content .claimAlli {
     right: 116px !important;
     top: 7px !important;
   }
-}
+  .tab-content .countdownHolder {
+    text-align: center;
+    margin-top: 10px;
+}}
 
 @media screen and (max-width: 1080px) {
   .mobile-fee-item {

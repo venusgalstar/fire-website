@@ -79,8 +79,8 @@ export const HomeBottom = () => {
                     </li>
                 </ul>
             </div>
-            <div className="section__right">
-                © 2022 Phoenix Community Capital
+            <div className="section__right bottomCopy">
+               ©️2022 Phoenix Community Capital, Inc.
             </div>
         </div>
     </section>

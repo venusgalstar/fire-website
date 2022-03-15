@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { touchRippleClasses } from '@mui/material';
 import {Button} from "../Button";
 
+
 const renderThumb = ({ style, ...props }) => {
     const thumbStyle = {
         borderRadius: 6,
@@ -425,7 +426,7 @@ class Nodes extends React.Component {
                                                     style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
                                                     i
                                                     <span className='tooltiptext'>
-                                                        Maximum of 1 claim up to 100 Fire every 24 hours.
+                                                        Maximum of 1 claim up to 100 $Fire every 24 hours.
                                                     </span>
                                                 </span>
                                         </div>
@@ -459,7 +460,7 @@ class Nodes extends React.Component {
                                                     style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
                                                     i
                                                     <span className='tooltiptext'>
-                                                        Maximum of 1 claim up to 100 Fire every 24 hours.
+                                                        Maximum of 1 claim up to 100 $Fire every 24 hours.
                                                     </span>
                                                 </span>
                                         </div>

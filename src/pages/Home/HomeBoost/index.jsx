@@ -36,9 +36,11 @@ const HomeBoost = (props) => {
                                 classNames="fade"
                             >
                                 <div style={{ fontSize: '1.3em', lineHeight: '1.8' }}>
-                                    NFTs are available for purchase upon certain milestones.
-                                    Our NFTs boost your daily reward rate and increase your earning potential.
-                                    For more information regarding out NFT's, please see our whitepaper.
+                                    NFTs are available for purchase upon reaching certain milestones. 
+                                    Our NFTs boost your daily reward rate and increase your earning potential. 
+                                    For more information regarding our NFTs, please see our Whitepaper. 
+
+
                                 </div>
                             </CSSTransition>
                         </div>

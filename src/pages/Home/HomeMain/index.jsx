@@ -19,7 +19,7 @@ export const HomeMain = () => {
                 </h6>
             </CSSTransition>
             <CSSTransition in={mounted} timeout={500} classNames="fade">
-                <h1 style={{ margin: 0 }}>Large Scale, High Yield Return Investments</h1>
+                <h1 style={{ margin: 0 }}>Large Scale, High-Yield <br/>Return Investments</h1>
             </CSSTransition>
             <CSSTransition in={mounted} timeout={1000} classNames="fade">
                 <div className={'buttons'} style={{ marginTop: '30px' }}>
@@ -35,7 +35,7 @@ export const HomeMain = () => {
                         style={{ width: '210px' }}
                         onClick={() => { window.open("https://app.pangolin.exchange/#/swap?outputCurrency=0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5") }}
                     >
-                        Buy Fire
+                        Buy $Fire
                     </Button>
                 </div>
             </CSSTransition>

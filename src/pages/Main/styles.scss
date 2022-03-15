@@ -399,7 +399,22 @@ img.phoenixHome {
   background-size: cover;
   background-position: center;
   cursor: pointer;
-  /* margin-right: 20px; */
+  margin-right: 20px;
+  min-height: 58px;
+}
+.certik img {
+  max-width: 130px;
+}
+
+.certik a {
+  padding: 0;
+  padding-top: 7px;
+}
+.menu__item {
+  min-height: 58px;
+}
+.menu__item a i {
+  font-size: 18px;
 }
 
 
@@ -1429,11 +1444,23 @@ span.copy-right {
   visibility:visible;
 }
 
+.section__right.bottomCopy {
+  font-weight: normal;
+  font-family: Arial;
+  padding-bottom: 150px;
+}
+
 @media (max-width: 865px) {
   .node-title-header.mobile-flex {
     justify-content: center;
   }
+  .video__layer {
+    inset: -312px -280px !important;
 }
+.menu {
+  justify-content: center;
+}}
+
 
 @media screen and (max-width: 1080px) {
   .mobile-flex {

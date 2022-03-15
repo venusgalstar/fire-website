@@ -27,10 +27,10 @@ const HomeVision = () => {
                                     <h2 className="section-vision__t2">
                                         This Is<br/>
                                         How We Rise...<br/>
-                                        <span style={{ fontStyle: 'italic' }}>A Higher Vision.</span><br/>
+                                        <span style={{ fontStyle: 'italic' }}>A Higher Vision</span><br/>
                                     </h2>
                                     <div className="section-vision__description">
-                                        Phoenix Community Capital will take community recommendations combined with independent research, and qualify each protocol prior to investment, to spread risk across short, medium, and long term ROI.
+                                    Phoenix Community Capital takes community recommendations, combined with independent research, to qualify each protocol prior to investment, spreading risk across short-, medium-, and long-term ROI. 
                                     </div>
                                 </div>
                             </CSSTransition>
@@ -63,7 +63,7 @@ const HomeVision = () => {
                                         />
                                     </div>
                                     <div style={{ fontSize: '1.3em', lineHeight: '1.5', marginTop: '30px'}}>
-                                        Phoenix Community Capital exposes the community to a multitude of on‑chain and off‑chain physical investments, while reducing fees through consolidation.
+                                    Phoenix Community Capital offers the community a multitude of on‑chain and off‑chain physical investments while reducing fees through consolidation.
                                     </div>
                                 </div>
                             </div>

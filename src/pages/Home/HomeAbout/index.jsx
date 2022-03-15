@@ -16,7 +16,7 @@ export const HomeAbout = () => {
                     speed: 0,
                     children: <div className="section-about__content">
                         <h4 style={{ width: '660px', textAlign: 'center', lineHeight: '1.4', alignSelf: 'center' }}>
-                            Phoenix Community Capital works for its investors by leveraging combined investment capital, which elevates into investment options that are not available to the average investor.
+                            Phoenix Community Capital works for its investors by leveraging combined investment capital which elevates into investment options that are not available to the average investor.
                         </h4>
                     </div>
                 }

@@ -20,7 +20,7 @@ class Main extends React.Component {
                 />
                 {/*<Burger/>*/}
                 <Header
-                    slogan="RISE FROM THE ASHES OF TRADITIONAL FINANCE WITH"
+                    slogan="RISE FROM THE ASHES OF TRADITIONAL FINANCE"
                     title="Your $FIRE App Dashboard"
                 />
                 <MainInfo/>

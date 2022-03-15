@@ -23,7 +23,7 @@ const MasterCard = (props) => {
                 by 0.025 for each Nest per day. <br/>
                 The cost of a Master NFT is {props.value} AVAX. <br/>
                 Each wallet will be limited <br/>
-                to a total of 10 Master NFT’s.<br/>
+                to a total of 10 Master NFTs.<br/>
             </span>
         }
     />

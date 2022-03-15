@@ -62,9 +62,9 @@ function App(props) {
 
         setArea(
             chart.addAreaSeries({
-                topColor: "rgba(200,150,86, 0.56)",
+                topColor: "rgba(243,126,86, 0.56)",  
                 bottomColor: "rgba(200,150,86, 0.04)",
-                lineColor: "rgba(200,150,86, 1)",
+                lineColor: "rgba(231,81,30, 1)",  
                 lineWidth: 2
             })
         );

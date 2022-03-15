@@ -83,11 +83,11 @@ export const HomeBenefits = () => {
                     >
                     <div className="section-benefits__content">
                         <h6 className="section-benefits__t1">
-                            PHOENIX COMMUNITY CAPITAL MEMBER BENEFITS
+                            PHOENIX COMMUNITY CAPITAL, INC. MEMBER BENEFITS
                         </h6>
                         <h2 className="section-benefits__t2">
                             LOWERED RISK<br/>
-                            LESS FEES<br/>
+                            FEWER FEES<br/>
                             LESS HASSLE<br/>
                             LESS RESEARCH<br/>
                         </h2>

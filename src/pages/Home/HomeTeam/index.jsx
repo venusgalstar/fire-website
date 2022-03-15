@@ -22,6 +22,7 @@ const HomeTeam = () => {
                                 <i className="fab fa-linkedin"/>
                             </a>
                         </div>
+                        <p>Co-Founder</p>
                         <div className="member_name">
                             <Button type="primary" isStatic>Eric Marshall</Button>
                         </div>
@@ -37,6 +38,7 @@ const HomeTeam = () => {
                                 <i className="fab fa-linkedin"/>
                             </a>
                         </div>
+                        <p>Co-Founder</p>
                         <div className="member_name">
                             <Button type="primary" isStatic>Luke Sullivan</Button>
                         </div>
