@@ -10,6 +10,17 @@
   }
 }
 
+@media only screen and (min-width: 992px) and (max-width: 1370px) {
+  .header-main-btn-container {
+    position: fixed;
+    top: -110px;
+  }
+  .menu {
+    justify-content: right !important;
+    padding-right: 100px;
+  }
+}
+
 .mobile-logo-img {
   width: 100%;
   box-sizing: border-box;
@@ -33,19 +44,6 @@
   padding-left: 24px;
   padding-top: 18px;
   max-width: 500px;
-}
-
-.burger-launch-btn-container {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  padding-top: 130px;
-}
-
-.burger-launch-btn-container a {
-  text-decoration: none;
-  padding-left: 25px;
-  padding-right: 25px;
 }
 
 /* Color/shape of burger icon bars */
