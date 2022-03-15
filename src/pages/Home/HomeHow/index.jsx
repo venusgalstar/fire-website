@@ -35,9 +35,7 @@ export const HomeHow = () => {
                     classNames="fade"
                 >
                     <div className="section-how__description">
-                        Phoenix Community Capital enlists trusted and experienced investment advisors who research new trends and opportunities for the community investment portfolio. 
-
-.
+                        Phoenix Community Capital enlists trusted and experienced investment advisors who research new trends and opportunities for the community investment portfolio.
                     </div>
                 </CSSTransition>
                 <CSSTransition
