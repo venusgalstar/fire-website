@@ -24,7 +24,7 @@ const ConnectButton = (props) => {
         }
     }, [props]);
 
-    return <ul className="menu" style={{paddingTop: 20 + 'px', marginRight: 0}}>
+    return <ul className="menu">
         <li className="menu__item menu__item_active">
             {
                 !props.account

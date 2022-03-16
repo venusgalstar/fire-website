@@ -35,7 +35,7 @@ export const Navigation = (props) => {
 
 Navigation.propTypes = {
     menu: PropTypes.element,
-    hideOnMobileNavigation: PropTypes.element ?? false
+    hideOnMobileNavigation: PropTypes.element
 }
 
 export default Navigation;

@@ -33,9 +33,6 @@ class Burger extends React.Component {
             <>
                 <div className={"burger-container"}>
                     <a href="/"><img src={logo} height={115} alt={"Logo"} className={"burger-logo"}/></a>
-                    <div className={"burger-launch-btn-container"}>
-                        <a className={"button button_primary"} href="/app">LAUNCH APP</a>
-                    </div>
                     <Menu right width={'70%'}
                           isOpen={this.state.menuOpen}
                           onStateChange={(state) => this.handleStateChange(state)}
@@ -50,7 +47,6 @@ class Burger extends React.Component {
                         <a href="https://twitter.com/phoenix_fi" target="_blank" rel="nofollow noopener noreferrer"><i class="fab fa-twitter"></i></a>
                         <a href="https://discord.gg/uUaZgsZXM5" target="_blank" rel="nofollow noopener noreferrer"><i class="fab fa-discord"></i></a>
                         <a href="https://medium.com/@phoenix-community-capital" target="_blank" rel="noreferrer noopener"><i class="fab fa-medium"></i></a>
-
                     </Menu>
                 </div>
             </>
