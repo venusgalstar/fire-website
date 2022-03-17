@@ -1450,16 +1450,20 @@ span.copy-right {
   padding-bottom: 150px;
 }
 
+@media only screen and (max-width: 992px) {
+  .menu {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 865px) {
   .node-title-header.mobile-flex {
     justify-content: center;
   }
   .video__layer {
     inset: -312px -280px !important;
+  }
 }
-.menu {
-  justify-content: center;
-}}
 
 
 @media screen and (max-width: 1080px) {
