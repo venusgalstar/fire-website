@@ -213,7 +213,7 @@ const reducer = (state = init(_initialState), action) => {
                 nodes.push({
                     idx: index,
                     createTime: result[1][index].createTime,
-                    lastTime: result[1][index].lastTime,
+                    lastTime: result[1][index].lastTime,                    
                     grandNFT: result[2].curGrandNFTEnable[index],
                     masterNFT: result[2].curMasterNFTEnable[index],
                     reward: Number(web3.utils.fromWei(result[2].nodeRewards[index])).toFixed(9),
@@ -221,9 +221,7 @@ const reducer = (state = init(_initialState), action) => {
                     grand_nft_value: web3.utils.fromWei(result[6], 'ether') * 100,
                 });
             }
-            // console.log(nodes);
-            // nodes.sort((a,b)=> a.lastTime-b.lastTime);
-            // console.log(nodes);
+            nodes.sort((a,b)=> a.lastTime-b.lastTime);
             store.dispatch({
                 type: "RETURN_DATA", payload:
                 {
