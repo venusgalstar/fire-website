@@ -5,7 +5,6 @@ import TokenChart from "../common/chart";
 import Nodes from "./Nodes";
 import RtChart from '../common/rt_chart';
 
-
 class MainMsg extends React.Component {
 
     constructor(props) {

@@ -92,6 +92,8 @@ class Nodes extends React.Component {
             return;
         }
 
+        console.log(this.state.my_nodes);
+
         var list = [];
         var sum = 0;
         var id = 0;
@@ -271,7 +273,7 @@ class Nodes extends React.Component {
         }
         this.props.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: false } });
 
-        var payload = { node_id: id, cnt: 1 };
+        var payload = { node_id: this.state.my_nodes[id].idx, cnt: 1 };
         if (id === -1) {
             let cnt = 0;
             let sum = 0;
@@ -319,6 +321,7 @@ class Nodes extends React.Component {
     };
 
     payNodeFee(id) {
+
         if (!this.props.my_nodes[id].payable) {
             toast.info("You have already purchased.", {
                 position: "top-center",
@@ -344,7 +347,7 @@ class Nodes extends React.Component {
             return;
         }
         this.props.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: false } });
-        this.setState({ open: true, fee_index: id, pay_type: 1 });
+        this.setState({ open: true, fee_index: this.props.my_nodes[id].idx, pay_type: 1 });
     }
 
     createNode() {
@@ -372,7 +375,7 @@ class Nodes extends React.Component {
             return (
                 <div key={index} className={index % 2 === 0 ? 'item-font nest-list-even' : 'item-font nest-list-odd'}>
 
-                    <div className='text-center' style={{ flex: "1" }}>NEST {index + 1}</div>
+                    <div className='text-center' style={{ flex: "1" }}>NEST {parseInt(item.idx) + 1}</div>
                     <div className='text-center mobile-hidden' style={{ flex: "3" }}>{moment(item.createTime * 1000).format("MMM DD YYYY")}</div>
                     <div className='text-center' style={{ flex: "2" }}>{Number(item.reward).toFixed(6)}</div>
                     <div className='text-center mobile-fee-item' style={{ flex: "2" }}>
@@ -380,11 +383,11 @@ class Nodes extends React.Component {
                             {item.remains}
                         </div>
                         <div className='mobile-show flex1'>
-                            <div className="pay-button list" style={{ width: "100%" }} onClick={this.payNodeFee.bind(this, item.idx)}>Pay fee</div>
+                            <div className="pay-button list" style={{ width: "100%" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
                         </div>
                     </div>
-                    <div className="pay-button list mobile-hidden" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, item.idx)}>Pay fee</div>
-                    <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, item.idx)}> Claim </div>
+                    <div className="pay-button list mobile-hidden" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
+                    <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, index)}> Claim </div>
                 </div>
             )
         });
