@@ -221,8 +221,9 @@ const reducer = (state = init(_initialState), action) => {
                     grand_nft_value: web3.utils.fromWei(result[6], 'ether') * 100,
                 });
             }
-            nodes.sort((a,b)=> a.lastTime-b.lastTime);
-            //console.log(nodes);
+            // console.log(nodes);
+            // nodes.sort((a,b)=> a.lastTime-b.lastTime);
+            // console.log(nodes);
             store.dispatch({
                 type: "RETURN_DATA", payload:
                 {
