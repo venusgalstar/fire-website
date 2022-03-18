@@ -230,7 +230,6 @@ class Nodes extends React.Component {
     }
 
     claimNode(id) {
-        console.log("claim", id);
         if (this.props.my_nodes.length === 0) {
             toast.info("There is no nest. Please create your own nest.", {
                 position: "top-center",
@@ -273,7 +272,14 @@ class Nodes extends React.Component {
         }
         this.props.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: false } });
 
-        var payload = { node_id: this.state.my_nodes[id].idx, cnt: 1 };
+        var payload = { node_id: 0, cnt: 1 };
+
+        if( id === -1){
+            payload.node_id = -1;
+        }else{
+            payload.node_id = this.state.my_nodes[id].idx;
+        }
+
         if (id === -1) {
             let cnt = 0;
             let sum = 0;
