@@ -92,7 +92,7 @@ class Nodes extends React.Component {
             return;
         }
 
-        console.log(this.state.my_nodes);
+        //console.log(this.state.my_nodes);
 
         var list = [];
         var sum = 0;
