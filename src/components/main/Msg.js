@@ -83,6 +83,7 @@ class MainMsg extends React.Component {
 
                                 <div className="msg-content-item mainBuy" style={{ justifyContent: 'center' }}>
                                     <div className="fs-22 c-w">Trade Fire</div>
+                                    {/* <button className="btn action-btn pangBtn" onClick={() => { window.open("https://app.pangolin.exchange/#/swap?outputCurrency=0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5") }}>Pangolin</button> */}
                                     <button className="btn action-btn tradrjBtn" onClick={() => { window.open("https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/") }}>TraderJoe</button>
                                 </div>
                             </div>

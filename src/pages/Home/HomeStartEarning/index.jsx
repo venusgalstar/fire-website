@@ -22,7 +22,10 @@ const HomeStartEarning = () => {
                             $FIRE is available on<br/>
                             the Avalanche Network.<br/>
                             You can swap AVAX<br/>
-                            for $FIRE on Trader Joe.
+                            for $FIRE on
+                            {/* Pangolin<br/>
+                            and  */}
+                            Trader Joe.
                         </span>
                     }
                     backgroundUrl={'/v2/assets/1.png'}

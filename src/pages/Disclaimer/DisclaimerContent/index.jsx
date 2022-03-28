@@ -19,7 +19,7 @@ class DisclaimerContent extends React.Component {
         const requestOptions = {
             method: 'POST'
         };
-        fetch('https://fetchphoenixdata.herokuapp.com/get_count', requestOptions)
+        fetch('https://phoenix-statistics.herokuapp.com/get_count', requestOptions)
             .then(response => response.json())
             .then(data => this.setState({ current_users: data.count }));
     }
