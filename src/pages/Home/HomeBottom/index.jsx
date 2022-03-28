@@ -9,7 +9,7 @@ export const HomeBottom = () => {
         const tokenAddress = '0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5';
         const tokenSymbol = 'FIRE';
         const tokenDecimals = 18;
-        const tokenImage = 'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5/logo.png';
+        const tokenImage = 'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5/logo.png';
 
         try {
             const wasAdded = await window.ethereum.request({
