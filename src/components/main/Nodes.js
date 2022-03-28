@@ -62,7 +62,7 @@ class Nodes extends React.Component {
         const requestOptions = {
             method: 'POST'
         };
-        fetch('https://fetchphoenixdata.herokuapp.com/get_nft_count', requestOptions)
+        fetch('https://phoenix-statistics.herokuapp.com/get_nft_count', requestOptions)
             .then(response => response.json())
             .then((data) => {
                 var master_nft = 0;

@@ -38,14 +38,14 @@ const MainInfo = (props) => {
                 <div className="card-counter">
                     <div className="card-counter__title">Trade $FIRE</div>
                     <div className="card-counter__content">
-                        <div>
+                        {/* <div>
                         <a
                             href="https://app.pangolin.exchange/#/swap?outputCurrency=0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5"
                             target="_blank"
                         >
                             PANGOLIN
                         </a>
-                        </div>
+                        </div> */}
                         <div>
                         <a
                             href="https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/"
