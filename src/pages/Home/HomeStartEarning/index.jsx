@@ -13,7 +13,7 @@ const HomeStartEarning = () => {
         <div className="section__cards">
             <Cards>
                 <Card
-                    title={<span>START<br/>EARNING<br/>REWARDS</span>}
+                    title={<span>EARN<br/>REWARDS<br/>IN 3 STEPS</span>}
                     backgroundUrl={'/v2/assets/0.png'}/>
                 <Card
                     title="Buy $FIRE"

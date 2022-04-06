@@ -42,6 +42,7 @@ export const HomeMain = () => {
                         >
                             Buy $Fire
                         </Button>
+             
                     </div>
                 </CSSTransition>
             </div>

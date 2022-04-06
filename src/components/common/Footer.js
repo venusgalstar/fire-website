@@ -50,7 +50,7 @@ const Footer = () => {
                         <div className="link-container">
                             <span className="footer-link fs-30 noto-bold c-w mobile-show">Menu</span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/" >Home</a></span>
-                            <span className="footer-link fs-20"><a className="c-gray" href="mailto:help@thephoenix.finance" >Contact</a></span>
+                            <span className="footer-link fs-20"><a className="c-gray" href="https://discord.com/channels/919931235881586728/941560726961672222" target="_blank" rel="noreferrer">Contact</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/#section-faq" >FAQ</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/#section-team" >Team</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/disclaimer" >Disclaimer</a></span>

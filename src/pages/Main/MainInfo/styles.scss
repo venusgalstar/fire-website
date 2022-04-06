@@ -2,6 +2,7 @@
   max-width: 1150px;
   width: 100%;
   margin: 40px auto;
+  margin-top: -60px;
 }
 
 .main-info__inner {
@@ -18,7 +19,23 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
+.traderLink {
+  background: black;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  padding: 4px 0;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+.traderLink:hover {
+  background: white;
+  color: black;
+}
+.redHigh {
+  color: #ff551e;
+}
 .chart-wrapper {
   flex: 1 1 50%;
 }
@@ -39,7 +56,7 @@
   font-size: 1.5em;
   padding: 15px 20px;
   background: rgb(161,42,23);
-  background: linear-gradient(120deg, rgba(161,42,23,1) 0%, rgba(231,81,30,1) 100%);
+  background: linear-gradient(120deg, #e8352a 0%, #ef8029 100%);
 }
 
 .card-counter__content {
@@ -47,9 +64,9 @@
   background: linear-gradient(90deg, rgba(41,45,47,1) 0%, rgba(68,68,68,1) 100%);
   height: 100%;
   padding: 10px 20px;
-  font-size: 1.1em;
+  font-size: 1.4em;
   line-height: 2;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Barlow', sans-serif;
 }
 
 .card-counter_mobile {
@@ -81,9 +98,9 @@
 }
 
 .chart-description {
-  text-align: center;
+  text-align: left;
   line-height: 1.5em;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 1.2em;
   padding: 20px;
 }

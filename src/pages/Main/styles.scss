@@ -391,7 +391,17 @@ img.phoenixHome {
 
 
 
-
+.homeMenu {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.member_name button {
+  width: 100%;
+}
+.member_name button:hover {
+  color: #000;
+  background: #fff;
+}
 .certik {
   //background-image: url(/img/audit.png);
   height: 52px;
@@ -855,7 +865,6 @@ footer .c-gray:hover {
   line-height: 14px;
   letter-spacing: .1em;
   color: #FFF;
-  margin-top: 5px
 }
 
 .connected-account-text, .connected-text {
@@ -921,7 +930,7 @@ footer .c-gray:hover {
   position: absolute !important;
   right: 22px !important;
   top: 10px !important;
-  background: #ea210f !important;
+  background: #de4c1d !important;
 }
 
 /* .nest-list-odd>.claim-button {
@@ -1234,7 +1243,7 @@ span.copy-right {
   width: 100%;
   cursor: pointer;
   border-radius: inherit;
-  background-color: rgb(82 12 0 / 65%);
+  background-color: rgb(210 69 28 / 66%);
 }
 .mynode-list-content .view {
   color: #282c2e;
@@ -1419,6 +1428,7 @@ span.copy-right {
   bottom: 150%;
   left: 50%;
   margin-left: -60px;
+  font-weight:normal;
 }
 
 .tooltip .tooltiptext::after {
@@ -1454,6 +1464,9 @@ span.copy-right {
   .menu {
     justify-content: center;
   }
+  .main-info {
+    margin-top: 40px;
+}
 }
 
 @media (max-width: 865px) {

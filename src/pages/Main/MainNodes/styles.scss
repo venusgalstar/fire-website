@@ -6,16 +6,16 @@
   padding-right: 40px;
   padding-left: 40px;
   font-size: 1.2em;
-  background: rgb(161, 42, 23);
-  background: linear-gradient(120deg, rgba(161, 42, 23, 1) 0%, rgba(231, 81, 30, 1) 100%);
+  background: #000;
 }
 
 .nest-header-title {
   font-size: 40px;
   color: white;
-  margin-bottom: 28px;
 }
-
+.nest-header-title .c-yellow {
+  color: #e14e1d;
+}
 .tab-header {
   height: 80px;
   background-color: #282c2e;
@@ -53,7 +53,7 @@
 .pay-button {
   width: 100%;
   height: 100%;
-  background-color: #aa351f;
+  background-color: #363636;
   /* font-family: Nunito; */
   /* font-style: normal; */
   /* font-weight: 800; */
@@ -81,17 +81,17 @@
 }
 
 .nest-list-even .pay-button {
-  background-color: #85210f;
+  background-color: #605f5f;
 }
 
 .nest-list-even .claim-button {
-  background-color: #d76209;
+  background-color: #3c3c3c;
 }
 
 .claim-button {
   width: 100%;
   height: 100%;
-  background-color: #e27726;
+  background-color: #242424;
   font-size: 1em;
   line-height: 20px;
   display: flex;
@@ -101,7 +101,9 @@
   cursor: pointer;
   color: #e2e8f0;
 }
-
+.claim-button:hover, .pay-button:hover, .nest-list-even .pay-button:hover, .nest-list-even .claim-button:hover {
+  background-color: black;
+}
 .claim-button.btn-outline {
   border-color: 1px solid var(--green);
   background-color: unset;
@@ -180,6 +182,9 @@
 
 .nft-card {
   width: 320px;
+  background: #282c2e;
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .nftsInTab .nft-card + .nft-card {
@@ -196,7 +201,7 @@
   background: url(../../../assets/images/nftMaster.png) no-repeat center;
   background-size: cover;
   border-radius: 20px;
-  border: 15px solid #b75514;
+  border: 1px solid #b75514;
 }
 
 .nft-card__image.grandNFT {
@@ -204,7 +209,7 @@
   background: url(../../../assets/images/nftGrand.png) no-repeat center;
   background-size: cover;
   border-radius: 20px;
-  border: 15px solid #f7a416;
+  border: 1px solid #f7a416;
 }
 
 .nftBtnNum {
@@ -213,7 +218,8 @@
   height: 50px;
   font-size: 28px;
   text-transform: capitalize;
-  background: #aa351f;
+  background: #000000;
+  border-radius: 20px;
   margin: 0 auto;
   max-width: 200px;
   text-align: center;
@@ -221,7 +227,12 @@
   align-items: center;
   justify-content: space-around;
 }
-
+.tab-content .nft-card__image {
+  border: none;
+}
+.flex.justify-center.align-center.nftsInTab {
+  padding: 50px 0px;
+}
 span.myNftNmb {
   display: inline-block;
   background: #e17626;
@@ -236,7 +247,7 @@ span.myNftNmb {
 }
 
 .dashbSmall .count {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Barlow', sans-serif;
 }
 
 @media screen and (max-width: 1080px) {

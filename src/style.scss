@@ -152,7 +152,8 @@
 body {
   font-size: 1em;
   color: #fff;
-  font-family: "Playfair Display", serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 100;
 }
 
 a {
@@ -205,6 +206,7 @@ h6 {
 .fade-enter-done {
   opacity: 1;
   transition: opacity 2000ms;
+  font-family: 'Barlow', sans-serif;
 }
 
 .fade-exit {

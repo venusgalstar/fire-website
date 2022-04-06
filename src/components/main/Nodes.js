@@ -455,7 +455,7 @@ class Nodes extends React.Component {
                                             <span className='pos-rel noto-bold'>
                                                 Fees
                                                 <span className='pos-abs fs-14 flex align-center justify-center tooltip'
-                                                    style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
+                                                    style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "#de4c1d", borderRadius: "10px", color: "white" }}>
                                                     i
                                                     <span className='tooltiptext'>
                                                         Maintenance fee is 0.2 AVAX for a 90 day period.  Please note, failure to pay switches the Nest off and rewards cease.

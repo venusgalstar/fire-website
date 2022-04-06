@@ -11,21 +11,21 @@ const MainInfo = (props) => {
                 <div className="card-counter">
                     <div className="card-counter__title">My <span>NESTS</span></div>
                     <div className="card-counter__content">
-                        <div><span>{props.my_nodes.length}</span> / 100</div>
+                        <div><span className="redHigh">{props.my_nodes.length}</span> / 100</div>
                         <div>All nests: {props.all_nodes}</div>
                     </div>
                 </div>
                 <div className="card-counter">
                     <div className="card-counter__title">Daily REWARDS</div>
                     <div className="card-counter__content">
-                        <div><span>0.225</span> $FIRE</div>
+                        <div><span className="redHigh">0.225</span> $FIRE</div>
                         <div>Per nest</div>
                     </div>
                 </div>
                 <div className="card-counter">
                     <div className="card-counter__title">My REWARDS</div>
                     <div className="card-counter__content">
-                        <div>{Number(props.cur_all_reward).toFixed(6)}</div>
+                        <div><span className="redHigh">{Number(props.cur_all_reward).toFixed(6)}</span></div>
                         <div>FIRE</div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ const MainInfo = (props) => {
                         </a>
                         </div> */}
                         <div>
-                        <a
+                        <a className="traderLink"
                             href="https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/"
                             target="_blank"
                         >
