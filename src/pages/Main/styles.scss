@@ -395,10 +395,17 @@ img.phoenixHome {
   padding-left: 10px;
   padding-right: 10px;
 }
-.member_name button {
+.member_name a {
+  background: #EA210F;
+  background: linear-gradient(120deg, #e8352a 0%, #ef8029 100%);
   width: 100%;
+  display: inline-block;
+  padding: 15px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: 23px;
 }
-.member_name button:hover {
+.member_name a:hover {
   color: #000;
   background: #fff;
 }
@@ -415,7 +422,10 @@ img.phoenixHome {
 .certik img {
   max-width: 130px;
 }
-
+a.certikFooter img {
+  max-width: 195px;
+  margin-top: 30px;
+}
 .certik a {
   padding: 0;
   padding-top: 7px;
