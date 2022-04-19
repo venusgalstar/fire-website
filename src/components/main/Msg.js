@@ -93,7 +93,7 @@ class MainMsg extends React.Component {
                                 </div>
                                 <div className="msg-content-item" style={{ justifyContent: "center" }}>
                                     <div className="fs-22 c-w">Total Investments</div>
-                                    <div className="fs-22 c-yellow noto-bold">$84,556</div>
+                                    <div className="fs-22 c-yellow noto-bold">$634,556</div>
                                 </div>
    
                             </div>

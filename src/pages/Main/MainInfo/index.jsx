@@ -57,7 +57,7 @@ const MainInfo = (props) => {
                 <div className="card-counter">
                     <div className="card-counter__title">Total Investments</div>
                     <div className="card-counter__content">
-                        $84,556
+                        $634,556
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ export const HomeCounters = (props) => {
                     title="Treasury Balance"
                     count={`$${props.treasury_balance ? String(props.treasury_balance).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 0}`}
                 />
-                <Counter title="Current Total Investment" count="$84,556"/>
+                <Counter title="Current Total Investment" count="$634,556"/>
                 <Counter title="Number of Nests" count={String(props.all_nodes).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}/>
             </Counters>
         </div>
