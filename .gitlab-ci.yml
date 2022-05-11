@@ -5,17 +5,6 @@ stages:
   build: 
     image: node:16.13.0-slim
     stage: build
-    variables: 
-      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-      DEPLOY_URL: $DEPLOY_URL
-    rules:
-      - if: '$CI_COMMIT_BRANCH === "staging"'
-        variables:
-          AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID_STAGING
-          AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY_STAGING
-          DEPLOY_URL: $DEPLOY_URL_STAGING
-      - when: on_success
     script:
       - echo "Building"
       - npm install
@@ -42,6 +31,6 @@ stages:
     scripts:
       - echo "Deploying"
       - pip install awscli
-      - aws configure set aws_access_key_id AWS_ACCESS_KEY_ID
-      - aws configure set aws_secret_access_key AWS_SECRET_ACCESS_KEY
-      - aws s3 sync ./build/ DEPLOY_URL --delete
+      - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+      - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+      - aws s3 sync ./build/ $DEPLOY_URL --delete
