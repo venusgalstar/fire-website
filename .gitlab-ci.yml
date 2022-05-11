@@ -1,8 +1,8 @@
-stages: 
+  stages: 
   - build
   - deploy
 
-build: 
+  build: 
     image: node:16.13.0-slim
     stage: build
     script:
@@ -14,22 +14,28 @@ build:
       - build
       expire_in: 1 hour
 
-deploy: 
+  deploy: 
+    only:
+      - staging
     image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
     stage: deploy
-    variables: 
-      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-      DEPLOY_URL: $DEPLOY_URL
-    rules:
-      - if: '$CI_COMMIT_BRANCH == "staging"'
-        variables:
-          AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID_STAGING
-          AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY_STAGING
-          DEPLOY_URL: $DEPLOY_URL_STAGING
-      - when: on_success
     script:
-      - echo "Deploying"
+      - echo "Deploying to staging"
+      - echo "Using $AWS_ACCESS_KEY_ID_STAGING"
+      - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID_STAGING
+      - echo "Using $AWS_SECRET_ACCESS_KEY_STAGING"
+      - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY_STAGING
+      - aws s3 sync ./build/ $DEPLOY_URL_STAGING --delete
+
+  deploy:
+    only:
+      - production
+    image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+    stage: deploy
+    script:
+      - echo "Deploying to production"
+      - echo "Using $AWS_ACCESS_KEY_ID"
       - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+      - echo "Using $AWS_SECRET_ACCESS_KEY"
       - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
       - aws s3 sync ./build/ $DEPLOY_URL --delete
