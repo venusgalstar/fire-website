@@ -64,7 +64,7 @@ export const HomeWork = () => {
                             onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}
                             style={{ padding: '20px 40px' }}
                         >
-                            SEE WHITEPAPER
+                            See Our Whitepaper
                         </Button>
                     </div>
                 </CSSTransition>

@@ -9,7 +9,7 @@
   padding: 18px;
   text-transform: uppercase;
 
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Barlow', sans-serif;
   font-weight: 300;
 
   &:not(.button_static):hover {
@@ -19,13 +19,17 @@
 }
 
 .button_default {
-  background: #242424;
+  background: #000000;
 }
 
 .button_primary {
   background: #EA210F;
+  background: linear-gradient(120deg, #e8352a 0%, #ef8029 100%);
 }
-
+.nest-header .button_primary {
+  background: #a12a17;
+  background: linear-gradient(120deg, #e8352a 0%, #ef8029 100%);
+}
 .button_static {}
 
 .buttons > .button {

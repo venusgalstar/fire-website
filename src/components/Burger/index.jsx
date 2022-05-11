@@ -42,7 +42,7 @@ class Burger extends React.Component {
                         <a href="/#section-about" className={"menu-item"} onClick={() => this.closeMenu()}>About</a>
                         <a href="/#section-faq" className={"menu-item"} onClick={() => this.closeMenu()}>FAQ</a>
                         <a href="/#section-team" className={"menu-item"} onClick={() => this.closeMenu()}>Team</a>
-                        <a href="mailto:help@thephoenix.finance" className={"menu-item"}>Contact</a>
+                        <a href="https://discord.com/channels/919931235881586728/941560726961672222" className={"menu-item"}>Contact</a>
                         <a href="/app" className={"menu__item_active"}>LAUNCH APP</a>
                         <a href="https://twitter.com/phoenix_fi" target="_blank" rel="nofollow noopener noreferrer"><i class="fab fa-twitter"></i></a>
                         <a href="https://discord.gg/uUaZgsZXM5" target="_blank" rel="nofollow noopener noreferrer"><i class="fab fa-discord"></i></a>

@@ -8,7 +8,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 99999;
+  z-index: 9;
 
   background: transparent;
 }
@@ -21,18 +21,16 @@
 }
 
 .navigation__logo {
-  margin-left: 90px;
+  margin-left: 2%;
 }
 
 .navigation__menu {
   display: flex;
   align-content: center;
-  margin-right: 90px;
+  margin-right: 1%;
 }
 
-.navigation__menu > .menu:first-child {
-  margin-right: 20px;
-}
+
 
 .menu {
   padding: 0;
@@ -47,20 +45,21 @@
   text-align: center;
   cursor: pointer;
   list-style: none;
-  background: rgb(69,69,69);
+  background: #000000;
   &:hover {
-    background: #EA210F;
+    background: linear-gradient(120deg, #e8352a 0%, #ef8029 100%);
   }
 }
 
 .menu__item_active {
   background: rgb(218,57,43);
+  background: linear-gradient(120deg, #e8352a 0%, #ef8029 100%);
 }
 
 .menu__item a {
   display: inline-block;
-  padding: 20px;
-  font-family: 'Nunito', sans-serif;
+  padding: 20px 10px;
+  font-family: 'Barlow', sans-serif;
   font-weight: 300;
   text-decoration: none;
 }

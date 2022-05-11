@@ -10,7 +10,7 @@ export const HomeAbout = () => {
                 { image: '/v2/assets/bg1.jpg', speed: 30 },
                 {
                     speed: 50,
-                    children: <div style={{ width: '100%', height: '100%', backgroundColor: "rgb(139, 0, 0)", opacity: 0.72 }}/>,
+                    children: <div style={{ width: '100%', height: '100%', backgroundColor: "rgb(0 0 0)", opacity: 0.72 }}/>,
                 },
                 {
                     speed: 0,
