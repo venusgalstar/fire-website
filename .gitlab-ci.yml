@@ -2,7 +2,7 @@ stages:
   - build
   - deploy
 
-  build: 
+build: 
     image: node:16.13.0-slim
     stage: build
     script:
@@ -14,7 +14,7 @@ stages:
       - build
       expire_in: 1 hour
 
-  deploy: 
+deploy: 
     image: python:latest
     stage: deploy
     variables: 
@@ -22,13 +22,13 @@ stages:
       AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
       DEPLOY_URL: $DEPLOY_URL
     rules:
-      - if: '$CI_COMMIT_BRANCH === "staging"'
+      - if: '$CI_COMMIT_BRANCH == "staging"'
         variables:
           AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID_STAGING
           AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY_STAGING
           DEPLOY_URL: $DEPLOY_URL_STAGING
       - when: on_success
-    scripts:
+    script:
       - echo "Deploying"
       - pip install awscli
       - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
