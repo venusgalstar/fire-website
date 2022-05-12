@@ -1,18 +1,18 @@
-  stages: 
+stages: 
   - build
   - deploy 
 
-  build: 
-    image: node:16.13.0-slim
-    stage: build
-    script:
-      - echo "Building"
-      - npm install
-      - CI=false npm run-script build
-    artifacts:
-      paths:
-      - build
-      expire_in: 1 hour
+build: 
+  image: node:16.13.0-slim
+  stage: build
+  script:
+     - echo "Building"
+    - npm install
+    - CI=false npm run-script build
+  artifacts:
+     paths:
+    - build
+    expire_in: 1 hour
 
 deploy_staging: 
   stage: deploy
