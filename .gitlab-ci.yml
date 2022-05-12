@@ -7,7 +7,7 @@ build:
   stage: build
   only:
     - staging
-    - production
+    # - production
   script:
     - echo "Building"
     - npm install
@@ -24,22 +24,19 @@ deploy_staging:
     - staging
   environment: staging
   script:
-    - set -x
     - echo "Deploying staging"
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws s3 sync ./build/ $DEPLOY_URL --delete
 
-deploy_production:
-  stage: deploy
-  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-  only:
-    - production
-  environment: production
-  script:
-    - echo "Deploying production"
-    - echo "Using $AWS_ACCESS_KEY_ID"
-    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-    - echo "Using $AWS_SECRET_ACCESS_KEY"
-    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-    - aws s3 sync ./build/ $DEPLOY_URL --delete
+# deploy_production:
+#   stage: deploy
+#   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+#   only:
+#     - production
+#   environment: production
+#   script:
+#     - echo "Deploying production"
+#     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+#     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+#     - aws s3 sync ./build/ $DEPLOY_URL --delete
