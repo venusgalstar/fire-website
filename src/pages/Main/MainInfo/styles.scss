@@ -104,16 +104,7 @@
   font-size: 1.2em;
   padding: 20px;
 }
-.nestCountr-info {
-  position: relative;
-  display: flex;
-  font-size: 0.9em;
-}
-.nestCountr-info .tooltip {
-  position: relative !important;
-  right: auto !important;
-  margin-right: 7px;
-}
+
 @media screen and (max-width: 1180px) {
   .card-counter {
     margin: 0 0 20px 0;
@@ -130,7 +121,5 @@
 
   .chart-description {
     font-size: 1em;
-    width: 78%;
-    margin: 0 auto;
   }
 }
