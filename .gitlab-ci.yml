@@ -9,12 +9,12 @@ build:
     - staging
     - production
   script:
-     - echo "Building"
+    - echo "Building"
     - npm install
     - CI=false npm run-script build
   artifacts:
-     paths:
-    - build
+    paths:
+      - build
     expire_in: 1 hour
 
 deploy_staging: 
