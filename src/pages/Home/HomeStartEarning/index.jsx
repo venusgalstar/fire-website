@@ -13,7 +13,7 @@ const HomeStartEarning = () => {
         <div className="section__cards">
             <Cards>
                 <Card
-                    title={<span>START<br/>EARNING<br/>REWARDS</span>}
+                    title={<span>EARN<br/>REWARDS<br/>IN 3 STEPS</span>}
                     backgroundUrl={'/v2/assets/0.png'}/>
                 <Card
                     title="Buy $FIRE"
@@ -22,7 +22,10 @@ const HomeStartEarning = () => {
                             $FIRE is available on<br/>
                             the Avalanche Network.<br/>
                             You can swap AVAX<br/>
-                            for $FIRE on Trader Joe.
+                            for $FIRE on
+                            {/* Pangolin<br/>
+                            and  */}
+                            Trader Joe.
                         </span>
                     }
                     backgroundUrl={'/v2/assets/1.png'}

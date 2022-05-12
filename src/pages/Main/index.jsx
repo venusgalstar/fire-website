@@ -18,8 +18,8 @@ class Main extends React.Component {
                 <Burger/>
                 <Header
                     mobileBtn={<ConnectButton/>}
-                    slogan="RISE FROM THE ASHES OF TRADITIONAL FINANCE"
-                    title="Your $FIRE App Dashboard"
+                    // slogan="RISE FROM THE ASHES OF TRADITIONAL FINANCE"
+                    // title="Your $FIRE App Dashboard"
                 />
                 <MainInfo/>
                 <MainNodes/>

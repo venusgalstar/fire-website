@@ -35,7 +35,7 @@ class HomeHeader extends React.Component {
                                 <a>STORY</a>
                             </span> */}
                             <span className='menu'>
-                                <a href='mailto:help@thephoenix.finance'>CONTACT</a>
+                                <a href='https://discord.com/channels/919931235881586728/941560726961672222' target="_blank" rel="noreferrer">CONTACT</a>
                             </span>
                             <span className='menu'>
                                 <a href="/#section-faq">FAQ</a>

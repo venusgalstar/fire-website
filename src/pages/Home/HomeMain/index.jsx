@@ -37,10 +37,12 @@ export const HomeMain = () => {
                         <Button
                             type={'primary'}
                             style={{ width: '210px' }}
+                            // onClick={() => { window.open("https://app.pangolin.exchange/#/swap?outputCurrency=0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5") }}
                             onClick={() => { window.open("https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/") }}
                         >
                             Buy $Fire
                         </Button>
+             
                     </div>
                 </CSSTransition>
             </div>

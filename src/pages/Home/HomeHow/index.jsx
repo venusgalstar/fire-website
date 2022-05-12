@@ -26,7 +26,7 @@ export const HomeHow = () => {
                 >
                     <h3 style={{
                         fontStyle: 'italic',
-                        color: '#EA210F'
+                        color: '#FFFFFF'
                     }}>How Does Your Wealth Grow?</h3>
                 </CSSTransition>
                 <CSSTransition
@@ -49,7 +49,7 @@ export const HomeHow = () => {
                             onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}
                             style={{ padding: '20px 40px' }}
                         >
-                            Learn More
+                            Learn More From Our Whitepaper
                         </Button>
                     </div>
                 </CSSTransition>

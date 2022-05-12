@@ -51,7 +51,7 @@ export const HomeBottom = () => {
                         style={{ padding: '15px 20px', marginRight: '70px' }}
                         onClick={addTokenCallback}
                     >ADD TOKEN TO METAMASK</Button>
-                    <img src={metaMask} style={{ position: "absolute", right: 0, top: "-25px", width: '96px'  }}/>
+                    <img alt="MetaMask Logo" src={metaMask} style={{ position: "absolute", right: 0, top: "-25px", width: '96px'  }}/>
                 </div>
             </div>
             <div className="section__links">
@@ -60,7 +60,7 @@ export const HomeBottom = () => {
                         <a href="/">HOME</a>
                     </li>
                     <li className="links__item">
-                        <a href="mailto:help@thephoenix.finance">CONTACT</a>
+                        <a href="https://discord.com/channels/919931235881586728/941560726961672222" target="_blank" rel="noreferrer">CONTACT</a>
                     </li>
                     <li className="links__item">
                         <a href="/#section-faq">FAQ</a>
@@ -80,7 +80,8 @@ export const HomeBottom = () => {
                 </ul>
             </div>
             <div className="section__right bottomCopy">
-               ©️2022 Phoenix Community Capital, Inc.
+               ©️2022 Phoenix Community Capital, Inc.<br />
+               <a className="certikFooter" href="https://www.certik.com/projects/thephoenix" rel="noreferrer" target="_blank"><img src="/img/audit.png" alt="Certik Audit"/></a>
             </div>
         </div>
     </section>
