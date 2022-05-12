@@ -26,9 +26,9 @@ deploy_staging:
   script:
     - set -x
     - echo "Deploying staging"
-    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID_STAGING
-    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY_STAGING
-    - aws s3 sync ./build/ $DEPLOY_URL_STAGING --delete
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws s3 sync ./build/ $DEPLOY_URL --delete
 
 deploy_production:
   stage: deploy
