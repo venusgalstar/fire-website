@@ -25,7 +25,7 @@ deploy:
     - production
   environment: $CI_COMMIT_BRANCH
   script:
-    - echo "Deploying $CI_COMMIT_BRANCH"
+    - echo "Deploying" $CI_COMMIT_BRANCH
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - mkdir ./build/app; cp ./build/index.html ./build/app
