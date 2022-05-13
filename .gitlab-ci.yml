@@ -43,4 +43,8 @@ deploy_production:
     - echo "Deploying production"
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - mkdir ./build/app; cp ./build/index.html ./build/app
+    - mkdir ./build/admin; cp ./build/index.html ./build/admin
+    - mkdir ./build/disclaimer; cp ./build/index.html ./build/disclaimer
     - aws s3 sync ./build/ $DEPLOY_URL --delete
+    - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST --paths "/*"
