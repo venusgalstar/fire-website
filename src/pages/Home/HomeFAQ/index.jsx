@@ -145,6 +145,20 @@ const HomeFAQ = () => {
                         </p>
                     </div>
                 </div>
+
+
+                <div className="accordion-wrapper">
+                    <div className={selId === 8 ? "accordion active" : "accordion"} onClick={() => {
+                        clickItem(8)
+                    }}>
+                        <span className="accordion__title">Where can I find the whitepaper for Round 1?</span>
+                    </div>
+                    <div className="panel">
+                        <p>
+                        COMING SOON
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
