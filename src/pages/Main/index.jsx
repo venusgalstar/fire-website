@@ -7,6 +7,7 @@ import MainNFT from "./MainNFT";
 import MainNavigation from "./MainNavigation";
 import Burger from "../../components/Burger";
 import ConnectButton from "../../components/ConnectButton";
+import CountDown from "../../components/countdown/CountDown";
 
 import './styles.scss';
 
