@@ -36,9 +36,9 @@ const HomeStartEarning = () => {
                         <span>
                             A Phoenix Nest<br/>
                             costs only 10 $FIRE<br/>
-                            plus a minimal <br/>
-                            $20 maintenance <br/>
-                            fee every 90 days.<br/>
+                            plus 0.5 AVAX, <br/>
+                            then a 0.5 AVAX <br/>
+                            maintenance fee every 30 days.<br/>
                         </span>
                     }
                     backgroundUrl={'/v2/assets/2.png'}
