@@ -18,7 +18,7 @@ const MainInfo = (props) => {
                 <div className="card-counter">
                     <div className="card-counter__title">Daily REWARDS</div>
                     <div className="card-counter__content">
-                        <div><span className="redHigh">0.225</span> $FIRE</div>
+                        <div><span className="redHigh">~</span> $FIRE</div>
                         <div>Per nest</div>
                     </div>
                 </div>

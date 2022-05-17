@@ -47,7 +47,7 @@ export const HomeWork = () => {
                         margin: "50px auto",
                         textAlign: "center"
                     }}>
-                        <p style={{ color: "#FB8B0B", lineHeight: 1.4, fontSize: '1.2em', marginBottom: '40px' }}>10 $FIRE = 1 Phoenix Nest = 0.225 $FIRE a day. It's that simple.</p>
+                        <p style={{ color: "#FB8B0B", lineHeight: 1.4, fontSize: '1.2em', marginBottom: '40px' }}>10 $FIRE = 1 Phoenix Nest. It's that simple.</p>
                         <p style={{ lineHeight: 1.4, marginBottom: '40px', fontSize: '1.2em'}}>The Phoenix Community Capital project is designed around an investment position holder called a Nest.</p>
                         <p style={{ color: "#FB8B0B", lineHeight: 1.4, fontSize: '1.2em', marginBottom: '40px' }}>Nests are the tools that allow you to generate $FIRE rewards while reinforcing the sustainable growth of the token.</p>
                         <p style={{ lineHeight: 1.4, fontSize: '1.2em', marginBottom: '40px'  }}>This means double rewards for you as the value of your rewards increase with the growth of the value of $FIRE.</p>
@@ -59,13 +59,13 @@ export const HomeWork = () => {
                     classNames="fade"
                 >
                     <div>
-                        <Button
+                        {/* <Button
                             type="primary"
                             onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}
                             style={{ padding: '20px 40px' }}
                         >
                             See Our Whitepaper
-                        </Button>
+                        </Button> */}
                     </div>
                 </CSSTransition>
             </div>

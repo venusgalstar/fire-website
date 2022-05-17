@@ -38,7 +38,7 @@ export const HomeHow = () => {
                         Phoenix Community Capital enlists trusted and experienced investment advisors who research new trends and opportunities for the community investment portfolio.
                     </div>
                 </CSSTransition>
-                <CSSTransition
+                {/* <CSSTransition
                     in={startAnimation}
                     timeout={1000}
                     classNames="fade"
@@ -52,7 +52,7 @@ export const HomeHow = () => {
                             Learn More From Our Whitepaper
                         </Button>
                     </div>
-                </CSSTransition>
+                </CSSTransition> */}
             </div>
         </Parallax>
     </section>
