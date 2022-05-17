@@ -37,7 +37,7 @@ const HomeFAQ = () => {
                     </div>
                     <div className="panel">
                         <p>
-                        Make a nest with 10 $FIRE. You will receive 0.6 $FIRE per nest, per day via a simple mechanism which redistributes the yield while supporting the growth of the project. The reward rate has been balanced for maximum sustainability.
+                        Make a nest with 10 $FIRE. You will receive 0.06 $FIRE per nest, per day via a simple mechanism which redistributes the yield while supporting the growth of the project. The reward rate has been balanced for maximum sustainability.
                         </p>
                         <p>
                         Once the nest cap for each round is reached, in addition to the daily rewards, nest holders will get a monthly airdrop of the profits from any incubation projects created during that round, and any rounds going forward. This will be in a stablecoin.
