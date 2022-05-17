@@ -421,11 +421,14 @@ class Nodes extends React.Component {
                             {item.remains}
                         </div>
                         <div className='mobile-show flex1'>
-                            <div className="pay-button list" style={{ width: "100%" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
+                        <div className="pay-button list" style={{ width: "100%" }}>Pay fee</div>
+                        {/* <div className="pay-button list" style={{ width: "100%" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div> */}
                         </div>
                     </div>
-                    <div className="pay-button list mobile-hidden" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
-                    <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, index)}> Claim </div>
+                    <div className="pay-button list mobile-hidden" style={{ width: "150px" }}>Pay fee</div>
+                    {/* <div className="pay-button list mobile-hidden" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div> */}
+                    <div className="claim-button list" style={{ width: "150px" }}> Claim </div>
+                    {/* <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, index)}> Claim </div> */}
                 </div>
             )
         });
@@ -446,7 +449,7 @@ class Nodes extends React.Component {
                             <span className='nest-header-title'>
                                 Create a Phoenix Nest with <span className='noto-bold'>10</span> <span className='c-yellow'>$FIRE</span> Tokens
                             </span>
-                            <Button type='primary' onClick={this.createNode}>
+                            <Button disabled type='primary' onClick={this.createNode}>
                                 {this.state.nests_2_0
                                     ? "Create Round 2 Nest"
                                     : "Create your nest"}
@@ -465,8 +468,10 @@ class Nodes extends React.Component {
                                 <>
                                     <div className='h-60  node-title-header mobile-flex' style={{ display: "flex !important", width: "100%" }}>
                                         
-                                        <div className="pay-button" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div>
-                                        <div className="claim-button claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> 
+                                    <div className="pay-button" style={{ width: "150px" }}>Pay all fees</div>
+                                    {/* <div className="pay-button" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div> */}
+                                    <div className="claim-button claimAll" style={{ width: "150px" }}> 
+                                    {/* <div className="claim-button claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}>  */}
                                         Claim all
                                                 <span className='pos-abs fs-14 flex align-center justify-center tooltip claimAlli'
                                                     style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
@@ -500,8 +505,10 @@ class Nodes extends React.Component {
                                                 </span>
                                             </span>
                                         </div>
-                                        <div className="pay-button mobile-hidden" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div>
-                                        <div className="claim-button mobile-visible-false claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> Claim all 
+                                        <div className="pay-button mobile-hidden" style={{ width: "150px" }}>Pay all fees</div>
+                                        {/* <div className="pay-button mobile-hidden" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div> */}
+                                        <div className="claim-button mobile-visible-false claimAll" style={{ width: "150px" }} > Claim all 
+                                        {/* <div className="claim-button mobile-visible-false claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> Claim all  */}
                                                 <span className='pos-abs fs-14 align-center justify-center tooltip claimAlli mobile-hidden'
                                                     style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
                                                     i
