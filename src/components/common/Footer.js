@@ -55,7 +55,7 @@ const Footer = () => {
                             <span className="footer-link fs-20"><a className="c-gray" href="/#section-team" >Team</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/disclaimer" >Disclaimer</a></span>
                             <span className="footer-link fs-20"><a className="c-gray" href="/app" >App</a></span>
-                            <span className="footer-link fs-20 cursor-pointer"><a title="Please read our whitepaper" className="c-gray" onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}>Whitepaper</a></span>
+                            {/* <span className="footer-link fs-20 cursor-pointer"><a title="Please read our whitepaper" className="c-gray" onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}>Whitepaper</a></span> */}
                         </div>
                     </div>
                     <div className="w-full flex flex-col justify-center mobile-show">

@@ -86,7 +86,7 @@ class Create extends React.Component {
                 </div>
                 <p id="create-nest">Create a Phoenix Nest with <strong>10</strong>
                     <span className="sc-gsTEea cdmEaM">$FIRE</span> tokens to earn <span className="sc-gsTEea cdmEaM">$FIRE</span>
-                    token rewards.<br />Current estimated rewards:<strong> 0.225</strong> <span
+                    token rewards.<br />Current estimated rewards:<strong>~</strong> <span
                         className="sc-gsTEea cdmEaM">$FIRE</span>/day.
                 </p>
                 <div className="container flex justify-center mt-4"><button className="action-btn btn" onClick={this.createNode}>CREATE A NEST</button>
