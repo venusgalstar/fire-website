@@ -37,13 +37,10 @@ const HomeFAQ = () => {
                     </div>
                     <div className="panel">
                         <p>
-                            $FIRE uses a simple mechanism to redistribute the yield while
-                            supporting the growth of the project. The reward rate has been balanced for maximum
-                            sustainability.
+                        Make a nest with 10 $FIRE. You will receive 0.6 $FIRE per nest, per day via a simple mechanism which redistributes the yield while supporting the growth of the project. The reward rate has been balanced for maximum sustainability.
                         </p>
                         <p>
-                            You can create a Phoenix Nest with 10 $FIRE tokens. Once your Nest is
-                            created, it will generate rewards on an ongoing basis.
+                        Once the nest cap for each round is reached, in addition to the daily rewards, nest holders will get a monthly airdrop of the profits from any incubation projects created during that round, and any rounds going forward. This will be in a stablecoin.
                         </p>
                     </div>
                 </div>
@@ -56,9 +53,7 @@ const HomeFAQ = () => {
                     </div>
                     <div className="panel">
                         <p>
-                            When a Phoenix Nest is created, 7 $FIRE are transferred to the
-                            rewards pool, 1 $FIRE is added to the liquidity pool as 50% $FIRE and 50% AVAX, and 2 $FIRE are
-                            transferred to the treasury wallet to be used for investments.
+                        When a Phoenix Nest is created, the 10 $FIRE are transferred to the rewards pool.
                         </p>
                     </div>
                 </div>
@@ -145,6 +140,49 @@ const HomeFAQ = () => {
                         </p>
                     </div>
                 </div>
+
+
+                <div className="accordion-wrapper">
+                    <div className={selId === 8 ? "accordion active" : "accordion"} onClick={() => {
+                        clickItem(8)
+                    }}>
+                        <span className="accordion__title">Where can I find more detailed information on the first round?</span>
+                    </div>
+                    <div className="panel">
+                        <p>
+                        Check out the <a href="/docs/Phoenix Community Capital White Paper.pdf" target="_blank">Round 1 whitepaper</a>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div className="accordion-wrapper">
+                    <div className={selId === 9 ? "accordion active" : "accordion"} onClick={() => {
+                        clickItem(9)
+                    }}>
+                        <span className="accordion__title">Where can I find more detailed information on the second round?</span>
+                    </div>
+                    <div className="panel">
+                        <p>
+                        Check out the Round 2 whitepaper
+                        </p>
+                    </div>
+                </div>
+
+                <div className="accordion-wrapper">
+                    <div className={selId === 10 ? "accordion active" : "accordion"} onClick={() => {
+                        clickItem(10)
+                    }}>
+                        <span className="accordion__title">Is there a nest cap for each round?</span>
+                    </div>
+                    <div className="panel">
+                        <p>
+                        Yes, the nest cap for each round is 100,000 nests. We then move into the next round.
+                        </p>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </section>
