@@ -468,10 +468,17 @@ class Nodes extends React.Component {
                                 <>
                                     <div className='h-60  node-title-header mobile-flex' style={{ display: "flex !important", width: "100%" }}>
                                         
-                                    <div className="pay-button" style={{ width: "150px" }}>Pay all fees</div>
-                                    {/* <div className="pay-button" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div> */}
-                                    <div className="claim-button claimAll" style={{ width: "150px" }}> 
-                                    {/* <div className="claim-button claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}>  */}
+                                        <div className="pay-button claimAll" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>
+                                        Pay all fees
+                                                <span className='pos-abs fs-14 flex align-center justify-center tooltip claimAlli'
+                                                            style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
+                                                            i
+                                                            <span className='tooltiptext'>
+                                                                Fees can only be paid 30 days or less from the due date.
+                                                            </span>
+                                                </span>
+                                        </div>
+                                        <div className="claim-button claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> 
                                         Claim all
                                                 <span className='pos-abs fs-14 flex align-center justify-center tooltip claimAlli'
                                                     style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
@@ -500,15 +507,22 @@ class Nodes extends React.Component {
                                                     style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "#de4c1d", borderRadius: "10px", color: "white" }}>
                                                     i
                                                     <span className='tooltiptext'>
-                                                        Maintenance fee is 0.2 AVAX for a 90 day period.  Please note, failure to pay switches the Nest off and rewards cease.
+                                                    Maintenance fee is 0.2 AVAX for a 90 day period. Please note, failure to pay means the nest is switched off and all Fire rewards are removed. The nest can be reactivated when the fee is paid but rewards will be reset to 0.
                                                     </span>
                                                 </span>
                                             </span>
                                         </div>
-                                        <div className="pay-button mobile-hidden" style={{ width: "150px" }}>Pay all fees</div>
-                                        {/* <div className="pay-button mobile-hidden" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div> */}
-                                        <div className="claim-button mobile-visible-false claimAll" style={{ width: "150px" }} > Claim all 
-                                        {/* <div className="claim-button mobile-visible-false claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> Claim all  */}
+                                        <div className="pay-button mobile-hidden claimAll" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>
+                                            Pay all fees
+                                                <span className='pos-abs fs-14 flex align-center justify-center tooltip claimAlli'
+                                                                style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
+                                                                i
+                                                                <span className='tooltiptext'>
+                                                                    Fees can only be paid 30 days or less from the due date.
+                                                                </span>
+                                                    </span>
+                                        </div>
+                                        <div className="claim-button mobile-visible-false claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> Claim all 
                                                 <span className='pos-abs fs-14 align-center justify-center tooltip claimAlli mobile-hidden'
                                                     style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
                                                     i
