@@ -65,7 +65,7 @@ class MainMsg extends React.Component {
                                 </div>
                                 <div className="msg-content-item mainStats">
                                     <div className="fs-22 c-w">Daily rewards</div>
-                                    <div className="fs-22 c-w"><span className="c-yellow noto-bold">0.225</span> $FIRE</div>
+                                    <div className="fs-22 c-w"><span className="c-yellow noto-bold">~</span> $FIRE</div>
                                     <div className="fs-18 c-w dashbSmall">Per nest</div>
                                 </div>
                             </div>

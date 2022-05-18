@@ -59,13 +59,13 @@ export const HomeWork = () => {
                     classNames="fade"
                 >
                     <div>
-                        <Button
+                        {/* <Button
                             type="primary"
                             onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}
                             style={{ padding: '20px 40px' }}
                         >
                             See Our Whitepaper
-                        </Button>
+                        </Button> */}
                     </div>
                 </CSSTransition>
             </div>

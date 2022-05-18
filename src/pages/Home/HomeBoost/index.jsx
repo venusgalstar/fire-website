@@ -61,7 +61,7 @@ const HomeBoost = (props) => {
                             </Cards>
                         </CSSTransition>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+                    {/* <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
                         <CSSTransition
                             in={startAnimation}
                             timeout={600}
@@ -75,7 +75,7 @@ const HomeBoost = (props) => {
                                 See our whitepaper
                             </Button>
                         </CSSTransition>
-                    </div>
+                    </div> */}
                 </Parallax>
             </div>
         </ParallaxBanner>

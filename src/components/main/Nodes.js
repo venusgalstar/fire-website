@@ -421,11 +421,14 @@ class Nodes extends React.Component {
                             {item.remains}
                         </div>
                         <div className='mobile-show flex1'>
-                            <div className="pay-button list" style={{ width: "100%" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
+                        <div className="pay-button list" style={{ width: "100%" }}>Pay fee</div>
+                        {/* <div className="pay-button list" style={{ width: "100%" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div> */}
                         </div>
                     </div>
-                    <div className="pay-button list mobile-hidden" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
-                    <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, index)}> Claim </div>
+                    <div className="pay-button list mobile-hidden" style={{ width: "150px" }}>Pay fee</div>
+                    {/* <div className="pay-button list mobile-hidden" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div> */}
+                    <div className="claim-button list" style={{ width: "150px" }}> Claim </div>
+                    {/* <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, index)}> Claim </div> */}
                 </div>
             )
         });
@@ -446,7 +449,7 @@ class Nodes extends React.Component {
                             <span className='nest-header-title'>
                                 Create a Phoenix Nest with <span className='noto-bold'>10</span> <span className='c-yellow'>$FIRE</span> Tokens
                             </span>
-                            <Button type='primary' onClick={this.createNode}>
+                            <Button disabled type='primary' onClick={this.createNode}>
                                 {this.state.nests_2_0
                                     ? "Create Round 2 Nest"
                                     : "Create your nest"}
