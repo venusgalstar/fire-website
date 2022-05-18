@@ -30,7 +30,7 @@ export const Home = () => {
         <HomeVision/>
         <HomeBoost/>
         <HomeWork/>
-        <HomeRoadmap/>
+        {/*<HomeRoadmap/>*/}
         <HomeFAQ />
         <HomeBottom/>
     </>
