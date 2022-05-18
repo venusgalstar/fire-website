@@ -38,9 +38,9 @@ const HomeStartEarning = () => {
                         <span>
                             A Phoenix Nest<br/>
                             costs only 10 $FIRE<br/>
-                            plus a <br/>
-                            {contractValues.nestMaintenance} AVAX maintenance <br/>
-                            fee every {contractValues.nestMaintInt} days.<br/>
+                            plus {contractValues.nestMaintenance} AVAX, <br/>
+                            then a {contractValues.nestMaintenance} maintenance fee <br/>
+                            every {contractValues.nestMaintInt} days.<br/>
                         </span>
                     }
                     backgroundUrl={'/v2/assets/2.png'}
