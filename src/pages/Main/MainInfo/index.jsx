@@ -17,7 +17,7 @@ const MainInfo = (props) => {
                                 style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
                                 i
                                 <span className='tooltiptext'>
-                                    Text explaining that round one nests were up to 100'000.
+                                    Nests 1 - 100,000
                                 </span>
                             </span>
                                 Round one:&nbsp;<span className="redHigh">{props.my_nodes.length}</span>
@@ -27,7 +27,7 @@ const MainInfo = (props) => {
                                 style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
                                 i
                                 <span className='tooltiptext'>
-                                    Text explaining that round two nests were beyond 100'000.
+                                    Nests 100,001 - 200,000
                                 </span>
                             </span>
                                 Round two:&nbsp;<span className="redHigh">XX</span>
