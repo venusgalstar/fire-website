@@ -105,18 +105,28 @@ class Nodes extends React.Component {
     }
 
     updateRewards() {
-        if (this.state.my_nodes == null) {
+
+        var curTime = Number(this.props.currentTime);
+        if (curTime !== 0) {
+            curTime = curTime + 1;
+            this.setState({ curTime: curTime });
+        }
+        this.props.dispatch({
+            type: "RETURN_DATA", payload: {
+                currentTime: curTime
+            }
+        });
+
+        if (this.state == null || this.state.my_nodes == null) {
             return;
         }
-
-        //console.log(this.state.my_nodes);
 
         var list = [];
         var sum = 0;
         var id = 0;
 
-        for (var item in this.state.my_nodes) {
-            const temp = this.state.my_nodes[item];
+        for (var item in this.props.my_nodes) {
+            const temp = this.props.my_nodes[item];
             var remain = moment(temp.lastTime * 1000).diff(this.props.currentTime * 1000);
             remain = remain / 1000;
             if (remain > 0) {
@@ -129,12 +139,12 @@ class Nodes extends React.Component {
                 // temp['remains'] = "due in " + Math.floor((temp.lastTime - this.props.curTime) / (3600 * 24)) + " days";
                 temp['remains'] = "due in " + Math.floor((remain) / (3600 * 24)) + " days";
 
-                var bonus = 0.225;
+                var bonus = Number(this.props.daily_reward);
                 if (temp['masterNFT']) {
-                    bonus += 0.025;
+                    bonus += Number(this.props.master_reward);
                 }
                 if (temp['grandNFT']) {
-                    bonus += 0.05;
+                    bonus += Number(this.props.grand_reward);
                 }
                 temp['reward'] = Number(temp['reward']) + bonus / (3600 * 24);
                 sum += temp['reward'];
@@ -153,21 +163,16 @@ class Nodes extends React.Component {
             temp['id'] = id;
             list.push(temp);
         }
-        var curTime = Number(this.props.currentTime);
-        if (curTime !== 0) {
-            curTime = curTime + 1;
-            this.setState({ curTime: curTime });
-        }
+
 
         //remained claim time
         //var remainClaimTime = moment((this.props.last_claim_time + 24*3600)* 1000).diff(this.props.currentTime * 1000);
         var claimRemainText = "";
 
-        if( this.props.currentTime < this.props.last_claim_time + 24 * 3600 )
-        {            
-            var remainClaimTime = moment(this.props.last_claim_time * 1000 + 24 * 3600 * 1000).diff(this.props.currentTime * 1000);
+        if (this.props.currentTime < this.props.last_claim_time + this.props.claim_period) {
+            var remainClaimTime = moment(this.props.last_claim_time * 1000 + this.props.claim_period * 1000).diff(this.props.currentTime * 1000);
             var durationClaim = moment.duration(remainClaimTime);
-                        
+
             claimRemainText = durationClaim.hours() + "h " +
                 durationClaim.minutes() + "m " +
                 durationClaim.seconds() + "s";
@@ -260,9 +265,9 @@ class Nodes extends React.Component {
             return;
         }
 
-        if (this.state.curTime - this.props.last_claim_time < 3600 * 24) {
+        if (this.props.currentTime - this.props.last_claim_time < this.props.claim_period) {
             toast.info("You should claim once during 24 hours. Please wait " +
-                (24 - Math.floor((this.state.curTime - this.props.last_claim_time)/3600)) + "hour(s). ",
+                (24 - Math.floor((this.props.currentTime - this.props.last_claim_time) / 3600)) + "hour(s). ",
                 {
                     position: "top-center",
                     autoClose: 3000,
@@ -301,8 +306,7 @@ class Nodes extends React.Component {
             let cnt = 0;
             let sum = 0;
             var contractNodes = this.state.my_nodes;
-            contractNodes.sort((a,b)=> a.idx-b.idx);
-            console.log(contractNodes);
+            contractNodes.sort((a, b) => a.idx - b.idx);
 
             for (var index in contractNodes) {
                 sum += Number(contractNodes[index].reward);
@@ -413,7 +417,8 @@ class Nodes extends React.Component {
                 <div key={index} className={index % 2 === 0 ? 'item-font nest-list-even' : 'item-font nest-list-odd'}>
 
                     <div className='text-center' style={{ flex: "1" }}>NEST {parseInt(item.idx) + 1}</div>
-                    <div className='text-center mobile-hidden' style={{ flex: "3" }}>{moment(item.createTime * 1000).format("MMM DD YYYY")}</div>
+                    <div className='text-center' style={{ flex: "1" }}>ROUND{parseInt(item.version)}</div>
+                    <div className='text-center mobile-hidden' style={{ flex: "2" }}>{moment(item.createTime * 1000).format("MMM DD YYYY")}</div>
                     <div className='text-center' style={{ flex: "2" }}>{Number(item.reward).toFixed(6)}</div>
                     <div className='text-center mobile-fee-item' style={{ flex: "2" }}>
                         <div className='mobile-fee-list'>
@@ -477,14 +482,15 @@ class Nodes extends React.Component {
                                     </div>
                                     {
                                         this.props.my_nodes.length > 0 ? 
-                                            this.state.curTime - this.props.last_claim_time < 3600 * 24 ? 
+                                            this.state.curTime - this.props.last_claim_time < this.props.claim_period ? 
                                                 <div className='countdownHolder'><span className='cntTxt'>Countdown until next claim:</span><span className='cntTimer'>{this.state.claimRemainText}</span></div>                                            
                                                 :""
                                             :""
                                     }
                                     <div className='h-60 flex align-center node-title-header' style={{ width: "100%" }}>
                                         <div className='padder-10 noto-bold' style={{ flex: "1" }}>Name</div>
-                                        <div className='text-center noto-bold mobile-hidden' style={{ flex: "3" }}>Reward Start</div>
+                                        <div className='padder-10 noto-bold' style={{ flex: "1" }}>Version</div>
+                                        <div className='text-center noto-bold mobile-hidden' style={{ flex: "2" }}>Reward Start</div>
                                         <div className='text-center noto-bold' style={{ flex: "2" }}>My Rewards</div>
                                         <div className='text-center noto-bold' style={{ flex: "2" }}>
                                             <span className='pos-rel noto-bold'>
@@ -559,6 +565,7 @@ class Nodes extends React.Component {
 }
 
 const mapStateToProps = state => {
+    // console.log("state nodes: ", state.my_nodes);
     return {
         my_nodes: state.my_nodes,
         currentTime: state.currentTime,
@@ -567,7 +574,14 @@ const mapStateToProps = state => {
         grand_nft_url: state.grand_nft_url,
         can_perform: state.can_perform,
         last_claim_time: state.last_claim_time,
+        
+        claim_period: state.claim_period,
+        daily_reward: state.daily_reward,
+        master_reward: state.master_reward,
+        grand_reward: state.grand_reward,
+        
         total_nodes: state.all_nodes,
+        
   };
 }
 

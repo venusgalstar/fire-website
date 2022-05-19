@@ -2,7 +2,7 @@
 	{
 		"inputs": [
 			{
-				"internalType": "enum RewardManagement.NFT_TYPE",
+				"internalType": "enum RewardManagementV3.NFT_TYPE",
 				"name": "typeOfNFT",
 				"type": "uint8"
 			},
@@ -118,6 +118,70 @@
 				"type": "address"
 			}
 		],
+		"name": "clearNFTInfo",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nftCount",
+				"type": "uint256"
+			}
+		],
+		"name": "ClearNFTInfo",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			}
+		],
+		"name": "clearNodeInfo",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nodeCount",
+				"type": "uint256"
+			}
+		],
+		"name": "ClearNodeInfo",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			}
+		],
 		"name": "clearUserInfo",
 		"outputs": [],
 		"stateMutability": "nonpayable",
@@ -134,6 +198,60 @@
 			}
 		],
 		"name": "ClearUserInfo",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "tokenAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address payable",
+				"name": "to",
+				"type": "address"
+			}
+		],
+		"name": "collectItem",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "tokenAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}
+		],
+		"name": "CollectItem",
 		"type": "event"
 	},
 	{
@@ -205,16 +323,16 @@
 						"internalType": "uint256",
 						"name": "createTime",
 						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "bMint",
+						"type": "bool"
 					}
 				],
-				"internalType": "struct RewardManagement.ImportNftInfo[]",
+				"internalType": "struct RewardManagementV3.ImportNftInfo[]",
 				"name": "nftInfos",
 				"type": "tuple[]"
-			},
-			{
-				"internalType": "bool",
-				"name": "bNewMint",
-				"type": "bool"
 			}
 		],
 		"name": "importNftInfo",
@@ -254,9 +372,24 @@
 						"internalType": "uint256",
 						"name": "createTime",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "reward",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "version",
+						"type": "uint8"
 					}
 				],
-				"internalType": "struct RewardManagement.ImportNodeInfo[]",
+				"internalType": "struct RewardManagementV3.ImportNodeInfo[]",
 				"name": "nodeInfos",
 				"type": "tuple[]"
 			}
@@ -288,7 +421,7 @@
 	{
 		"inputs": [
 			{
-				"internalType": "enum RewardManagement.MODE_FEE",
+				"internalType": "enum RewardManagementV3.MODE_FEE",
 				"name": "feeMode",
 				"type": "uint8"
 			}
@@ -325,7 +458,7 @@
 				"type": "uint256"
 			},
 			{
-				"internalType": "enum RewardManagement.MODE_FEE",
+				"internalType": "enum RewardManagementV3.MODE_FEE",
 				"name": "feeMode",
 				"type": "uint8"
 			}
@@ -433,6 +566,49 @@
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "lastTime",
+				"type": "uint256"
+			}
+		],
+		"name": "resetLastClaimTime",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "lastTime",
+				"type": "uint256"
+			}
+		],
+		"name": "ResetLastClaimTime",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "uint256",
 				"name": "_newClaimFee",
 				"type": "uint256"
@@ -460,6 +636,38 @@
 			}
 		],
 		"name": "SetClaimFee",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "newValue",
+				"type": "uint256"
+			}
+		],
+		"name": "setClaimPeriod",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newValue",
+				"type": "uint256"
+			}
+		],
+		"name": "SetClaimPeriod",
 		"type": "event"
 	},
 	{
@@ -498,14 +706,33 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_newFireValue",
+				"name": "newReward",
 				"type": "uint256"
 			}
 		],
-		"name": "setFireValue",
+		"name": "setDailyReward",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newReward",
+				"type": "uint256"
+			}
+		],
+		"name": "SetDailyReward",
+		"type": "event"
 	},
 	{
 		"anonymous": false,
@@ -524,6 +751,262 @@
 			}
 		],
 		"name": "SetFireValue",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "newPrice",
+				"type": "uint256"
+			}
+		],
+		"name": "setGrandNFTPrice",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newPrice",
+				"type": "uint256"
+			}
+		],
+		"name": "SetGrandNFTPrice",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "newReward",
+				"type": "uint256"
+			}
+		],
+		"name": "setGrandReward",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newReward",
+				"type": "uint256"
+			}
+		],
+		"name": "SetGrandReward",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "newRate",
+				"type": "uint256"
+			}
+		],
+		"name": "setLiquidityRatePerClaim",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newRate",
+				"type": "uint256"
+			}
+		],
+		"name": "SetLiquidityRatePerClaim",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "newRate",
+				"type": "uint256"
+			}
+		],
+		"name": "setLiquidityRatePerCreate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newRate",
+				"type": "uint256"
+			}
+		],
+		"name": "SetLiquidityRatePerCreate",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "newWallet",
+				"type": "address"
+			}
+		],
+		"name": "setMaintenanceWallet",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address payable",
+				"name": "newWallet",
+				"type": "address"
+			}
+		],
+		"name": "SetMaintenanceWallet",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "newPrice",
+				"type": "uint256"
+			}
+		],
+		"name": "setMasterNFTPrice",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newPrice",
+				"type": "uint256"
+			}
+		],
+		"name": "SetMasterNFTPrice",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "newReward",
+				"type": "uint256"
+			}
+		],
+		"name": "setMasterReward",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newReward",
+				"type": "uint256"
+			}
+		],
+		"name": "SetMasterReward",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "newWallet",
+				"type": "address"
+			}
+		],
+		"name": "setMultiSignAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address payable",
+				"name": "newWallet",
+				"type": "address"
+			}
+		],
+		"name": "SetMultiSignWallet",
 		"type": "event"
 	},
 	{
@@ -550,6 +1033,100 @@
 			}
 		],
 		"name": "SetNFTContract",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "nIndex",
+				"type": "uint256"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "createTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "reward",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "version",
+						"type": "uint8"
+					}
+				],
+				"internalType": "struct RewardManagementV3.ImportNodeInfo",
+				"name": "nodeInfos",
+				"type": "tuple"
+			}
+		],
+		"name": "setNodeInfo",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nodeIndex",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "createTime",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "lastTime",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "reward",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "version",
+				"type": "uint8"
+			}
+		],
+		"name": "SetNodeInfo",
 		"type": "event"
 	},
 	{
@@ -617,6 +1194,134 @@
 		"type": "event"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "newValue",
+				"type": "uint8"
+			}
+		],
+		"name": "setPhoenixVersion",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "newVersion",
+				"type": "uint8"
+			}
+		],
+		"name": "SetPhoenixVersion",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newRouter",
+				"type": "address"
+			}
+		],
+		"name": "setRouterAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "newRouter",
+				"type": "address"
+			}
+		],
+		"name": "SetRouterAddress",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "newWallet",
+				"type": "address"
+			}
+		],
+		"name": "setTreasuryWallet",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address payable",
+				"name": "newWallet",
+				"type": "address"
+			}
+		],
+		"name": "SetTreasuryWallet",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newAddress",
+				"type": "address"
+			}
+		],
+		"name": "setUSDCToken",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "newAddress",
+				"type": "address"
+			}
+		],
+		"name": "SetUSDCToken",
+		"type": "event"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -638,7 +1343,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "SwapAndLiquify",
+		"name": "SwapAndLiquidity",
 		"type": "event"
 	},
 	{
@@ -655,38 +1360,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "withdrawAll",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "addr",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "fire",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "avax",
-				"type": "uint256"
-			}
-		],
-		"name": "WithdrawAll",
-		"type": "event"
-	},
-	{
 		"stateMutability": "payable",
 		"type": "fallback"
 	},
@@ -696,10 +1369,10 @@
 	},
 	{
 		"inputs": [],
-		"name": "_burnAddress",
+		"name": "_joe02Router",
 		"outputs": [
 			{
-				"internalType": "address",
+				"internalType": "contract IJoeRouter02",
 				"name": "",
 				"type": "address"
 			}
@@ -709,10 +1382,10 @@
 	},
 	{
 		"inputs": [],
-		"name": "_joe02Router",
+		"name": "_multisignWallet",
 		"outputs": [
 			{
-				"internalType": "contract IJoeRouter02",
+				"internalType": "address",
 				"name": "",
 				"type": "address"
 			}
@@ -799,6 +1472,19 @@
 	},
 	{
 		"inputs": [],
+		"name": "getClaimPeriod",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "getContractStatus",
 		"outputs": [
 			{
@@ -812,7 +1498,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "getFireValue",
+		"name": "getDailyReward",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -838,12 +1524,103 @@
 	},
 	{
 		"inputs": [],
+		"name": "getGrandReward",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getLiquidityRatePerClaim",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getLiquidityRatePerCreate",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getMaintenanceWallet",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "getMasterNFTPrice",
 		"outputs": [
 			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getMasterReward",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getMultiSignAddress",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getNestCountByVersion",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
 			}
 		],
 		"stateMutability": "view",
@@ -867,12 +1644,12 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "enum RewardManagement.NFT_TYPE",
+						"internalType": "enum RewardManagementV3.NFT_TYPE",
 						"name": "typeOfNFT",
 						"type": "uint8"
 					}
 				],
-				"internalType": "struct RewardManagement.NFTInfo[]",
+				"internalType": "struct RewardManagementV3.NFTInfo[]",
 				"name": "result",
 				"type": "tuple[]"
 			}
@@ -906,9 +1683,14 @@
 						"internalType": "uint256",
 						"name": "reward",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "version",
+						"type": "uint8"
 					}
 				],
-				"internalType": "struct RewardManagement.NodeInfo[]",
+				"internalType": "struct RewardManagementV3.NodeInfo[]",
 				"name": "result",
 				"type": "tuple[]"
 			}
@@ -937,6 +1719,19 @@
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getPhoenixVersion",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
 			}
 		],
 		"stateMutability": "view",
@@ -985,9 +1780,22 @@
 						"type": "bool[]"
 					}
 				],
-				"internalType": "struct RewardManagement.RewardInfo",
+				"internalType": "struct RewardManagementV3.RewardInfo",
 				"name": "",
 				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getRouterAddress",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -1022,6 +1830,51 @@
 	{
 		"inputs": [],
 		"name": "getTreasuryRate",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getTreasuryWallet",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getUSDCToken",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "NEST_COUNT_PER_ROUND",
 		"outputs": [
 			{
 				"internalType": "uint256",

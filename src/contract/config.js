@@ -11,7 +11,7 @@ var config = {
     FireAbi: fireAbi,
     FireNFT : "0x2DBaF27f72E82558Fc5dF6c1978f6aE9F2dF2B90",
     NFTAbi:  nftAbi,
-    Reward : "0xbAd32DeaD95Eb55Ae849c6309ecA1b3d1b03bf69",
+    Reward : "0xD2BB9dD72029770eEE26ce7Ac106Fb4FA84FE07a",
     RewardAbi: rewardAbi ,
     chainId: 0xa86a,
     

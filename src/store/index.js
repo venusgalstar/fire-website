@@ -2,6 +2,7 @@ import { createStore } from 'redux'
 import Web3 from 'web3';
 import config from '../contract/config';
 import { toast } from 'react-toastify';
+import { node } from 'prop-types';
 
 
 const _initialState = {
@@ -109,7 +110,7 @@ const reducer = (state = init(_initialState), action) => {
                         });
                 } else if (action.payload.node_id === -1) {
                     rewardConatract.methods.claimAll()
-                        .send({ from: state.account, value: claimFee * action.payload.cnt, gas: 1500000})
+                        .send({ from: state.account, value: claimFee * action.payload.cnt, gas: 2000000 })
                         .then(() => {
                             store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
                         }).catch(() => {
@@ -157,7 +158,7 @@ const reducer = (state = init(_initialState), action) => {
     } else if (action.type === "PAY_NODE_FEE") {
         rewardConatract.methods.getNodeMaintenanceFee().call()
             .then((threeFee) => {
-                rewardConatract.methods.payNodeFee(Number(action.payload.node_id), action.payload.duration - 1)
+                rewardConatract.methods.payNodeFee(Number(action.payload.node_id), action.payload.duration == 1 ? 0 : 1)
                     .send({ from: state.account, value: action.payload.duration * threeFee, gas: 2100000 })
                     .then(() => {
                         store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
@@ -176,18 +177,33 @@ const reducer = (state = init(_initialState), action) => {
         promise.push(rewardConatract.methods.getNodePrice().call());
         promise.push(rewardConatract.methods.getNodeMaintenanceFee().call());
         Promise.all(promise).then((result) => {
-
-            tokenContract.methods.approve(config.Reward, result[0]).send({ from: state.account, gas: 210000 })
-                .then((ret) => {
-                    rewardConatract.methods.buyNode(1).send({ from: state.account, value: result[1], gas: 2100000 })
+            const MAX_APPROVE_VALUE = web3.utils.toWei(Number.MAX_SAFE_INTEGER.toString(), 'ether');
+            tokenContract.methods.allowance(state.account, config.Reward).call().then((allowance) => {
+                if (allowance <= 0) {
+                    tokenContract.methods.approve(config.Reward, MAX_APPROVE_VALUE)
+                        .send({ from: state.account }).then(() => {
+                            rewardConatract.methods.buyNode(1)
+                                .send({ from: state.account, value: result[1], gas: 2100000 })
+                                .then(() => {
+                                    store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
+                                }).catch(() => {
+                                    store.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: true } });
+                                });
+                        });
+                } else {
+                    rewardConatract.methods.buyNode(1)
+                        .send({ from: state.account, value: result[1], gas: 2100000 })
                         .then(() => {
                             store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
                         }).catch(() => {
                             store.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: true } });
                         });
-                }).catch((ret) => {
-                    store.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: true } });
-                });
+                }
+            }).catch((error) => {
+                console.log("error: ", error);
+            });
+
+
         }).catch(() => {
             store.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: true } });
         });
@@ -197,8 +213,6 @@ const reducer = (state = init(_initialState), action) => {
         let account = (action.payload !== undefined && action.payload.account !== undefined) ? action.payload.account : state.account;
         let can_perform = (action.payload !== undefined && action.payload.can_perform !== undefined) ? action.payload.can_perform : state.can_perform;
 
-        console.log(account);        
-
         let promise = [];
         promise.push(rewardConatract.methods.getNFTList(account).call());
         promise.push(rewardConatract.methods.getNodeList(account).call());
@@ -206,21 +220,28 @@ const reducer = (state = init(_initialState), action) => {
         promise.push(nftContract.methods.getMasterNFTURI().call());
         promise.push(nftContract.methods.getGrandNFTURI().call());
         promise.push(rewardConatract.methods.getTotalNodeCount().call());
-        promise.push(rewardConatract.methods.getFireValue().call());
+        promise.push(rewardConatract.methods.getMasterNFTPrice().call());
+        promise.push(rewardConatract.methods.getGrandNFTPrice().call());
         Promise.all(promise).then((result) => {
             var nodes = [];
+            var round2_nest_count = 0;
             for (var index in result[1]) {
+                if (result[1][index].version == 2) {
+                    round2_nest_count++;
+                }
                 nodes.push({
                     idx: index,
                     createTime: result[1][index].createTime,
-                    lastTime: result[1][index].lastTime,                    
+                    lastTime: result[1][index].lastTime,
+                    version: result[1][index].version,                    
                     grandNFT: result[2].curGrandNFTEnable[index],
                     masterNFT: result[2].curMasterNFTEnable[index],
-                    reward: Number(web3.utils.fromWei(result[2].nodeRewards[index])).toFixed(9),
-                    master_nft_value: web3.utils.fromWei(result[6], 'ether') * 10,
-                    grand_nft_value: web3.utils.fromWei(result[6], 'ether') * 100,
+                    reward: Number(web3.utils.fromWei(result[2].nodeRewards[index], 'ether')),
+                    master_nft_value: web3.utils.fromWei(result[6], 'ether'),
+                    grand_nft_value: web3.utils.fromWei(result[7], 'ether'),
                 });
             }
+        
             nodes.sort((a,b)=> a.lastTime-b.lastTime);
             store.dispatch({
                 type: "RETURN_DATA", payload:
@@ -234,7 +255,9 @@ const reducer = (state = init(_initialState), action) => {
                     currentTime: result[2].currentTime * 1,
                     all_nodes: result[5],
                     can_perform: can_perform,
-                    last_claim_time: result[2].lastClaimTime
+                    last_claim_time: result[2].lastClaimTime,
+                    my_round1_count: nodes.length - round2_nest_count,
+                    my_round2_count: round2_nest_count
                 }
             });
         });
@@ -247,15 +270,28 @@ const reducer = (state = init(_initialState), action) => {
 
         rewardConatract.methods.getNodeMaintenanceFee().call()
             .then((threeFee) => {
-                rewardConatract.methods.payAllNodeFee(action.payload.duration - 1)
-                    .send({ from: state.account, value: action.payload.duration * threeFee * action.payload.count, gas: 2100000 })
+                rewardConatract.methods.payAllNodeFee(1)
+                    .send({
+                        from: state.account,
+                        value: action.payload.duration * threeFee * action.payload.count,
+                        gas: 2100000
+                    })
                     .then(() => {
-                        store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
+                        store.dispatch({
+                            type: "GET_USER_INFO",
+                            payload: { can_perform: true }
+                        });
                     }).catch(() => {
-                        store.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: true } });
+                        store.dispatch({
+                            type: "UPDATE_CAN_PERFORM_STATUS",
+                            payload: { can_perform: true }
+                        });
                     });
             }).catch((err) => {
-                store.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: true } });
+                store.dispatch({
+                    type: "UPDATE_CAN_PERFORM_STATUS",
+                    payload: { can_perform: true }
+                });
             })
     } else if (action.type === "SET_PRICE_VALUE") {
         if (!state.account) {
@@ -333,7 +369,7 @@ const reducer = (state = init(_initialState), action) => {
                 return store.dispatch({type:"RETURN_DATA", payload:{fire_value: Number(fireAvax/web3.utils.fromWei(value))}});
             });
             //return store.dispatch({type:"RETURN_DATA", payload:{fire_value: web3.utils.fromWei(value)}});
-        });
+        })
     }
     return state;
 }
@@ -366,6 +402,7 @@ const checkNetwork = (chainId) => {
 
 
 const updateGlobalInfo = () => {
+    
     let promise = [];
     promise.push(gNftContract.methods.getMasterNFTURI().call());
     promise.push(gNftContract.methods.getGrandNFTURI().call());
@@ -373,26 +410,40 @@ const updateGlobalInfo = () => {
     promise.push(gRewardContract.methods.getContractStatus().call());
     promise.push(gRewardContract.methods.getAvaxForFire(web3.utils.toWei("1", 'ether')).call());
     promise.push(gRewardContract.methods.getAvaxForUSD(1000000).call());
-    promise.push(globalWeb3.eth.getBalance("0x52Fd04AA057ba8Ca4bCc675B55De7366F607A677"));
-    promise.push(gRewardContract.methods.getFireValue().call());
-
+    promise.push(globalWeb3.eth.getBalance(config.treasuryAddr));
+    promise.push(gRewardContract.methods.getMasterNFTPrice().call());
+    promise.push(gRewardContract.methods.getGrandNFTPrice().call());
+    promise.push(gRewardContract.methods.getClaimPeriod().call());
+    promise.push(gRewardContract.methods.getDailyReward().call());
+    promise.push(gRewardContract.methods.getMasterReward().call());
+    promise.push(gRewardContract.methods.getGrandReward().call());
+    promise.push(gRewardContract.methods.getNestCountByVersion().call());
 
 
     //promise.push(gTokenContract.methods.balanceOf(config.treasuryAddr).call());
+
     Promise.all(promise).then((result) => {
         store.dispatch({
             type: "RETURN_DATA",
             payload: {
-                master_nft_value: web3.utils.fromWei(result[7], 'ether') * 10,
-                grand_nft_value: web3.utils.fromWei(result[7], 'ether') * 100,
+                master_nft_value: web3.utils.fromWei(result[7], 'ether'),
+                grand_nft_value: web3.utils.fromWei(result[8], 'ether'),
                 master_nft_url: result[0],
                 grand_nft_url: result[1],
                 all_nodes: result[2],
                 contract_status: result[3],
-                treasury_balance: Number(web3.utils.fromWei(result[6], 'ether') / web3.utils.fromWei(result[5], 'ether')).toFixed(2)
+                treasury_balance: Number(web3.utils.fromWei(result[6], 'ether') / web3.utils.fromWei(result[5], 'ether')).toFixed(2),
+                claim_period: Number(result[9]),
+                daily_reward: web3.utils.fromWei(result[10], 'ether'),
+                master_reward: web3.utils.fromWei(result[11], 'ether'),
+                grand_reward: web3.utils.fromWei(result[12], 'ether'),
+                version_nest: result[13]
             }
         });
-    })
+    }).catch((e)=>{
+        console.log("error :", e);
+
+    }); 
 }
 
 

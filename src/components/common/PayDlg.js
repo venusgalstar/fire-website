@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 
-const duration = [{ id: 1, name: '3 months' }, { id: 2, name: '6 months' }];
+const duration = [{ id: 1, name: '1 months' }, { id: 3, name: '3 months' }];
 
 function PayDlg(props) {
     const { onClose, selectedValue, open } = props;

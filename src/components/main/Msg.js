@@ -135,7 +135,10 @@ const mapStateToProps = state => {
         all_nodes: state.all_nodes,
         can_perform: state.can_perform,
         treasury_balance: state.treasury_balance,
-        fire_value: state.fire_value
+        fire_value: state.fire_value,
+        version_nest: state.version_nest,
+        my_round1_count: state.my_round1_count,
+        my_round2_count: state.my_round2_count
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(MainMsg);

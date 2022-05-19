@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React, { useCallback } from "react";
 
 import './styles.scss'
 import { connect } from "react-redux";
@@ -11,8 +11,13 @@ const MainInfo = (props) => {
                 <div className="card-counter">
                     <div className="card-counter__title">My <span>NESTS</span></div>
                     <div className="card-counter__content">
-                        <div><span className="redHigh">{props.my_nodes.length}</span> / 100</div>
-                        <div>All nests: {props.all_nodes}</div>
+                        <div><span className="redHigh">{props.my_nodes.length}</span> / 100
+                            (R1: {props.my_round1_count? props.my_round1_count : 0}  R2: {props.my_round2_count? props.my_round2_count : 0})
+                        </div>
+                        <div>All nests: {props.all_nodes}
+                            <br />
+                            {props.version_nest? 'R1: ' + props.version_nest[1] + '  R2: ' + props.version_nest[2] : "R1: 0  R2: 0"}
+                        </div>
                     </div>
                 </div>
                 <div className="card-counter">
@@ -47,12 +52,12 @@ const MainInfo = (props) => {
                         </a>
                         </div> */}
                         <div>
-                        <a className="traderLink"
-                            href="https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/"
-                            target="_blank"
-                        >
-                            TraderJoe
-                        </a>
+                            <a className="traderLink"
+                                href="https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/"
+                                target="_blank"
+                            >
+                                TraderJoe
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -71,10 +76,10 @@ const MainInfo = (props) => {
             </div>
             <div className="chart-wrapper">
                 <div>
-                    <RtChart/>
+                    <RtChart />
                 </div>
                 <p className="chart-description">
-                    Create a Nest with 10 $FIRE tokens to earn $FIRE rewards.<br/>
+                    Create a Nest with 10 $FIRE tokens to earn $FIRE rewards.<br />
                     You can use the rewards to create more Phoenix Nests and
                     grow your holding to a maximum of 100 Nests per wallet.
                 </p>
@@ -95,7 +100,10 @@ const mapStateToProps = state => {
         all_nodes: state.all_nodes,
         can_perform: state.can_perform,
         treasury_balance: state.treasury_balance,
-        fire_value: state.fire_value
+        fire_value: state.fire_value,
+        version_nest: state.version_nest,
+        my_round1_count: state.my_round1_count,
+        my_round2_count: state.my_round2_count
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(MainInfo);
