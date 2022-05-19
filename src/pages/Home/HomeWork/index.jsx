@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import { ContractNumbers } from "../../../context/ContractContext";
 import './styles.scss';
 import {Parallax} from "react-scroll-parallax";
-import Button from "../../../components/Button"
+import {Button} from "../../../components/Button";
 
 export const HomeWork = () => {
     const [startAnimation, setStartAnimation] = useState(false);
