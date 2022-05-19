@@ -164,7 +164,8 @@ const HomeFAQ = () => {
                     </div>
                     <div className="panel">
                         <p>
-                        See the <a target="_blank" rel="noreferrer" href="https://medium.com/@phoenix-community-capital/tokenomic-and-sustainability-update-190ab9bba73f">Tokenomic and Sustainability Update</a> for round 2.
+                        See the <a target="_blank" rel="noreferrer" href="https://medium.com/@phoenix-community-capital/tokenomic-and-sustainability-update-190ab9bba73f">Tokenomic and Sustainability Update</a> for round 2. New whitepaper coming soon.
+
                         </p>
                     </div>
                 </div>
