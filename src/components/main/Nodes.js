@@ -401,7 +401,7 @@ class Nodes extends React.Component {
 
                 <section id='section-nests'>
 
-                    {Boolean(this.props.my_nodes.length) && <div className='card-counter__title tempBanner'>We are aware of a discrepancy in $FIRE rewards, PCC plans to airdrop the difference owed (1 day at 0.225 per Nest)</div>}
+                    {/* {Boolean(this.props.my_nodes.length) && <div className='card-counter__title tempBanner'>We are aware of a discrepancy in $FIRE rewards, PCC plans to airdrop the difference owed (1 day at 0.225 per Nest)</div>} */}
 
                     <div className='content mx-auto'>
                         <div className='nest-header'>
