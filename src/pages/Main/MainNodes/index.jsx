@@ -4,6 +4,7 @@ import "./styles.scss";
 
 const MainNodes = () => {
     return <Nodes/>
+      
 }
 
 export default MainNodes;
