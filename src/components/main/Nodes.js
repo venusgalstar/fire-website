@@ -4,24 +4,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import PayDlg from '../common/PayDlg';
 import { toast } from 'react-toastify';
-import { touchRippleClasses } from '@mui/material';
 import {Button} from "../Button";
-import Web3 from "web3";
-import config from "../../contract/config";
-
-const globalWeb3 = new Web3(config.mainNetUrl);
-const gRewardContract = new globalWeb3.eth.Contract(
-  config.RewardAbi,
-  config.Reward
-);
-
-const renderThumb = ({ style, ...props }) => {
-    const thumbStyle = {
-        borderRadius: 6,
-        backgroundColor: 'rgba(35, 49, 86, 0.8)'
-    };
-    return <div style={{ ...style, ...thumbStyle }} {...props} />;
-};
 
 const CustomScrollbars = props => (
     <Scrollbars
@@ -33,9 +16,6 @@ const CustomScrollbars = props => (
         {...props} 
     />
 );
-
-
-
 class Nodes extends React.Component {
 
     constructor(props) {
@@ -63,17 +43,8 @@ class Nodes extends React.Component {
         
         this.getNftBuyerCount = this.getNftBuyerCount.bind(this);        
         this.getNftBuyerCount();
-
-        this.checkNestVersion = this.checkNestVersion.bind(this);
-        this.checkNestVersion();
     }
 
-    checkNestVersion = async () => {
-        let totalNodes = await gRewardContract.methods.getTotalNodeCount().call();
-        if(Number(totalNodes) >= 97700){
-            this.setState(prevState => ({...prevState, nests_2_0: true}))
-        }
-    };
 
     getNftBuyerCount = () => {
         const requestOptions = {
@@ -374,20 +345,6 @@ class Nodes extends React.Component {
     }
 
     createNode = async () => {
-        await this.checkNestVersion();
-
-        if(this.state.nests_2_0 && this.props.can_perform){
-            toast.info("The Nest you're creating will be a part of Round 2. You can still receive and claim your FIRE tokens.", {
-                position: "top-center",
-                autoClose: 4000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-        }
-
         if (!this.props.can_perform) {
             toast.info("Please wait. Another transaction is running.", {
                 position: "top-center",
@@ -447,10 +404,8 @@ class Nodes extends React.Component {
                             <span className='nest-header-title'>
                                 Create a Phoenix Nest with <span className='noto-bold'>10</span> <span className='c-yellow'>$FIRE</span> Tokens
                             </span>
-                            <Button type='primary' onClick={this.createNode}>
-                                {this.state.nests_2_0
-                                    ? "Create Round 2 Nest"
-                                    : "Create your nest"}
+                            <Button disabled type='primary' onClick={this.createNode}>
+                                 CREATE NEST
                             </Button>
                         </div>
                         <div className='tab-header flex'>
