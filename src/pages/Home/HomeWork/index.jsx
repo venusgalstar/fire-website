@@ -3,6 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import { ContractNumbers } from "../../../context/ContractContext";
 import './styles.scss';
 import {Parallax} from "react-scroll-parallax";
+import {Button} from "../../../components/Button";
 
 export const HomeWork = () => {
     const [startAnimation, setStartAnimation] = useState(false);
@@ -58,13 +59,15 @@ export const HomeWork = () => {
                     classNames="fade"
                 >
                     <div>
-                        {/* <Button
+                        <Button
                             type="primary"
-                            onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}
+                            onClick={() => { window.open("https://medium.com/@phoenix-community-capital/tokenomic-and-sustainability-update-190ab9bba73f") }}
+                            // onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}
                             style={{ padding: '20px 40px' }}
                         >
-                            See Our Whitepaper
-                        </Button> */}
+                            Tokenomic and Sustainability Update
+                        </Button>
+                        <p>NEW WHITEPAPER COMING SOON</p>
                     </div>
                 </CSSTransition>
             </div>
