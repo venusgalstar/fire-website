@@ -38,7 +38,7 @@ export const HomeHow = () => {
                         Phoenix Community Capital enlists trusted and experienced investment advisors who research new trends and opportunities for the community investment portfolio.
                     </div>
                 </CSSTransition>
-                {/* <CSSTransition
+                <CSSTransition
                     in={startAnimation}
                     timeout={1000}
                     classNames="fade"
@@ -46,13 +46,16 @@ export const HomeHow = () => {
                     <div>
                         <Button
                             type="primary"
-                            onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}
+                            onClick={() => { window.open("https://medium.com/@phoenix-community-capital/tokenomic-and-sustainability-update-190ab9bba73f") }}
                             style={{ padding: '20px 40px' }}
                         >
-                            Learn More From Our Whitepaper
+                            Tokenomic and Sustainability Update
                         </Button>
                     </div>
-                </CSSTransition> */}
+                </CSSTransition>
+            </div>
+            <div>
+                <center><p>NEW WHITEPAPER COMING SOON</p></center>
             </div>
         </Parallax>
     </section>
