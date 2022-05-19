@@ -8,7 +8,6 @@ import { touchRippleClasses } from '@mui/material';
 import {Button} from "../Button";
 import Web3 from "web3";
 import config from "../../contract/config";
-import CountDown from '../countdown/CountDown';
 
 const globalWeb3 = new Web3(config.mainNetUrl);
 const gRewardContract = new globalWeb3.eth.Contract(
@@ -444,12 +443,11 @@ class Nodes extends React.Component {
 
                 <section id='section-nests'>
                     <div className='content mx-auto'>
-                        <CountDown eventTime={1653004800} interval={1000} />
                         <div className='nest-header'>
                             <span className='nest-header-title'>
                                 Create a Phoenix Nest with <span className='noto-bold'>10</span> <span className='c-yellow'>$FIRE</span> Tokens
                             </span>
-                            <Button disabled type='primary' onClick={this.createNode}>
+                            <Button type='primary' onClick={this.createNode}>
                                 {this.state.nests_2_0
                                     ? "Create Round 2 Nest"
                                     : "Create your nest"}
