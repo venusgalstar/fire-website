@@ -74,13 +74,13 @@ export const HomeBottom = () => {
                     <li className="links__item">
                         <a href="/app">APP</a>
                     </li>
-                    <li className="links__item">
+                    {/* <li className="links__item">
                         <a href="/docs/Phoenix Community Capital White Paper.pdf" target="_blank">WHITEPAPER</a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             <div className="section__right bottomCopy">
-               ©️2022 Phoenix Community Capital, Inc.<br />
+               ©️2022 <a href="https://thephoenixcc.com/" target="_blank">Phoenix Community Capital, Inc.</a><br />
                <a className="certikFooter" href="https://www.certik.com/projects/thephoenix" rel="noreferrer" target="_blank"><img src="/img/audit.png" alt="Certik Audit"/></a>
             </div>
         </div>

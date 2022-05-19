@@ -4,24 +4,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import PayDlg from '../common/PayDlg';
 import { toast } from 'react-toastify';
-import { touchRippleClasses } from '@mui/material';
 import {Button} from "../Button";
-import Web3 from "web3";
-import config from "../../contract/config";
-
-const globalWeb3 = new Web3(config.mainNetUrl);
-const gRewardContract = new globalWeb3.eth.Contract(
-  config.RewardAbi,
-  config.Reward
-);
-
-const renderThumb = ({ style, ...props }) => {
-    const thumbStyle = {
-        borderRadius: 6,
-        backgroundColor: 'rgba(35, 49, 86, 0.8)'
-    };
-    return <div style={{ ...style, ...thumbStyle }} {...props} />;
-};
 
 const CustomScrollbars = props => (
     <Scrollbars
@@ -33,9 +16,6 @@ const CustomScrollbars = props => (
         {...props} 
     />
 );
-
-
-
 class Nodes extends React.Component {
 
     constructor(props) {
@@ -63,17 +43,8 @@ class Nodes extends React.Component {
         
         this.getNftBuyerCount = this.getNftBuyerCount.bind(this);        
         this.getNftBuyerCount();
-
-        this.checkNestVersion = this.checkNestVersion.bind(this);
-        this.checkNestVersion();
     }
 
-    checkNestVersion = async () => {
-        let totalNodes = await gRewardContract.methods.getTotalNodeCount().call();
-        if(Number(totalNodes) >= 97700){
-            this.setState(prevState => ({...prevState, nests_2_0: true}))
-        }
-    };
 
     getNftBuyerCount = () => {
         const requestOptions = {
@@ -374,20 +345,6 @@ class Nodes extends React.Component {
     }
 
     createNode = async () => {
-        await this.checkNestVersion();
-
-        if(this.state.nests_2_0 && this.props.can_perform){
-            toast.info("The Nest you're creating will be a part of Round 2. You can still receive and claim your FIRE tokens.", {
-                position: "top-center",
-                autoClose: 4000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-        }
-
         if (!this.props.can_perform) {
             toast.info("Please wait. Another transaction is running.", {
                 position: "top-center",
@@ -420,11 +377,14 @@ class Nodes extends React.Component {
                             {item.remains}
                         </div>
                         <div className='mobile-show flex1'>
-                            <div className="pay-button list" style={{ width: "100%" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
+                        <div className="pay-button list" style={{ width: "100%" }}>Pay fee</div>
+                        {/* <div className="pay-button list" style={{ width: "100%" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div> */}
                         </div>
                     </div>
-                    <div className="pay-button list mobile-hidden" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div>
-                    <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, index)}> Claim </div>
+                    <div className="pay-button list mobile-hidden" style={{ width: "150px" }}>Pay fee</div>
+                    {/* <div className="pay-button list mobile-hidden" style={{ width: "150px" }} onClick={this.payNodeFee.bind(this, index)}>Pay fee</div> */}
+                    <div className="claim-button list" style={{ width: "150px" }}> Claim </div>
+                    {/* <div className="claim-button list" style={{ width: "150px" }} onClick={this.claimNode.bind(this, index)}> Claim </div> */}
                 </div>
             )
         });
@@ -445,9 +405,7 @@ class Nodes extends React.Component {
                                 Create a Phoenix Nest with <span className='noto-bold'>10</span> <span className='c-yellow'>$FIRE</span> Tokens
                             </span>
                             <Button type='primary' onClick={this.createNode}>
-                                {this.state.nests_2_0
-                                    ? "Create Round 2 Nest"
-                                    : "Create your nest"}
+                                 CREATE NEST
                             </Button>
                         </div>
                         <div className='tab-header flex'>
@@ -463,7 +421,16 @@ class Nodes extends React.Component {
                                 <>
                                     <div className='h-60  node-title-header mobile-flex' style={{ display: "flex !important", width: "100%" }}>
                                         
-                                        <div className="pay-button" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div>
+                                        <div className="pay-button claimAll" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>
+                                        Pay all fees
+                                                <span className='pos-abs fs-14 flex align-center justify-center tooltip claimAlli'
+                                                            style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
+                                                            i
+                                                            <span className='tooltiptext'>
+                                                                Fees can only be paid 30 days or less from the due date.
+                                                            </span>
+                                                </span>
+                                        </div>
                                         <div className="claim-button claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> 
                                         Claim all
                                                 <span className='pos-abs fs-14 flex align-center justify-center tooltip claimAlli'
@@ -493,12 +460,21 @@ class Nodes extends React.Component {
                                                     style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "#de4c1d", borderRadius: "10px", color: "white" }}>
                                                     i
                                                     <span className='tooltiptext'>
-                                                        Maintenance fee is 0.2 AVAX for a 90 day period.  Please note, failure to pay switches the Nest off and rewards cease.
+                                                    Maintenance fee is 0.2 AVAX for a 90 day period. Please note, failure to pay means the nest is switched off and all Fire rewards are removed. The nest can be reactivated when the fee is paid but rewards will be reset to 0.
                                                     </span>
                                                 </span>
                                             </span>
                                         </div>
-                                        <div className="pay-button mobile-hidden" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>Pay all fees</div>
+                                        <div className="pay-button mobile-hidden claimAll" style={{ width: "150px" }} onClick={this.PayAllNode.bind(this, -1)}>
+                                            Pay all fees
+                                                <span className='pos-abs fs-14 flex align-center justify-center tooltip claimAlli'
+                                                                style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>
+                                                                i
+                                                                <span className='tooltiptext'>
+                                                                    Fees can only be paid 30 days or less from the due date.
+                                                                </span>
+                                                    </span>
+                                        </div>
                                         <div className="claim-button mobile-visible-false claimAll" style={{ width: "150px" }} onClick={this.claimNode.bind(this, -1)}> Claim all 
                                                 <span className='pos-abs fs-14 align-center justify-center tooltip claimAlli mobile-hidden'
                                                     style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "black", borderRadius: "10px", color: "white" }}>

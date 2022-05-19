@@ -1,10 +1,12 @@
+import React, { useContext } from 'react'
 import Cards from "../../../components/Cards";
 import {Card} from "../../../components/Card";
-import React from "react";
+import { ContractNumbers } from '../../../context/ContractContext';
 
 import './styles.scss';
 
 const HomeStartEarning = () => {
+    const contractValues = useContext(ContractNumbers)
     return <section
         id="section-cards"
         className="section section_wide"
@@ -36,9 +38,9 @@ const HomeStartEarning = () => {
                         <span>
                             A Phoenix Nest<br/>
                             costs only 10 $FIRE<br/>
-                            plus 0.5 AVAX, <br/>
-                            then a 0.5 AVAX <br/>
-                            maintenance fee every 30 days.<br/>
+                            plus {contractValues.nestMaintenance} AVAX, <br/>
+                            then a {contractValues.nestMaintenance} maintenance fee <br/>
+                            every {contractValues.nestMaintInt} days.<br/>
                         </span>
                     }
                     backgroundUrl={'/v2/assets/2.png'}
