@@ -5,7 +5,6 @@ import moment from 'moment';
 import PayDlg from '../common/PayDlg';
 import { toast } from 'react-toastify';
 import {Button} from "../Button";
-import CountDown from '../countdown/CountDown';
 
 const CustomScrollbars = props => (
     <Scrollbars
