@@ -73,12 +73,16 @@ const HomeBoost = () => {
                         >
                             <Button
                                 type="primary"
-                                onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}
+                                onClick={() => { window.open("https://medium.com/@phoenix-community-capital/tokenomic-and-sustainability-update-190ab9bba73f") }}
                                 style={{ padding: '20px 40px' }}
                             >
-                                See our whitepaper
+                                Tokenomic and Sustainability Update
                             </Button>
                         </CSSTransition>
+
+                    </div>
+                    <div>
+                        <center><p>NEW WHITEPAPER COMING SOON</p></center>
                     </div>
                 </Parallax>
             </div>
