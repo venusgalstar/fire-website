@@ -1,8 +1,8 @@
 import { createStore } from 'redux'
-import Web3 from 'web3';
 import config from '../contract/config';
-import { toast } from 'react-toastify';
+import {globalWeb3, gNftContract, gRewardContract, web3, tokenContract, nftContract, rewardContract} from '../contract/web3'
 
+import { toast } from 'react-toastify';
 
 const _initialState = {
     price_usd: 0,
@@ -23,17 +23,6 @@ const _initialState = {
 const init = (init) => {
     return init;
 }
-const globalWeb3 = new Web3(config.mainNetUrl);
-const gNftContract = new globalWeb3.eth.Contract(config.NFTAbi, config.FireNFT);
-const gRewardContract = new globalWeb3.eth.Contract(config.RewardAbi, config.Reward);
-const gTokenContract = new globalWeb3.eth.Contract(config.FireAbi, config.FireToken);
-
-const provider = Web3.providers.HttpProvider(config.testNetUrl);
-const web3 = new Web3(Web3.givenProvider || provider);
-
-const tokenContract = new web3.eth.Contract(config.FireAbi, config.FireToken);
-const nftContract = new web3.eth.Contract(config.NFTAbi, config.FireNFT);
-const rewardConatract = new web3.eth.Contract(config.RewardAbi, config.Reward);
 
 const reducer = (state = init(_initialState), action) => {
 
@@ -69,7 +58,7 @@ const reducer = (state = init(_initialState), action) => {
             return state;
         }
 
-        rewardConatract.methods.setContractStatus(action.payload.param)
+        rewardContract.methods.setContractStatus(action.payload.param)
             .send({ from: state.account })
             .then(() => { updateGlobalInfo() })
             .catch(() => console.log);
@@ -97,10 +86,10 @@ const reducer = (state = init(_initialState), action) => {
             connectAlert();
             return Object.assign({}, state, { can_perform: true });
         }
-        rewardConatract.methods.getClaimFee().call()
+        rewardContract.methods.getClaimFee().call()
             .then(function (claimFee) {
                 if (action.payload.node_id !== -1) {
-                    rewardConatract.methods.claimByNode(action.payload.node_id)
+                    rewardContract.methods.claimByNode(action.payload.node_id)
                         .send({ from: state.account, value: claimFee, gas: 400000 })
                         .then(() => {
                             store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
@@ -108,7 +97,7 @@ const reducer = (state = init(_initialState), action) => {
                             store.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: true } });
                         });
                 } else if (action.payload.node_id === -1) {
-                    rewardConatract.methods.claimAll()
+                    rewardContract.methods.claimAll()
                         .send({ from: state.account, value: claimFee * action.payload.cnt, gas: 1500000})
                         .then(() => {
                             store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
@@ -127,9 +116,9 @@ const reducer = (state = init(_initialState), action) => {
             return Object.assign({}, state, { can_perform: true });
         }
         if (action.payload.type === "master") {
-            rewardConatract.methods.getMasterNFTPrice().call()
+            rewardContract.methods.getMasterNFTPrice().call()
                 .then((price) => {
-                    rewardConatract.methods.buyNFT(0, 1)
+                    rewardContract.methods.buyNFT(0, 1)
                         .send({ from: state.account, value: price, gas: 400000 })
                         .then(() => {
                             store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
@@ -140,9 +129,9 @@ const reducer = (state = init(_initialState), action) => {
                     store.dispatch({ type: "UPDATE_CAN_PERFORM_STATUS", payload: { can_perform: true } });
                 })
         } else if (action.payload.type === "grand") {
-            rewardConatract.methods.getGrandNFTPrice().call()
+            rewardContract.methods.getGrandNFTPrice().call()
                 .then((price) => {
-                    rewardConatract.methods.buyNFT(1, 1)
+                    rewardContract.methods.buyNFT(1, 1)
                         .send({ from: state.account, value: price, gas: 400000 })
                         .then(() => {
                             store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
@@ -155,9 +144,9 @@ const reducer = (state = init(_initialState), action) => {
         }
 
     } else if (action.type === "PAY_NODE_FEE") {
-        rewardConatract.methods.getNodeMaintenanceFee().call()
+        rewardContract.methods.getNodeMaintenanceFee().call()
             .then((threeFee) => {
-                rewardConatract.methods.payNodeFee(Number(action.payload.node_id), action.payload.duration - 1)
+                rewardContract.methods.payNodeFee(Number(action.payload.node_id), action.payload.duration - 1)
                     .send({ from: state.account, value: action.payload.duration * threeFee, gas: 2100000 })
                     .then(() => {
                         store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
@@ -173,13 +162,13 @@ const reducer = (state = init(_initialState), action) => {
             return Object.assign({}, state, { can_perform: true });
         }
         const promise = [];
-        promise.push(rewardConatract.methods.getNodePrice().call());
-        promise.push(rewardConatract.methods.getNodeMaintenanceFee().call());
+        promise.push(rewardContract.methods.getNodePrice().call());
+        promise.push(rewardContract.methods.getNodeMaintenanceFee().call());
         Promise.all(promise).then((result) => {
 
             tokenContract.methods.approve(config.Reward, result[0]).send({ from: state.account, gas: 210000 })
                 .then((ret) => {
-                    rewardConatract.methods.buyNode(1).send({ from: state.account, value: result[1], gas: 2100000 })
+                    rewardContract.methods.buyNode(1).send({ from: state.account, value: result[1], gas: 2100000 })
                         .then(() => {
                             store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
                         }).catch(() => {
@@ -200,13 +189,13 @@ const reducer = (state = init(_initialState), action) => {
         console.log(account);        
 
         let promise = [];
-        promise.push(rewardConatract.methods.getNFTList(account).call());
-        promise.push(rewardConatract.methods.getNodeList(account).call());
-        promise.push(rewardConatract.methods.getRewardAmount(account).call());
+        promise.push(rewardContract.methods.getNFTList(account).call());
+        promise.push(rewardContract.methods.getNodeList(account).call());
+        promise.push(rewardContract.methods.getRewardAmount(account).call());
         promise.push(nftContract.methods.getMasterNFTURI().call());
         promise.push(nftContract.methods.getGrandNFTURI().call());
-        promise.push(rewardConatract.methods.getTotalNodeCount().call());
-        promise.push(rewardConatract.methods.getFireValue().call());
+        promise.push(rewardContract.methods.getTotalNodeCount().call());
+        promise.push(rewardContract.methods.getFireValue().call());
         Promise.all(promise).then((result) => {
             var nodes = [];
             for (var index in result[1]) {
@@ -245,9 +234,9 @@ const reducer = (state = init(_initialState), action) => {
             return Object.assign({}, state, { can_perform: true });
         }
 
-        rewardConatract.methods.getNodeMaintenanceFee().call()
+        rewardContract.methods.getNodeMaintenanceFee().call()
             .then((threeFee) => {
-                rewardConatract.methods.payAllNodeFee(action.payload.duration - 1)
+                rewardContract.methods.payAllNodeFee(action.payload.duration - 1)
                     .send({ from: state.account, value: action.payload.duration * threeFee * action.payload.count, gas: 2100000 })
                     .then(() => {
                         store.dispatch({ type: "GET_USER_INFO", payload: { can_perform: true } });
@@ -263,25 +252,25 @@ const reducer = (state = init(_initialState), action) => {
             return Object.assign({}, state, { can_perform: true });
         }
         if (action.payload.type === "claim_fee") {
-            rewardConatract.methods.setClaimFee(web3.utils.toWei(action.payload.value, 'ether'))
+            rewardContract.methods.setClaimFee(web3.utils.toWei(action.payload.value, 'ether'))
                 .send({ from: state.account, gas: 210000 })
                 .then(() => {
                 }).catch(() => {
                 })
         } else if (action.payload.type === "maintenance_fee") {
-            rewardConatract.methods.setNodeMaintenanceFee(web3.utils.toWei(action.payload.value, 'ether'))
+            rewardContract.methods.setNodeMaintenanceFee(web3.utils.toWei(action.payload.value, 'ether'))
                 .send({ from: state.account, gas: 210000 })
                 .then(() => {
                 }).catch(() => {
                 })
         } else if (action.payload.type === "nest_price") {
-            rewardConatract.methods.setNodePrice(web3.utils.toWei(action.payload.value, 'ether'))
+            rewardContract.methods.setNodePrice(web3.utils.toWei(action.payload.value, 'ether'))
                 .send({ from: state.account, gas: 210000 })
                 .then(() => {
                 }).catch(() => {
                 })
         } else if (action.payload.type === "fire_price") {
-            rewardConatract.methods.setFireValue(web3.utils.toWei(action.payload.value, 'ether'))
+            rewardContract.methods.setFireValue(web3.utils.toWei(action.payload.value, 'ether'))
                 .send({ from: state.account, gas: 210000 })
                 .then(() => {
                 }).catch(() => {

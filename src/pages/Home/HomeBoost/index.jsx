@@ -1,16 +1,20 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
+import { ContractNumbers } from "../../../context/ContractContext";
 import { ParallaxBanner, Parallax } from "react-scroll-parallax";
 import { CSSTransition } from "react-transition-group";
 import { Button } from "../../../components/Button";
-
 import './styles.scss';
 import MasterCard from "../../../components/BoostCards/MasterCard";
 import GrandMasterCard from "../../../components/BoostCards/GrandMasterCard";
 import Cards from "../../../components/Cards";
 import {connect} from "react-redux";
 
-const HomeBoost = (props) => {
+
+
+
+const HomeBoost = () => {
     const [startAnimation, setStartAnimation] = useState(false);
+    const contractValues = useContext(ContractNumbers)
     return <section id="section-boost" className="section">
         <ParallaxBanner layers={[
             { image: '/v2/assets/bg3.jpg', speed: 80 },
@@ -53,10 +57,10 @@ const HomeBoost = (props) => {
                         >
                             <Cards>
                                 <div style={{ marginBottom: '100px'}}>
-                                    <MasterCard value={props.master_nft_value} />
+                                    <MasterCard value={contractValues.masterNFTCost} />
                                 </div>
                                 <div>
-                                    <GrandMasterCard value={props.grand_nft_value}/>
+                                    <GrandMasterCard value={contractValues.grandMasterNFTCost}/>
                                 </div>
                             </Cards>
                         </CSSTransition>
@@ -82,12 +86,6 @@ const HomeBoost = (props) => {
     </section>
 }
 
-const mapStateToProps = state => {
-    return {
-        grand_nft_value: state.grand_nft_value,
-        master_nft_value: state.master_nft_value,
-    };
-}
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -96,4 +94,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeBoost);
+export default connect(mapDispatchToProps)(HomeBoost);
