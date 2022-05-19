@@ -3,8 +3,6 @@ import config from '../contract/config';
 import { toast } from 'react-toastify';
 import {globalWeb3, gNftContract, gRewardContract, web3, tokenContract, nftContract, rewardContract} from '../contract/web3'
 
-import { toast } from 'react-toastify';
-
 const _initialState = {
     price_usd: 0,
     price_bnb: 0,
