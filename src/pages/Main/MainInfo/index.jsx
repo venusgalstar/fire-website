@@ -6,7 +6,7 @@ import { ContractNumbers } from "../../../context/ContractContext";
 
 const MainInfo = (props) => {
     const contractValues = useContext(ContractNumbers)
-    
+
     return <section id="main-info" className="main-info">
         <div className="main-info__inner">
             <div className="card-counters-wrapper">
@@ -22,7 +22,7 @@ const MainInfo = (props) => {
                                     Nests 1 - 100,000
                                 </span>
                             </span>
-                                Round one:&nbsp;<span className="redHigh">{props.my_round1_count}</span>
+                                Round one:&nbsp;<span className="redHigh">{props.my_round1_count ? props.my_round1_count : 0}</span>
                         </div>
                         <div className="nestCountr-info">
                             <span className='pos-abs fs-14 flex align-center justify-center tooltip claimAlli'
@@ -32,7 +32,7 @@ const MainInfo = (props) => {
                                     Nests 100,001 - 200,000
                                 </span>
                             </span>
-                                Round two:&nbsp;<span className="redHigh">{props.my_round2_count}</span>
+                                Round two:&nbsp;<span className="redHigh">{props.my_round2_count ? props.my_round2_count : 0}</span>
                         </div>
                         <div>All nests:&nbsp;{props.all_nodes}</div>
                     </div>
