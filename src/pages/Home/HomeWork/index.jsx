@@ -61,11 +61,13 @@ export const HomeWork = () => {
                     <div>
                         <Button
                             type="primary"
-                            onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}
+                            onClick={() => { window.open("https://medium.com/@phoenix-community-capital/tokenomic-and-sustainability-update-190ab9bba73f") }}
+                            // onClick={() => { window.open("/docs/Phoenix Community Capital White Paper.pdf") }}
                             style={{ padding: '20px 40px' }}
                         >
-                            See Our Whitepaper
+                            Tokenomic and Sustainability Update
                         </Button>
+                        <p>NEW WHITEPAPER COMING SOON</p>
                     </div>
                 </CSSTransition>
             </div>
