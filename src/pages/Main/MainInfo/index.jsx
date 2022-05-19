@@ -48,7 +48,7 @@ const MainInfo = (props) => {
                     <div className="card-counter__title">My REWARDS</div>
                     <div className="card-counter__content">
                         <div><span className="redHigh">{Number(props.cur_all_reward).toFixed(6)}</span></div>
-                        <div>FIRE</div>
+                        <div>$FIRE</div>
                     </div>
                 </div>
                 <div className="card-counter card-counter_mobile">
