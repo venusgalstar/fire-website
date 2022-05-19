@@ -406,7 +406,7 @@ class Nodes extends React.Component {
                             <span className='nest-header-title'>
                                 Create a Phoenix Nest with <span className='noto-bold'>10</span> <span className='c-yellow'>$FIRE</span> Tokens
                             </span>
-                            <Button disabled type='primary' onClick={this.createNode}>
+                            <Button type='primary' onClick={this.createNode}>
                                  CREATE NEST
                             </Button>
                         </div>
