@@ -391,7 +391,6 @@ class Nodes extends React.Component {
             )
         });
 
-
         return (
             <>
                 <PayDlg
@@ -401,6 +400,9 @@ class Nodes extends React.Component {
                 />
 
                 <section id='section-nests'>
+
+                    {Boolean(this.props.my_nodes.length) && <div className='card-counter__title tempBanner'>We are aware of a discrepancy in $FIRE rewards, PCC plans to airdrop the difference owed (1 day at 0.225 + NFT)</div>}
+
                     <div className='content mx-auto'>
                         <div className='nest-header'>
                             <span className='nest-header-title'>
@@ -554,6 +556,8 @@ const mapStateToProps = state => {
         grand_reward: state.grand_reward,
         
         total_nodes: state.all_nodes,
+        my_round1_count: state.my_round1_count,
+        my_round2_count: state.my_round2_count
         
   };
 }
