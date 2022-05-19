@@ -7,7 +7,6 @@ import MainNFT from "./MainNFT";
 import MainNavigation from "./MainNavigation";
 import Burger from "../../components/Burger";
 import ConnectButton from "../../components/ConnectButton";
-import tempImage from '../../assets/images/temp_image.jpeg'
 
 import './styles.scss';
 
@@ -23,9 +22,6 @@ class Main extends React.Component {
                     // title="Your $FIRE App Dashboard"
                 />
                 <MainInfo/>
-                <div>
-                    <img className='tempImage' src={tempImage}/>
-                </div>
                 <MainNodes/>
                 <MainNFT/>
                 <HomeBottom/>

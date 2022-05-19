@@ -401,7 +401,6 @@ class Nodes extends React.Component {
 
                 <section id='section-nests'>
                     <div className='content mx-auto'>
-                        <CountDown eventTime={1653004800} interval={1000} />
                         <div className='nest-header'>
                             <span className='nest-header-title'>
                                 Create a Phoenix Nest with <span className='noto-bold'>10</span> <span className='c-yellow'>$FIRE</span> Tokens

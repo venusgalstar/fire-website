@@ -83,7 +83,7 @@ class MainNFT extends React.Component {
                             <Cards>
                                 <div style={{ marginBottom: '100px'}}>
                                     <MasterCard value={this.props.master_nft_value} />
-                                    <Button disabled
+                                    <Button
                                         type="primary"
                                         disabled={!this.state.enableMaster}
                                         onClick={this.buyNft.bind(this, "master")}
@@ -94,7 +94,7 @@ class MainNFT extends React.Component {
                                 </div>
                                 <div>
                                     <GrandMasterCard value={this.props.grand_nft_value}/>
-                                    <Button disabled
+                                    <Button
                                         type="primary"
                                         disabled={!this.state.enableGrand}
                                         onClick={this.buyNft.bind(this, "grand")}
