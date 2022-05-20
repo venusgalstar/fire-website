@@ -80,7 +80,7 @@ export const HomeBottom = () => {
                 </ul>
             </div>
             <div className="section__right bottomCopy">
-               ©️2022 <a href="https://thephoenixcc.com/" target="_blank">Phoenix Community Capital, Inc.</a><br />
+               ©️2022 Phoenix Community Capital, Inc.<br />
                <a className="certikFooter" href="https://www.certik.com/projects/thephoenix" rel="noreferrer" target="_blank"><img src="/img/audit.png" alt="Certik Audit"/></a>
             </div>
         </div>
