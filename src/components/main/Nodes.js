@@ -401,7 +401,7 @@ class Nodes extends React.Component {
 
                 <section id='section-nests'>
 
-                    {Boolean(this.props.my_nodes.length) && <div className='card-counter__title tempBanner'>We are aware of a discrepancy in $FIRE rewards, PCC plans to airdrop the difference owed (1 day at 0.225 per Nest)</div>}
+                    {Boolean(this.props.my_nodes.length) && <div className='card-counter__title tempBanner'>We are aware of a minor discrepancy in $FIRE rewards, PCC plans to airdrop all nests the difference owed (1 day at 0.225 per Nest)</div>}
 
                     <div className='content mx-auto'>
                         <div className='nest-header'>
@@ -465,7 +465,7 @@ class Nodes extends React.Component {
                                                     style={{ top: "-8px", right: "-20px", width: "20px", height: "20px", backgroundColor: "#de4c1d", borderRadius: "10px", color: "white" }}>
                                                     i
                                                     <span className='tooltiptext'>
-                                                    Maintenance fee is 0.2 AVAX for a 90 day period. Please note, failure to pay means the nest is switched off and all Fire rewards are removed. The nest can be reactivated when the fee is paid but rewards will be reset to 0.
+                                                    Maintenance fee is {this.props.contractNumbers.nestMaintenance} AVAX for a {this.props.contractNumbers.nestMaintInt} day period. Please note, failure to pay means the nest is switched off and all Fire rewards are removed. The nest can be reactivated when the fee is paid but rewards will be reset to 0.
                                                     </span>
                                                 </span>
                                             </span>
