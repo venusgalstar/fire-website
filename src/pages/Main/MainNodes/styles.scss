@@ -110,6 +110,10 @@
 .claim-button:hover, .pay-button:hover, .nest-list-even .pay-button:hover, .nest-list-even .claim-button:hover {
   background-color: black;
 }
+
+.tempClass:hover {
+  cursor: not-allowed !important;
+}
 .claim-button.btn-outline {
   border-color: 1px solid var(--green);
   background-color: unset;
