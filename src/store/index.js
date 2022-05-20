@@ -257,11 +257,11 @@ const reducer = (state = init(_initialState), action) => {
 
         rewardContract.methods.getNodeMaintenanceFee().call()
             .then((threeFee) => {
-                rewardContract.methods.payAllNodeFee(1)
+                rewardContract.methods.payAllNodeFee(action.payload.duration == 1 ? 0 : 1)
                     .send({
                         from: state.account,
                         value: action.payload.duration * threeFee * action.payload.count,
-                        gas: 2100000
+                        gas: 2000000
                     })
                     .then(() => {
                         store.dispatch({
