@@ -118,7 +118,7 @@ const HomeFAQ = () => {
                     </div>
                     <div className="panel">
                         <p>
-                            You can easily buy $FIRE on
+                            You can easily buy $FIRE on&nbsp;
                             {/* <a
                             href="https://app.pangolin.exchange/#/swap?outputCurrency=0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5"
                             className="c-purple" style={{textDecoration: "none"}}>Pangolin</a> and  */}
