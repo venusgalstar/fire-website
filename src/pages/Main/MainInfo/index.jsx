@@ -70,10 +70,11 @@ const MainInfo = (props) => {
                         </div> */}
                         <div>
                             <a className="traderLink"
-                                href="https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/"
+                                href="https://www.swapsicle.io/en/swap"
+                                // href="https://traderjoexyz.com/trade?inputCurrency=AVAX&outputCurrency=0xfcc6ce74f4cd7edef0c5429bb99d38a3608043a5#/"
                                 target="_blank"
                             >
-                                TraderJoe
+                                Swapsicle
                             </a>
                         </div>
                     </div>
